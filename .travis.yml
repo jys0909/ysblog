@@ -13,6 +13,7 @@ script:
   - hexo g
 
 after_script:
+  - git add CNAME
   - cd ./public
   - git init
   - git config user.name "jys0909"
