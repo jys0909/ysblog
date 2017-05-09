@@ -27,4 +27,4 @@ branches:
     - master
 env:
  global:
-   - GH_REF: github.com/jys0909/jys0909.githubt.git
+   - GH_REF: github.com/jys0909/jys0909.github.git
