@@ -18,11 +18,11 @@ search:
 
 # friends link
 links:
-  - name: 新浪
+  - name: Sina
     url: https://sina.com
-  - name: 搜狐
+  - name: sv
     url: https://souhu.com/
-  - name: 好123
+  - name: hao123
     url: https://hao123.com/
   - name: Simon
     url: https://jys0909.github.io/
