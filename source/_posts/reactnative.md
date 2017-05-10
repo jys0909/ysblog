@@ -2,6 +2,7 @@
 title: reactNative 打包测试
 date: 2017-05-10 16:45:18
 tags: reactNative
+categories: reactNative
 ---
 ### 1、生成密钥
 在项目根目录打开命令行（快捷方法：进入根目录win下按住shift键单击右键打开命令行，直接对应该目录）。然后输入

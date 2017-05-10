@@ -1,7 +1,8 @@
 ---
 title: 搭建开发环境
 date: 2017-05-10 16:56:29
-tags: react-native
+tags: reactNative
+categories: reactNative
 ---
 ### 1、安装必须的软件
 Chocolatey是一个Windows上的包管理器，类似于linux上的yum和 apt-get。 你可以在其官方网站上查看具体的使用说明。一般的安装步骤应该是下面这样

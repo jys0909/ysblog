@@ -2,6 +2,7 @@
 title: Markdown 语法的简要规则
 date: 2017-05-10 16:37:35
 tags: 个人整理
+categories: 个人整理
 ---
 
 # 标题 
