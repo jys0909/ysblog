@@ -12,7 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://g5kk.com
+url: http://www.g5kk.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -62,11 +62,31 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
+Plugins:
+  hexo-generator-feed
+  hexo-generator-sitemap
+  hexo-generator-baidu-sitemap
 ## Themes: https://hexo.io/themes/
 theme: BlueLake
+# Extensions
+local_search: true
+#Feed Atom
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+
+# Styles compress
+stylus:
+  compress: true
+#sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
 
 # Deployment
 
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-   type: 
+  type:
