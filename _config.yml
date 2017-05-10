@@ -5,7 +5,7 @@
 # Site
 title: 松山居士
 subtitle: 落霞与孤骛齐飞， 秋水共长天一色。
-description: mei be thie
+description: mei be this is true
 author: Simon
 language:
 timezone:
@@ -64,8 +64,7 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: BlueLake
-stylus:
-  compress: true
+
 # Deployment
 
 ## Docs: https://hexo.io/docs/deployment.html
