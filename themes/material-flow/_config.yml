@@ -18,36 +18,36 @@ search:
 
 # friends link
 links:
-  - name: ClassicOldSong
-    url: https://ccoooss.com
-  - name: Frantic1048
-    url: https://frantic1048.logdown.com/
-  - name: Hclmaster
-    url: https://hclmaster.github.io/
-  - name: WANG Hsü-Tung
-    url: https://whst.github.io/
+  - name: 新浪
+    url: https://sina.com
+  - name: 搜狐
+    url: https://souhu.com/
+  - name: 好123
+    url: https://hao123.com/
+  - name: Simon
+    url: https://jys0909.github.io/
 
 # navigation menu
 menu:
-  - name: Home
+  - name: 首页
     slug: home
     url: /
-  - name: Archives
+  - name: 档案
     slug: archives
     url: /archives
   - name: Gallery
     slug: gallery
-    url: https://photos.google.com/album/AF1QipNoqKYgspQo5O1YhlFXGCQ7p575KBH3Yxf8WHL4?hl=zh-CN
-  - name: About
+    url: /gallery
+  - name: 关于
     slug: about
     url: /about
 
 # widgets
 widgets:
-  - about
-  - links
-  - categories
-  - tagcloud
+  - 关于
+  - 友情链接
+  - 分类
+  - 标签
 
 # Less
 less:
