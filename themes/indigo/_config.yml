@@ -12,21 +12,24 @@ menu:
     text: 主页
     url: /
   archives:
+    text: 归档
     url: /archives
   tags:
+    text: 标签
     url: /tags
   th-list:
-    text: Categories
+    text: 分类
     url: /categories
   github:
-    url: https://github.com/yscoder
+    text: GitHub
+    url: https://github.com/jys0909
     target: _blank
-  weibo:
-    url: http://www.weibo.com/ysweb
-    target: _blank
-  link:
-    text: 测试
-    url: /custom
+ # weibo:
+ #   url: http://www.weibo.com/ysweb
+ #   target: _blank
+ # link:
+ #   text: 测试
+ #   url: /custom
 
 # 你的头像url
 avatar: /img/avatar.jpg
@@ -38,7 +41,7 @@ brand: /img/brand.jpg
 favicon: /favicon.ico
 
 # email
-email: 634206017@qq.com
+email: 276977683@qq.com
 
 # 设置 Android L Chrome 浏览器状态栏颜色
 color: '#3F51B5'
@@ -62,8 +65,8 @@ show_last_updated: true
 share: true
 
 # 是否开启打赏，关闭 reward: false
-reward:
-  title: 谢谢大爷~
+reward: false
+  title: 谢大爷赏~
   wechat: /img/wechat.jpg     #微信，关闭设为 false
   alipay: /img/alipay.jpg     #支付宝，关闭设为 false
 
@@ -79,7 +82,7 @@ toc:
   list_number: true  # 是否显示数字排序
 
 # 文章页留言内容，hexo中所有变量及辅助函数等均可调用，具体请查阅 hexo.io
-postMessage: 这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="<%- url_for(page.path).replace(/index\.html$/, '') %>" target="_blank" rel="external"><%- url.replace(/index\.html$/, '') %></a>
+# postMessage: 这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="<%- url_for(page.path).replace(/index\.html$/, '') %>" target="_blank" rel="external"><%- url.replace(/index\.html$/, '') %></a>
 
 # 站长统计，如要开启，输入CNZZ站点id，如 cnzz: 1255152447
 cnzz: false
@@ -126,7 +129,7 @@ gitment: false
 canonical: false
 
 # 版权起始年份
-since_year: 2015
+since_year: 2017
 
 # 用户页面中作者相关的描述性文字，如不需要设为 false
 about: 用户页面中作者相关的描述性文字，如不需要设为 false
@@ -138,8 +141,8 @@ visit_counter:
 
 # 动态定义title
 title_change:
-  normal: (つェ⊂)咦!又好了!
-  leave: 死鬼去哪里了！
+  normal: 松山居士
+  leave: ^_^ 
 
 # 设置为 true 发布后将使用 unpkg cdn
 cdn: true
