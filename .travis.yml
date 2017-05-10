@@ -6,7 +6,9 @@ install:
   - npm install
 
 
-#before_script:
+
+before_script:
+  - git clone https://github.com/pinggod/hexo-theme-jekyll.git themes/jekyll
  # - npm install -g gulp
 
 script:

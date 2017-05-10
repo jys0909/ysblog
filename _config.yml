@@ -5,14 +5,14 @@
 # Site
 title: 松山居士
 subtitle: 落霞与孤骛齐飞， 秋水共长天一色。
-description: mei be this is true
+description: mei be thie
 author: Simon
 language:
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://www.g5kk.com
+url: http://g5kk.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
