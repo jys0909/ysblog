@@ -67,7 +67,7 @@ Plugins:
   hexo-generator-sitemap
   hexo-generator-baidu-sitemap
 ## Themes: https://hexo.io/themes/
-theme: BlueLake
+theme: indigo
 # Extensions
 local_search: true
 #Feed Atom
@@ -76,14 +76,26 @@ feed:
   path: atom.xml
   limit: 20
 
-# Styles compress
-stylus:
-  compress: true
-#sitemap
-sitemap:
-  path: sitemap.xml
-baidusitemap:
-  path: baidusitemap.xml
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: true
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true
+    
+
 
 # Deployment
 
