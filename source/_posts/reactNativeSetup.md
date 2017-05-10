@@ -4,7 +4,7 @@ date: 2017-05-10 16:56:29
 tags: reactNative
 categories: reactNative
 ---
-zd### 1、安装必须的软件
+### 1、安装Chocolatey
 Chocolatey是一个Windows上的包管理器，类似于linux上的yum和 apt-get。 你可以在其官方网站上查看具体的使用说明。一般的安装步骤应该是下面这样
 ```
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
@@ -17,7 +17,7 @@ choco install python2
 ```
 注意目前不支持Python 3版本。
 
-### 3、Node
+### 3、安装Node
 Node环境是必须的，使用稳定版本，不要使用cnpm加速，可用如下加速镜像
 ```
 npm config set registry https://registry.npm.taobao.org --global
