@@ -63,21 +63,61 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: jekyll
+theme: material-flow
+search:
+  path: search.xml
+  field: post
+  
+autoprefixer:
+  exclude:
+    - '*.min.css'
+
+# Generator json content
+jsonContent:
+  meta: false
+  keywords: false
+  pages:
+    title: true
+    slug: false
+    date: false
+    updated: false
+    comments: false
+    path: false
+    link: false
+    permalink: true
+    excerpt: false
+    keywords: false
+    text: true
+    raw: false
+    content: false
+  posts:
+    title: true
+    slug: false
+    date: false
+    updated: false
+    comments: false
+    path: false
+    link: false
+    permalink: true
+    excerpt: false
+    keywords: false
+    text: true
+    raw: false
+    content: false
+    categories: false
+    tags: false
+
 
 feed:
   type: atom
-  path: /atom.xml
+  path: atom.xml
   limit: 20
-
-jekyll:
-  project: false
-  selfIntro: true
-  sign_image: image/bear.svg
-
-
+  hub:
+  content:
 # Deployment
 
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+   type: git
+    repo: git@github.com:jys0909/ysblog.git
+    branch: blog-source

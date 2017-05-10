@@ -5,10 +5,8 @@ node_js: stable
 install:
   - npm install
 
-
-
-before_script:
-  - git clone https://github.com/pinggod/hexo-theme-jekyll.git themes/jekyll
+#before_script:
+ # - git clone https://github.com/pinggod/hexo-theme-jekyll.git themes/jekyll
  # - npm install -g gulp
 
 script:
