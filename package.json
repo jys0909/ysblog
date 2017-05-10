@@ -5,6 +5,9 @@
   "hexo": {
     "version": "3.3.5"
   },
+  "scripts": {
+    "themes": "git clone https://github.com/pinggod/hexo-theme-jekyll.git themes/jekyll"
+  },
   "dependencies": {
     "hexo": "^3.2.0",
     "hexo-generator-archive": "^0.1.4",
