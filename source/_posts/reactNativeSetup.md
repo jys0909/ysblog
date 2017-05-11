@@ -17,7 +17,7 @@ choco install python2
 ```
 注意目前不支持Python 3版本。
 
-### 3、安装Node
+### 3、Node
 Node环境是必须的，使用稳定版本，不要使用cnpm加速，可用如下加速镜像
 ```
 npm config set registry https://registry.npm.taobao.org --global
@@ -48,15 +48,15 @@ Android Studio需要Java Development Kit [JDK]
 
 打开控制面板 -> 系统和安全 -> 系统 -> 高级系统设置 -> 高级 -> 环境变量 -> 新建
 
-![](https://nj01ct01.baidupcs.com/file/637e2a92aad5846d4f6b4eb70040b5e6?bkt=p3-1400637e2a92aad5846d4f6b4eb70040b5e61611869c0000000177d2&fid=1979867769-250528-141015104959765&time=1494407649&sign=FDTAXGERLBHS-DCb740ccc5511e5e8fedcff06b081203-YHl6kW10uqahhR%2BGh36VeoSrFew%3D&to=63&size=96210&sta_dx=96210&sta_cs=0&sta_ft=png&sta_ct=1&sta_mt=1&fm2=MH,Yangquan,Netizen-anywhere,,chongqing,ct&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=1400637e2a92aad5846d4f6b4eb70040b5e61611869c0000000177d2&sl=68747342&expires=8h&rt=pr&r=646792758&mlogid=3008530563370993115&vuk=1979867769&vbdid=2154786405&fin=01.png&fn=01.png&rtype=1&iv=0&dp-logid=3008530563370993115&dp-callid=0.1.1&hps=1&csl=198&csign=eG3iVTR0aVF4iUXm05ly5yGZreU%3D&by=themis)
+![](https://jys0909.github.io/blogImage/reactnaive_setup/01.png)
 
 
 ### 7、配置Android Studio 参数
 
 打开SDK Manager ， 配置如下几个参数
-![](https://nj01ct01.baidupcs.com/file/1d955686195398d771c745de2eb50280?bkt=p3-14001d955686195398d771c745de2eb50280509797e5000000020905&fid=1979867769-250528-1000173850200426&time=1494407716&sign=FDTAXGERLBHS-DCb740ccc5511e5e8fedcff06b081203-OOO6cgO92fs%2BOBNdOkF2a2EKs8k%3D&to=63&size=133381&sta_dx=133381&sta_cs=0&sta_ft=png&sta_ct=1&sta_mt=1&fm2=MH,Yangquan,Netizen-anywhere,,chongqing,ct&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=14001d955686195398d771c745de2eb50280509797e5000000020905&sl=83034191&expires=8h&rt=pr&r=352051014&mlogid=3008548389652492840&vuk=1979867769&vbdid=2154786405&fin=02.png&fn=02.png&rtype=1&iv=0&dp-logid=3008548389652492840&dp-callid=0.1.1&hps=1&csl=300&csign=iKaTqNuw3o2bUlmt%2BFCaEPfYq4A%3D&by=themis)
-![](https://nj01ct01.baidupcs.com/file/30e4d27a09e1ab7db1539d73d9e139fa?bkt=p3-140030e4d27a09e1ab7db1539d73d9e139fabd71b37d000000012557&fid=1979867769-250528-294736820030105&time=1494407699&sign=FDTAXGERLBHS-DCb740ccc5511e5e8fedcff06b081203-l4JCNpWMsYoqKZi63lOxZVvuh1A%3D&to=63&size=75095&sta_dx=75095&sta_cs=0&sta_ft=png&sta_ct=1&sta_mt=1&fm2=MH,Yangquan,Netizen-anywhere,,chongqing,ct&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=140030e4d27a09e1ab7db1539d73d9e139fabd71b37d000000012557&sl=68747342&expires=8h&rt=pr&r=237522945&mlogid=3008544038235193483&vuk=1979867769&vbdid=2154786405&fin=03.png&fn=03.png&rtype=1&iv=0&dp-logid=3008544038235193483&dp-callid=0.1.1&hps=1&csl=198&csign=eG3iVTR0aVF4iUXm05ly5yGZreU%3D&by=themis)
-![](https://nj01ct01.baidupcs.com/file/f0a282194618d00aa7706466996e18e9?bkt=p3-1400f0a282194618d00aa7706466996e18e9c54e852900000001857d&fid=1979867769-250528-443093520888608&time=1494407733&sign=FDTAXGERLBHS-DCb740ccc5511e5e8fedcff06b081203-rDvYU6KQIbliRCORN47fqgTDhI8%3D&to=63&size=99709&sta_dx=99709&sta_cs=0&sta_ft=png&sta_ct=1&sta_mt=1&fm2=MH,Yangquan,Netizen-anywhere,,chongqing,ct&newver=1&newfm=1&secfm=1&flow_ver=3&pkey=1400f0a282194618d00aa7706466996e18e9c54e852900000001857d&sl=83034191&expires=8h&rt=pr&r=256416776&mlogid=3008553000848704118&vuk=1979867769&vbdid=2154786405&fin=04.png&fn=04.png&rtype=1&iv=0&dp-logid=3008553000848704118&dp-callid=0.1.1&hps=1&csl=300&csign=iKaTqNuw3o2bUlmt%2BFCaEPfYq4A%3D&by=themis)
+![](https://jys0909.github.io/blogImage/reactnaive_setup/02.png)
+![](https://jys0909.github.io/blogImage/reactnaive_setup/03.png)
+![](https://jys0909.github.io/blogImage/reactnaive_setup/04.png)
 
 ### 8、安装模拟器 Genymotion
 比起Android Studio自带的原装模拟器，Genymotion是一个性能更好的选择，但它只对个人用户免费。
