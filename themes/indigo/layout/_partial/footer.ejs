@@ -1,5 +1,5 @@
 <footer class="footer">
-    <div class="top">
+    <!--<div class="top">
         <%- partial('plugins/site-visit') %>
         <p>
             <% if ((config.feed) && (config.feed.path.length)) { %>
@@ -7,9 +7,10 @@
             <% } %>
             <span><%- __('footer.license') %></span>
         </p>
-    </div>
+    </div> -->
     <div class="bottom">
         <p>
+            <span> <%- partial('plugins/site-visit') %></span>
             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
             <span><%-config.author %> &copy; <%if (theme.since_year && theme.since_year < date(new Date(), 'YYYY')) {%><%- theme.since_year %> - <%}%><%- date(new Date(), 'YYYY') %></span>
         </p>
