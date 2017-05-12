@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ぃ 陪_著你笑</title>
+  <subtitle>看不惯你的哭，只想看到你的笑。</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.g5kk.com/"/>
+  <updated>2017-05-12T02:36:57.425Z</updated>
+  <id>http://www.g5kk.com/</id>
+  
+  <author>
+    <name>ぃ 陪_著你笑</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>lodash 常用函数</title>
+    <link href="http://www.g5kk.com/2017/05/11/loadsh/"/>
+    <id>http://www.g5kk.com/2017/05/11/loadsh/</id>
+    <published>2017-05-11T17:09:49.000Z</published>
+    <updated>2017-05-12T02:36:57.425Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="filter"><a href="#filter" class="headerlink" title="_.filter"></a>_.filter</h3><blockquote>
+<p>遍历 collection（集合）元素，返回 predicate（断言函数）返回真值 的所有元素的数组。 predicate（断言函数）调用三个参数：(value, index|key, collection)。<br><code>返回一个新的过滤后的数组。</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var users = [</div><div class="line">  &#123; &apos;user&apos;: &apos;barney&apos;, &apos;age&apos;: 36, &apos;active&apos;: true &#125;,</div><div class="line">  &#123; &apos;user&apos;: &apos;fred&apos;,   &apos;age&apos;: 40, &apos;active&apos;: false &#125;</div><div class="line">];</div><div class="line"> </div><div class="line">_.filter(users, function(o) &#123; return !o.active; &#125;);</div><div class="line">// =&gt; objects for [&apos;fred&apos;]</div><div class="line"> </div><div class="line">// The `_.matches` iteratee shorthand.</div><div class="line">_.filter(users, &#123; &apos;age&apos;: 36, &apos;active&apos;: true &#125;);</div><div class="line">// =&gt; objects for [&apos;barney&apos;]</div><div class="line"> </div><div class="line">// The `_.matchesProperty` iteratee shorthand.</div><div class="line">_.filter(users, [&apos;active&apos;, false]);</div><div class="line">// =&gt; objects for [&apos;fred&apos;]</div><div class="line"> </div><div class="line">// The `_.property` iteratee shorthand.</div><div class="line">_.filter(users, &apos;active&apos;);</div><div class="line">// =&gt; objects for [&apos;barney&apos;]</div></pre></td></tr></table></figure>
+<h3 id="find"><a href="#find" class="headerlink" title="_.find"></a>_.find</h3><blockquote>
+<p>遍历 collection（集合）元素，返回 predicate（断言函数）第一个返回真值的第一个元素。predicate（断言函数）调用3个参数： (value, index|key, collection)。<code>返回匹配元素，否则返回 undefined。</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">var users = [</div><div class="line">  &#123; &apos;user&apos;: &apos;barney&apos;,  &apos;age&apos;: 36, &apos;active&apos;: true &#125;,</div><div class="line">  &#123; &apos;user&apos;: &apos;fred&apos;,    &apos;age&apos;: 40, &apos;active&apos;: false &#125;,</div><div class="line">  &#123; &apos;user&apos;: &apos;pebbles&apos;, &apos;age&apos;: 1,  &apos;active&apos;: true &#125;</div><div class="line">];</div><div class="line"> </div><div class="line">_.find(users, function(o) &#123; return o.age &lt; 40; &#125;);</div><div class="line">// =&gt; object for &apos;barney&apos;</div><div class="line"> </div><div class="line">// The `_.matches` iteratee shorthand.</div><div class="line">_.find(users, &#123; &apos;age&apos;: 1, &apos;active&apos;: true &#125;);</div><div class="line">// =&gt; object for &apos;pebbles&apos;</div><div class="line"> </div><div class="line">// The `_.matchesProperty` iteratee shorthand.</div><div class="line">_.find(users, [&apos;active&apos;, false]);</div><div class="line">// =&gt; object for &apos;fred&apos;</div><div class="line"> </div><div class="line">// The `_.property` iteratee shorthand.</div><div class="line">_.find(users, &apos;active&apos;);</div><div class="line">// =&gt; object for &apos;barney&apos;</div></pre></td></tr></table></figure>
+<h3 id="forEach"><a href="#forEach" class="headerlink" title="_.forEach"></a>_.forEach</h3><blockquote>
+<p>调用 iteratee 遍历 collection(集合) 中的每个元素， iteratee 调用3个参数： (value, index|key, collection)。 如果迭代函数（iteratee）显式的返回 false ，迭代会提前退出。<code>返回集合 collection。</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">_([1, 2]).forEach(function(value) &#123;</div><div class="line">  console.log(value);</div><div class="line">&#125;);</div><div class="line">// =&gt; Logs `1` then `2`.</div><div class="line"> </div><div class="line">_.forEach(&#123; &apos;a&apos;: 1, &apos;b&apos;: 2 &#125;, function(value, key) &#123;</div><div class="line">  console.log(key);</div><div class="line">&#125;);</div><div class="line">// =&gt; Logs &apos;a&apos; then &apos;b&apos; (iteration order is not guaranteed).</div></pre></td></tr></table></figure>
+<h3 id="map"><a href="#map" class="headerlink" title="_.map"></a>_.map</h3><blockquote>
+<p>创建一个数组， value（值） 是 iteratee（迭代函数）遍历 collection（集合）中的每个元素后返回的结果。 iteratee（迭代函数）调用3个参数：<br>(value, index|key, collection). lodash 中有许多方法是防止作为其他方法的迭代函数（愚人码头注：即不能作为iteratee参数传递给其他方法），例如： <em>.every, </em>.filter, <em>.map, </em>.mapValues, <em>.reject, 和 </em>.some。 受保护的方法有（愚人码头注：即这些方法不能使用<em>.every, </em>.filter, <em>.map, </em>.mapValues, <em>.reject, 和 </em>.some作为 iteratee 迭代函数参数） ：<br>ary, chunk, curry, curryRight, drop, dropRight, every, fill, invert, parseInt, random, range, rangeRight, repeat, sampleSize, slice, some, sortBy, split, take, takeRight, template, trim, trimEnd, trimStart, and words<br><code>返回新的映射后数组。</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function square(n) &#123;</div><div class="line">  return n * n;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">_.map([4, 8], square);</div><div class="line">// =&gt; [16, 64]</div><div class="line"> </div><div class="line">_.map(&#123; &apos;a&apos;: 4, &apos;b&apos;: 8 &#125;, square);</div><div class="line">// =&gt; [16, 64](iteration order is not guaranteed)</div><div class="line"> </div><div class="line">var users = [</div><div class="line">  &#123; &apos;user&apos;: &apos;barney&apos; &#125;,</div><div class="line">  &#123; &apos;user&apos;: &apos;fred&apos; &#125;</div><div class="line">];</div><div class="line"> </div><div class="line">// The `_.property` iteratee shorthand.</div><div class="line">_.map(users, &apos;user&apos;);</div><div class="line">// =&gt; [&apos;barney&apos;, &apos;fred&apos;]</div></pre></td></tr></table></figure>
+<h3 id="orderBy"><a href="#orderBy" class="headerlink" title="_.orderBy"></a>_.orderBy</h3><blockquote>
+<p>此方法类似于_.sortBy，除了它允许指定 iteratee（迭代函数）结果如何排序。 如果没指定 orders（排序），所有值以升序排序。 否则，指定为”desc” 降序，或者指定为 “asc” 升序，排序对应值。<code>返回排序后的新数组。</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var users = [</div><div class="line">  &#123; &apos;user&apos;: &apos;fred&apos;,   &apos;age&apos;: 48 &#125;,</div><div class="line">  &#123; &apos;user&apos;: &apos;barney&apos;, &apos;age&apos;: 34 &#125;,</div><div class="line">  &#123; &apos;user&apos;: &apos;fred&apos;,   &apos;age&apos;: 40 &#125;,</div><div class="line">  &#123; &apos;user&apos;: &apos;barney&apos;, &apos;age&apos;: 36 &#125;</div><div class="line">];</div><div class="line"> </div><div class="line">// 以 `user` 升序排序 再  `age` 以降序排序。</div><div class="line">_.orderBy(users, [&apos;user&apos;, &apos;age&apos;], [&apos;asc&apos;, &apos;desc&apos;]);</div><div class="line">// =&gt; objects for [[&apos;barney&apos;, 36], [&apos;barney&apos;, 34], [&apos;fred&apos;, 48], [&apos;fred&apos;, 40]]</div></pre></td></tr></table></figure>
+<h3 id="clone"><a href="#clone" class="headerlink" title="_.clone"></a>_.clone</h3><blockquote>
+<p>创建一个 value 的浅拷贝。<br> <strong>注意</strong>: 这个方法参考自 structured clone algorithm 以及支持 arrays、array buffers、 booleans、 date objects、maps、 numbers， Object 对象, regexes, sets, strings, symbols, 以及 typed arrays。 arguments对象的可枚举属性会拷贝为普通对象。 一些不可拷贝的对象，例如error objects、functions, DOM nodes, 以及 WeakMaps 会返回空对象。<code>返回拷贝后的值</code></p>
+</blockquote>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> var objects = [&#123; &apos;a&apos;: 1 &#125;, &#123; &apos;b&apos;: 2 &#125;];</div><div class="line"> </div><div class="line">var shallow = _.clone(objects);</div><div class="line">console.log(shallow[0] === objects[0]);</div><div class="line">// =&gt; true</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="续更新…"><a href="#续更新…" class="headerlink" title="续更新…"></a>续更新…</h1><blockquote>
+<p>来源： <a href="http://www.css88.com/doc/lodash/#_forinobject-iteratee_identity" target="_blank" rel="external">http://www.css88.com/doc/lodash/#_forinobject-iteratee_identity</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;filter&quot;&gt;&lt;a href=&quot;#filter&quot; class=&quot;headerlink&quot; title=&quot;_.filter&quot;&gt;&lt;/a&gt;_.filter&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;遍历 collection（集合）元素，返回 predicate（断言函数
+    
+    </summary>
+    
+      <category term="个人整理" scheme="http://www.g5kk.com/categories/%E4%B8%AA%E4%BA%BA%E6%95%B4%E7%90%86/"/>
+    
+    
+      <category term="个人整理" scheme="http://www.g5kk.com/tags/%E4%B8%AA%E4%BA%BA%E6%95%B4%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>windows Node 版本管理</title>
+    <link href="http://www.g5kk.com/2017/05/11/node-version-manager/"/>
+    <id>http://www.g5kk.com/2017/05/11/node-version-manager/</id>
+    <published>2017-05-11T14:56:00.000Z</published>
+    <updated>2017-05-12T02:36:57.425Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1、下载"><a href="#1、下载" class="headerlink" title="1、下载"></a>1、下载</h3><blockquote>
+<p>nvm-windows 是 Windows 下的 Node.js 版本管理工具</p>
+</blockquote>
+<p>下载 <a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="external">nvm-window</a>包, 选择最新版本nvm-setup包, 然后进行安装</p>
+<p>安装成功后查看下环境变量是否正常<br><code>$ nvm version</code>  可查看版本</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/nvm/nvm-01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/nvm/nvm-02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="2、使用方法"><a href="#2、使用方法" class="headerlink" title="2、使用方法"></a>2、使用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">nvm install v6.10.3 // 安装node 版本</div><div class="line">nvm uninstall v6.10.3 // 卸载node 版本</div><div class="line">nvm use v6.10.3 // 使用node版本</div><div class="line">nvm help  // 查看帮助</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1、下载&quot;&gt;&lt;a href=&quot;#1、下载&quot; class=&quot;headerlink&quot; title=&quot;1、下载&quot;&gt;&lt;/a&gt;1、下载&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;nvm-windows 是 Windows 下的 Node.js 版本管理工具&lt;/p&gt;
+&lt;/blo
+    
+    </summary>
+    
+      <category term="node" scheme="http://www.g5kk.com/categories/node/"/>
+    
+    
+      <category term="node" scheme="http://www.g5kk.com/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ReactNative 打开手机WiFi设置</title>
+    <link href="http://www.g5kk.com/2017/05/11/openAndroidSetting/"/>
+    <id>http://www.g5kk.com/2017/05/11/openAndroidSetting/</id>
+    <published>2017-05-11T14:03:16.000Z</published>
+    <updated>2017-05-12T02:36:57.425Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install react-native-android-settings-library --save</div></pre></td></tr></table></figure>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ol>
+<li><p>打开 <code>android/settings.gradle</code> 添加如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">include &apos;:react-native-android-settings-library&apos;</div><div class="line">project(&apos;:react-native-android-settings-library&apos;).projectDir = new File(rootProject.projectDir, 	&apos;../node_modules/react-native-android-settings-library/android&apos;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>打开 <code>android/app/build.gradle</code> 添加如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    // add here</div><div class="line">    compile project(&apos;:react-native-android-settings-library&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>打开 <code>MainApplication.java</code> 添加如下代码;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import com.reactlibrary.androidsettings.RNANAndroidSettingsLibraryPackage;</div><div class="line"></div><div class="line">// 主体</div><div class="line">new RNANAndroidSettingsLibraryPackage()</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="引入包"><a href="#引入包" class="headerlink" title="引入包"></a>引入包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import RNANAndroidSettingsLibrary from &apos;react-native-android-settings-library&apos;;</div><div class="line"></div><div class="line">RNANAndroidSettingsLibrary.open(&apos;ACTION_WIFI_SETTINGS&apos;);</div></pre></td></tr></table></figure>
+<p>open参数如下：</p>
+<ul>
+<li>ACTION_SETTINGS</li>
+<li>ACTION_WIRELESS_SETTINGS</li>
+<li>ACTION_AIRPLANE_MODE_SETTINGS</li>
+<li>ACTION_WIFI_SETTINGS // 打开wifi 开关</li>
+<li>ACTION_APN_SETTINGS</li>
+<li>ACTION_BLUETOOTH_SETTINGS</li>
+<li>ACTION_DATE_SETTINGS</li>
+<li>ACTION_LOCALE_SETTINGS</li>
+<li>ACTION_INPUT_METHOD_SETTINGS</li>
+<li>ACTION_DISPLAY_SETTINGS</li>
+<li>ACTION_SECURITY_SETTINGS</li>
+<li>ACTION_LOCATION_SOURCE_SETTINGS</li>
+<li>ACTION_INTERNAL_STORAGE_SETTINGS</li>
+<li>ACTION_MEMORY_CARD_SETTINGS</li>
+<li>ACTION_APPLICATION_DETAILS_SETTINGS</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;安装包&quot;&gt;&lt;a href=&quot;#安装包&quot; class=&quot;headerlink&quot; title=&quot;安装包&quot;&gt;&lt;/a&gt;安装包&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;d
+    
+    </summary>
+    
+      <category term="reactNative" scheme="http://www.g5kk.com/categories/reactNative/"/>
+    
+    
+      <category term="reactNative" scheme="http://www.g5kk.com/tags/reactNative/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关闭win10自动更新</title>
+    <link href="http://www.g5kk.com/2017/05/11/win10Update/"/>
+    <id>http://www.g5kk.com/2017/05/11/win10Update/</id>
+    <published>2017-05-11T11:38:33.000Z</published>
+    <updated>2017-05-12T02:36:57.425Z</updated>
+    
+    <content type="html"><![CDATA[<p>windows+R 进入 cmd -&gt; gpedit.msc<br>找到window更新，如下图:</p>
+<hr>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/other/01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/other/02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;windows+R 进入 cmd -&amp;gt; gpedit.msc&lt;br&gt;找到window更新，如下图:&lt;/p&gt;
+&lt;hr&gt;
+&lt;figure class=&quot;image-bubble&quot;&gt;
+                &lt;div class=&quot;img-lightbox&quot;&gt;
+  
+    
+    </summary>
+    
+    
+      <category term="个人整理" scheme="http://www.g5kk.com/tags/%E4%B8%AA%E4%BA%BA%E6%95%B4%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搭建开发环境</title>
+    <link href="http://www.g5kk.com/2017/05/10/reactNativeSetup/"/>
+    <id>http://www.g5kk.com/2017/05/10/reactNativeSetup/</id>
+    <published>2017-05-10T16:56:29.000Z</published>
+    <updated>2017-05-12T02:36:57.425Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1、安装Chocolatey"><a href="#1、安装Chocolatey" class="headerlink" title="1、安装Chocolatey"></a>1、安装Chocolatey</h3><p>Chocolatey是一个Windows上的包管理器，类似于linux上的yum和 apt-get。 你可以在其官方网站上查看具体的使用说明。一般的安装步骤应该是下面这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@powershell -NoProfile -ExecutionPolicy Bypass -Command &quot;iex ((new-object net.webclient).DownloadString(&apos;https://chocolatey.org/install.ps1&apos;))&quot; &amp;&amp; SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin</div></pre></td></tr></table></figure></p>
+<h3 id="2、安装Python-2"><a href="#2、安装Python-2" class="headerlink" title="2、安装Python 2"></a>2、安装Python 2</h3><p>安装了Chocolatey后就可以使用下面的命令了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">choco install python2</div></pre></td></tr></table></figure></p>
+<p>注意目前不支持Python 3版本。</p>
+<h3 id="3、Node"><a href="#3、Node" class="headerlink" title="3、Node"></a>3、Node</h3><p>Node环境是必须的，使用稳定版本，不要使用cnpm加速，可用如下加速镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm config set registry https://registry.npm.taobao.org --global</div><div class="line">npm config set disturl https://npm.taobao.org/dist --global</div></pre></td></tr></table></figure></p>
+<h3 id="4、Yarn、React-Native的命令行工具（react-native-cli）"><a href="#4、Yarn、React-Native的命令行工具（react-native-cli）" class="headerlink" title="4、Yarn、React Native的命令行工具（react-native-cli）"></a>4、Yarn、React Native的命令行工具（react-native-cli）</h3><p>Yarn是Facebook提供的替代npm的工具，可以加速node模块的下载。React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g yarn react-native-cli</div></pre></td></tr></table></figure></p>
+<p>安装完yarn后同理也要设置镜像源：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yarn config set registry https://registry.npm.taobao.org --global</div><div class="line">yarn config set disturl https://npm.taobao.org/dist --global</div></pre></td></tr></table></figure></p>
+<h3 id="5、Android-Studio"><a href="#5、Android-Studio" class="headerlink" title="5、Android Studio"></a>5、Android Studio</h3><blockquote>
+<p>它不是必须的，主要是为了使用里面的SDK, 版本2.0以上<br>Android Studio需要Java Development Kit [JDK]<br>1.8或更高版本。你可以在命令行中输入 javac<br>-version来查看你当前安装的JDK版本。如果版本不合要求，则<br>可以到 <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">官网</a>上下载。</p>
+</blockquote>
+<h3 id="6、ANDROID-HOME环境变量"><a href="#6、ANDROID-HOME环境变量" class="headerlink" title="6、ANDROID_HOME环境变量"></a>6、ANDROID_HOME环境变量</h3><p>确保ANDROID_HOME环境变量正确地指向了你安装的Android SDK的路径。</p>
+<p>打开控制面板 -&gt; 系统和安全 -&gt; 系统 -&gt; 高级系统设置 -&gt; 高级 -&gt; 环境变量 -&gt; 新建</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/reactnaive_setup/01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="7、配置Android-Studio-参数"><a href="#7、配置Android-Studio-参数" class="headerlink" title="7、配置Android Studio 参数"></a>7、配置Android Studio 参数</h3><p>打开SDK Manager ， 配置如下几个参数<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/reactnaive_setup/02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/reactnaive_setup/03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/reactnaive_setup/04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="8、安装模拟器-Genymotion"><a href="#8、安装模拟器-Genymotion" class="headerlink" title="8、安装模拟器 Genymotion"></a>8、安装模拟器 Genymotion</h3><p>比起Android Studio自带的原装模拟器，Genymotion是一个性能更好的选择，但它只对个人用户免费。</p>
+<blockquote>
+<ol>
+<li>下载和安装<a href="https://www.genymotion.com/download" target="_blank" rel="external">Genymotion</a>（genymotion需要依赖VirtualBox虚拟机，下载选项中提供了包含VirtualBox和不包含的选项，请按需选择）。</li>
+<li>打开Genymotion。如果你还没有安装VirtualBox，则此时会提示你安装。</li>
+<li>创建一个新模拟器并启动。</li>
+<li>启动React Native应用后，可以按下F1来打开开发者菜单。</li>
+</ol>
+</blockquote>
+<p>选择合适的下载安装</p>
+<h3 id="9、测试安装程序"><a href="#9、测试安装程序" class="headerlink" title="9、测试安装程序"></a>9、测试安装程序</h3><p>先打开模拟器， 当然使用真机也是可以的。真机的话需要打开USB调试模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">react-native init HelloWord</div><div class="line">cd HelloWord</div><div class="line">react-native run-android</div></pre></td></tr></table></figure></p>
+<p>使用<code>adb devices</code> 查看当前设备</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1、安装Chocolatey&quot;&gt;&lt;a href=&quot;#1、安装Chocolatey&quot; class=&quot;headerlink&quot; title=&quot;1、安装Chocolatey&quot;&gt;&lt;/a&gt;1、安装Chocolatey&lt;/h3&gt;&lt;p&gt;Chocolatey是一个Windows上的
+    
+    </summary>
+    
+      <category term="reactNative" scheme="http://www.g5kk.com/categories/reactNative/"/>
+    
+    
+      <category term="reactNative" scheme="http://www.g5kk.com/tags/reactNative/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>reactNative 打包测试</title>
+    <link href="http://www.g5kk.com/2017/05/10/reactnative/"/>
+    <id>http://www.g5kk.com/2017/05/10/reactnative/</id>
+    <published>2017-05-10T16:45:18.000Z</published>
+    <updated>2017-05-12T02:36:57.425Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1、生成密钥"><a href="#1、生成密钥" class="headerlink" title="1、生成密钥"></a>1、生成密钥</h3><p>在项目根目录打开命令行（快捷方法：进入根目录win下按住shift键单击右键打开命令行，直接对应该目录）。然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000</div></pre></td></tr></table></figure></p>
+<p>按要求填写相关信息后生成的 ==my-release-key.keystore== 文件放到你工程中的==android/app==文件夹下</p>
+<h3 id="2、修改gradle-properties文件"><a href="#2、修改gradle-properties文件" class="headerlink" title="2、修改gradle.properties文件"></a>2、修改gradle.properties文件</h3><p>在android目录下打开gradle.properties文件，添加如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">MYAPP_RELEASE_STORE_FILE=my-release-key.keystore</div><div class="line">MYAPP_RELEASE_KEY_ALIAS=my-key-alias</div><div class="line">MYAPP_RELEASE_STORE_PASSWORD=*******  // 密钥口令</div><div class="line">MYAPP_RELEASE_KEY_PASSWORD=******* // 密钥口令</div></pre></td></tr></table></figure></p>
+<h3 id="3、修改build-gradle文件"><a href="#3、修改build-gradle文件" class="headerlink" title="3、修改build.gradle文件"></a>3、修改build.gradle文件</h3><p>在android/app目录下打开build.gradle文件，按如下格式修改:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">signingConfigs &#123;</div><div class="line">    release &#123;</div><div class="line">        storeFile file(MYAPP_RELEASE_STORE_FILE)</div><div class="line">        storePassword MYAPP_RELEASE_STORE_PASSWORD</div><div class="line">        keyAlias MYAPP_RELEASE_KEY_ALIAS</div><div class="line">        keyPassword MYAPP_RELEASE_KEY_PASSWORD</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">buildTypes &#123;</div><div class="line">    release &#123;</div><div class="line">        minifyEnabled enableProguardInReleaseBuilds</div><div class="line">        proguardFiles getDefaultProguardFile(&quot;proguard-android.txt&quot;), &quot;proguard-rules.pro&quot;</div><div class="line">        signingConfig signingConfigs.release</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="4、生成index-android-bundle文件"><a href="#4、生成index-android-bundle文件" class="headerlink" title="4、生成index.android.bundle文件"></a>4、生成index.android.bundle文件</h3><p>在android\app\src\main目录下新建名为assets的文件夹，然后在项目根目录的命令行下输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native bundle --platform android --dev false --entry-file index.android.js \ --bundle-output android/app/src/main/assets/index.android.bundle \ --assets-dest android/app/src/main/res/</div></pre></td></tr></table></figure></p>
+<h3 id="5、生成APK"><a href="#5、生成APK" class="headerlink" title="5、生成APK"></a>5、生成APK</h3><p>在android目录命令行下输入==gradlew assembleRelease==，然后等待几分钟，在==android/app/build/outputs/apk==目录下找到APK文件。</p>
+<blockquote>
+<p>注意事项:</p>
+<ol>
+<li>打包前最好删除app\build文件夹</li>
+<li>src\main 下面的资源不能出现相同名称</li>
+</ol>
+</blockquote>
+<h3 id="其他可能出现的问题记录在此"><a href="#其他可能出现的问题记录在此" class="headerlink" title="其他可能出现的问题记录在此"></a>其他可能出现的问题记录在此</h3><hr>
+<p>1、==unable to process incoming event ‘ProcessComplete’==<br>在/android/目录中执行==gradle assembleRelease==命令 如果出现此类错误，清理下，在==proguard-rules.pro==中加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-keep class android.text &#123;* ;&#125;</div><div class="line">-dontwarn android.text.*</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1、生成密钥&quot;&gt;&lt;a href=&quot;#1、生成密钥&quot; class=&quot;headerlink&quot; title=&quot;1、生成密钥&quot;&gt;&lt;/a&gt;1、生成密钥&lt;/h3&gt;&lt;p&gt;在项目根目录打开命令行（快捷方法：进入根目录win下按住shift键单击右键打开命令行，直接对应该目录）。然
+    
+    </summary>
+    
+      <category term="reactNative" scheme="http://www.g5kk.com/categories/reactNative/"/>
+    
+    
+      <category term="reactNative" scheme="http://www.g5kk.com/tags/reactNative/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown 语法的简要规则</title>
+    <link href="http://www.g5kk.com/2017/05/10/markdown/"/>
+    <id>http://www.g5kk.com/2017/05/10/markdown/</id>
+    <published>2017-05-10T16:37:35.000Z</published>
+    <updated>2017-05-12T02:36:57.425Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>标题是每篇文章都需要也是最常用的格式，在 Markdown 中，如果一段文字被定义为标题，只要在这段文字前加 # 号即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 一级标题</div><div class="line">## 二级标题</div><div class="line">### 三级标题</div></pre></td></tr></table></figure></p>
+<p>以此类推 共6级</p>
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><p>熟悉 HTML 的同学肯定知道有序列表与无序列表的区别，在 Markdown 下，列表的显示只需要在文字前加上 - 或 * 即可变为无序列表，有序列表则直接在文字前加1. 2. 3. 符号要和文字之间加上一个字符的空格。</p>
+<ul>
+<li>a</li>
+</ul>
+<ul>
+<li>b</li>
+</ul>
+<ol>
+<li>A</li>
+<li>B</li>
+<li>C</li>
+</ol>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>如果你需要引用一小段别处的句子，那么就要用引用的格式。<br>只需要在文本前加入 &gt; 这种尖括号（大于号）即可</p>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<h1 id="图片与链接"><a href="#图片与链接" class="headerlink" title="图片与链接"></a>图片与链接</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">插入链接与插入图片的语法很像，区别在一个 !号</div><div class="line">图片为：![]()</div><div class="line">链接为：[]()</div><div class="line">插入图片的地址需要图床，这里推荐围脖图床修复计划 与</div><div class="line">CloudApp 的服务，生成URL地址即可。</div></pre></td></tr></table></figure>
+<p><a href="http://www.baidu.com" target="_blank" rel="external">Baidu</a><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://www.baidu.com/img/bd_logo1.png" alt="Baidu" title="">
+                </div>
+                <div class="image-caption">Baidu</div>
+            </figure></p>
+<hr>
+<h1 id="粗体与斜体"><a href="#粗体与斜体" class="headerlink" title="粗体与斜体"></a>粗体与斜体</h1><p>Markdown 的粗体和斜体也非常简单，用两个 <em> 包含一段文本就是粗体的语法，用一个 </em> 包含一段文本就是斜体的语法。<br>例如：<strong>这里是粗体</strong> 这里是<em>斜体</em></p>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><p>表格是 Markdown 比较累人的地方，例子如下：<br>| Tables        | Are           | Cool  |<br>| ————- |:————-:| —–:|<br>| col 3 is      | right-aligned | $1600 |<br>| col 2 is      | centered      |   $12 |<br>| zebra stripes | are neat      |    $1 |</p>
+<h1 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h1><p>如果你是个程序猿，需要在文章里优雅的引用代码框，在 Markdown下实现也非常简单，只需要用三个 ` 把中间的代码包裹起来。图例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = 10;</div><div class="line">var obj = &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><p>分割线的语法只需要三个 * 号</p>
+<blockquote>
+<p>到这里，Markdown 的基本语法在日常的使用中基本就没什么大问题了，只要多加练习，配合好用的工具，写起东西来肯定会行云流水。更多的语法规则，其实 Mou 的 Help 文档栗子很好，当你第一次使用 Mou 时，就会显示该文档。可以用来对用的查找和学习。</p>
+</blockquote>
+<h1 id="Mark文字"><a href="#Mark文字" class="headerlink" title="Mark文字"></a>Mark文字</h1><p>使用两个=号包起来, 例如: 下面的文字是==重点==</p>
+<h1 id="选择树结构"><a href="#选择树结构" class="headerlink" title="选择树结构"></a>选择树结构</h1><ul>
+<li>[ ] 节点1<ul>
+<li>[x] 节点1-1</li>
+</ul>
+</li>
+<li>[ ] 节点2<ul>
+<li>[x] 节点2-1</li>
+</ul>
+</li>
+</ul>
+<h1 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">E = mc^2</div></pre></td></tr></table></figure>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">graph LR</div><div class="line">A--&gt;B</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sequenceDiagram</div><div class="line">A-&gt;&gt;B: How are you?</div><div class="line">B-&gt;&gt;A: Great!</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">gantt</div><div class="line">dateFormat YYYY-MM-DD</div><div class="line">section S1</div><div class="line">T1: 2014-01-01, 9d</div><div class="line">section S2</div><div class="line">T2: 2014-01-11, 9d</div><div class="line">section S3</div><div class="line">T3: 2014-01-02, 9d</div></pre></td></tr></table></figure>
+<blockquote>
+<p>参考 <a href="http://note.youdao.com/iyoudao/?p=2411" target="_blank" rel="external">有道云Markdown语法</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=&quot;标题&quot;&gt;&lt;/a&gt;标题&lt;/h1&gt;&lt;p&gt;标题是每篇文章都需要也是最常用的格式，在 Markdown 中，如果一段文字被定义为标题，只要在这段文字前加 # 号即可。&lt;br&gt;&lt;figu
+    
+    </summary>
+    
+      <category term="个人整理" scheme="http://www.g5kk.com/categories/%E4%B8%AA%E4%BA%BA%E6%95%B4%E7%90%86/"/>
+    
+    
+      <category term="个人整理" scheme="http://www.g5kk.com/tags/%E4%B8%AA%E4%BA%BA%E6%95%B4%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用Travis CI 让你的github项目持续构建</title>
+    <link href="http://www.g5kk.com/2017/05/10/travis-ci/"/>
+    <id>http://www.g5kk.com/2017/05/10/travis-ci/</id>
+    <published>2017-05-10T15:43:25.000Z</published>
+    <updated>2017-05-12T02:36:57.425Z</updated>
+    
+    <content type="html"><![CDATA[<p>   Travis CI 是目前新兴的开源持续集成构建项目，它与jenkins，GO的很明显的特别在于采用yaml格式，简洁清新独树一帜。目前大多数的github项目都已经移入到Travis CI的构建队列中，据说Travis CI每天运行超过4000次完整构建</p>
+<h3 id="搭建-Travis-CI-build，需要-github账号和github项目"><a href="#搭建-Travis-CI-build，需要-github账号和github项目" class="headerlink" title="搭建 Travis CI build，需要 github账号和github项目"></a>搭建 <code>Travis CI build</code>，需要 <code>github</code>账号和<code>github</code>项目</h3><ol>
+<li>用github账号登陆<a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a>. </li>
+<li>在右上角你的账户名点击进入 ==account==，在==Repositories tab==页点击==Sync now==同步你的github项目</li>
+<li>选中项目将默认的off改变为on开启项目的持续集成</li>
+<li>在你项目的根目录建立一个.travis.yml文件，内容为<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">language: node_js</div><div class="line">  node_js:  </div><div class="line">  - stable </div><div class="line">  - 10.3</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>在打开你的node.js的<code>package.json</code>文件，确保加入<code>script/test</code>节点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">   &quot;test&quot;: &quot;XXXX&quot;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>这里你可以选择mak或者<code>jasmine-node</code>等node.js测试框架的测试命令。并且可以把依赖加入package的depends</p>
+<ol>
+<li>在你项目中运行<code>npm test</code>，确保正常工作</li>
+<li>==check in==你的code到github,打开==tracivs ci==界面等待其同步并运行你的build构建。</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>  如果你需要将你的build构建状态放在一个显眼的位置或者项目readme，你可以在首页My Repositories中找到项目并设置中复制状态图片code，形如：<br>[{% image https://travis-ci.org/greengerong/qing 'Build Status](https://travis-ci.org/greengerong/qing.png?branch=master)' '' %}</p>
+</blockquote>
+<p> Travs CI 支持多中语言如ruby，java的maven，gradle,Go等请参见文档Travis Docs.</p>
+<p> 在上面提到的travis.yml文件中我们还可以加入build前后执行脚本，形如：</p>
+<p>before_script:  </p>
+<pre><code>- before_command_1  
+
+- before_command_2
+</code></pre><p>after_script:  </p>
+<pre><code>- after_command_1 
+
+- after_command_2
+</code></pre><p>将你的开源项目加入Travis CI队列吧，很容易让你的项目加入持续集成，持续构建队列。</p>
+<blockquote>
+<p>来源： <a href="http://www.cnblogs.com/whitewolf/archive/2013/04/14/3019838.html" target="_blank" rel="external">http://www.cnblogs.com/whitewolf/archive/2013/04/14/3019838.html</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;   Travis CI 是目前新兴的开源持续集成构建项目，它与jenkins，GO的很明显的特别在于采用yaml格式，简洁清新独树一帜。目前大多数的github项目都已经移入到Travis CI的构建队列中，据说Travis CI每天运行超过4000次完整构建&lt;/p&gt;
+&lt;
+    
+    </summary>
+    
+      <category term="个人整理" scheme="http://www.g5kk.com/categories/%E4%B8%AA%E4%BA%BA%E6%95%B4%E7%90%86/"/>
+    
+    
+      <category term="个人整理" scheme="http://www.g5kk.com/tags/%E4%B8%AA%E4%BA%BA%E6%95%B4%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用正则收录</title>
+    <link href="http://www.g5kk.com/2017/05/10/regex/"/>
+    <id>http://www.g5kk.com/2017/05/10/regex/</id>
+    <published>2017-05-10T14:21:09.000Z</published>
+    <updated>2017-05-12T02:36:57.425Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1、两位小数以内的正实数"><a href="#1、两位小数以内的正实数" class="headerlink" title="1、两位小数以内的正实数"></a>1、两位小数以内的正实数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^(([0-9]+)|([0-9]+\.[0-9]&#123;1,2&#125;))$</div></pre></td></tr></table></figure>
+<h3 id="2、中文、字母、数字、或者下划线"><a href="#2、中文、字母、数字、或者下划线" class="headerlink" title="2、中文、字母、数字、或者下划线"></a>2、中文、字母、数字、或者下划线</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/^[\u4e00-\u9fa5A-Za-z0-9_]+$/</div></pre></td></tr></table></figure>
+<h3 id="3、电话号码"><a href="#3、电话号码" class="headerlink" title="3、电话号码"></a>3、电话号码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/^(0[0-9]&#123;2,3&#125;\-)?([2-9][0-9]&#123;6,7&#125;)+(\-[0-9]&#123;1,4&#125;)?$|(^(13[0-9]|15[0|3|6|7|8|9]|18[8|9])\d&#123;8&#125;$|(^400-([0-9])&#123;1&#125;([0-9-]&#123;6&#125;)([0-9])&#123;1&#125;)$)/</div></pre></td></tr></table></figure>
+<h3 id="4、网址"><a href="#4、网址" class="headerlink" title="4、网址"></a>4、网址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/^(f|ht)&#123;1&#125;(tp|tps):\/\/([\w-]+\.)+[\w-]+(\/[\w- ./?%&amp;=]*)?/</div></pre></td></tr></table></figure>
+<h3 id="5、邮箱"><a href="#5、邮箱" class="headerlink" title="5、邮箱"></a>5、邮箱</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]&#123;2,14&#125;</div></pre></td></tr></table></figure>
+<h3 id="6、双字节字符"><a href="#6、双字节字符" class="headerlink" title="6、双字节字符"></a>6、双字节字符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[^\x00-\xff]</div></pre></td></tr></table></figure>
+<h3 id="7、时分秒"><a href="#7、时分秒" class="headerlink" title="7、时分秒"></a>7、时分秒</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">([01]?\d|2[0-3]):[0-5]?\d:[0-5]?\d</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1、两位小数以内的正实数&quot;&gt;&lt;a href=&quot;#1、两位小数以内的正实数&quot; class=&quot;headerlink&quot; title=&quot;1、两位小数以内的正实数&quot;&gt;&lt;/a&gt;1、两位小数以内的正实数&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;
+    
+    </summary>
+    
+    
+      <category term="个人整理" scheme="http://www.g5kk.com/tags/%E4%B8%AA%E4%BA%BA%E6%95%B4%E7%90%86/"/>
+    
+  </entry>
+  
+</feed>

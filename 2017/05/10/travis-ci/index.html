@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>利用Travis CI 让你的github项目持续构建 | ぃ 陪_著你笑 | 看不惯你的哭，只想看到你的笑。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="个人整理">
+    <meta name="description" content="Travis CI 是目前新兴的开源持续集成构建项目，它与jenkins，GO的很明显的特别在于采用yaml格式，简洁清新独树一帜。目前大多数的github项目都已经移入到Travis CI的构建队列中，据说Travis CI每天运行超过4000次完整构建 搭建 Travis CI build，需要 github账号和github项目 用github账号登陆Travis CI.  在右上角你">
+<meta name="keywords" content="个人整理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用Travis CI 让你的github项目持续构建">
+<meta property="og:url" content="http://www.g5kk.com/2017/05/10/travis-ci/index.html">
+<meta property="og:site_name" content="ぃ 陪_著你笑">
+<meta property="og:description" content="Travis CI 是目前新兴的开源持续集成构建项目，它与jenkins，GO的很明显的特别在于采用yaml格式，简洁清新独树一帜。目前大多数的github项目都已经移入到Travis CI的构建队列中，据说Travis CI每天运行超过4000次完整构建 搭建 Travis CI build，需要 github账号和github项目 用github账号登陆Travis CI.  在右上角你">
+<meta property="og:updated_time" content="2017-05-12T02:36:57.425Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用Travis CI 让你的github项目持续构建">
+<meta name="twitter:description" content="Travis CI 是目前新兴的开源持续集成构建项目，它与jenkins，GO的很明显的特别在于采用yaml格式，简洁清新独树一帜。目前大多数的github项目都已经移入到Travis CI的构建队列中，据说Travis CI每天运行超过4000次完整构建 搭建 Travis CI build，需要 github账号和github项目 用github账号登陆Travis CI.  在右上角你">
+    
+        <link rel="alternate" type="application/atom+xml" title="ぃ 陪_著你笑" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ぃ 陪_著你笑</h5>
+          <a href="mailto:276977683@qq.com" title="276977683@qq.com" class="mail">276977683@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jys0909" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                GitHub
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">利用Travis CI 让你的github项目持续构建</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">利用Travis CI 让你的github项目持续构建</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-10T15:43:25.000Z" itemprop="datePublished" class="page-time">
+  2017-05-10
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/个人整理/">个人整理</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#搭建-Travis-CI-build，需要-github账号和github项目"><span class="post-toc-text">搭建 Travis CI build，需要 github账号和github项目</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-travis-ci"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">利用Travis CI 让你的github项目持续构建</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-10 15:43:25" datetime="2017-05-10T15:43:25.000Z"  itemprop="datePublished">2017-05-10</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/个人整理/">个人整理</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>   Travis CI 是目前新兴的开源持续集成构建项目，它与jenkins，GO的很明显的特别在于采用yaml格式，简洁清新独树一帜。目前大多数的github项目都已经移入到Travis CI的构建队列中，据说Travis CI每天运行超过4000次完整构建</p>
+<h3 id="搭建-Travis-CI-build，需要-github账号和github项目"><a href="#搭建-Travis-CI-build，需要-github账号和github项目" class="headerlink" title="搭建 Travis CI build，需要 github账号和github项目"></a>搭建 <code>Travis CI build</code>，需要 <code>github</code>账号和<code>github</code>项目</h3><ol>
+<li>用github账号登陆<a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a>. </li>
+<li>在右上角你的账户名点击进入 ==account==，在==Repositories tab==页点击==Sync now==同步你的github项目</li>
+<li>选中项目将默认的off改变为on开启项目的持续集成</li>
+<li>在你项目的根目录建立一个.travis.yml文件，内容为<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">language: node_js</div><div class="line">  node_js:  </div><div class="line">  - stable </div><div class="line">  - 10.3</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>在打开你的node.js的<code>package.json</code>文件，确保加入<code>script/test</code>节点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">   &quot;test&quot;: &quot;XXXX&quot;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>这里你可以选择mak或者<code>jasmine-node</code>等node.js测试框架的测试命令。并且可以把依赖加入package的depends</p>
+<ol>
+<li>在你项目中运行<code>npm test</code>，确保正常工作</li>
+<li>==check in==你的code到github,打开==tracivs ci==界面等待其同步并运行你的build构建。</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>  如果你需要将你的build构建状态放在一个显眼的位置或者项目readme，你可以在首页My Repositories中找到项目并设置中复制状态图片code，形如：<br>[{% image https://travis-ci.org/greengerong/qing 'Build Status](https://travis-ci.org/greengerong/qing.png?branch=master)' '' %}</p>
+</blockquote>
+<p> Travs CI 支持多中语言如ruby，java的maven，gradle,Go等请参见文档Travis Docs.</p>
+<p> 在上面提到的travis.yml文件中我们还可以加入build前后执行脚本，形如：</p>
+<p>before_script:  </p>
+<pre><code>- before_command_1  
+
+- before_command_2
+</code></pre><p>after_script:  </p>
+<pre><code>- after_command_1 
+
+- after_command_2
+</code></pre><p>将你的开源项目加入Travis CI队列吧，很容易让你的项目加入持续集成，持续构建队列。</p>
+<blockquote>
+<p>来源： <a href="http://www.cnblogs.com/whitewolf/archive/2013/04/14/3019838.html" target="_blank" rel="external">http://www.cnblogs.com/whitewolf/archive/2013/04/14/3019838.html</a></p>
+</blockquote>
+
+        </div>
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-12T02:36:57.425Z" itemprop="dateUpdated">2017-05-12 02:36:57</time>
+</span><br>
+
+
+        
+        轻轻的，你来了;轻轻的，你又走了。。。
+        
+    </div>
+    <footer>
+        <a href="http://www.g5kk.com">
+            <img src="/img/avatar.png" alt="ぃ 陪_著你笑">
+            ぃ 陪_著你笑
+        </a>
+    </footer>
+</blockquote>
+-->
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/个人整理/">个人整理</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.g5kk.com/2017/05/10/travis-ci/&title=《利用Travis CI 让你的github项目持续构建》 — ぃ 陪_著你笑&pic=http://www.g5kk.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.g5kk.com/2017/05/10/travis-ci/&title=《利用Travis CI 让你的github项目持续构建》 — ぃ 陪_著你笑&source=360天都陪着你" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.g5kk.com/2017/05/10/travis-ci/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《利用Travis CI 让你的github项目持续构建》 — ぃ 陪_著你笑&url=http://www.g5kk.com/2017/05/10/travis-ci/&via=http://www.g5kk.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.g5kk.com/2017/05/10/travis-ci/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/05/10/markdown/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Markdown 语法的简要规则</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/10/regex/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">常用正则收录</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢大爷赏~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!--<div class="top">
+        
+
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div> -->
+    <div class="bottom">
+        <p>
+            <span> 
+
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+
+
+</span>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>ぃ 陪_著你笑 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.g5kk.com/2017/05/10/travis-ci/&title=《利用Travis CI 让你的github项目持续构建》 — ぃ 陪_著你笑&pic=http://www.g5kk.com/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.g5kk.com/2017/05/10/travis-ci/&title=《利用Travis CI 让你的github项目持续构建》 — ぃ 陪_著你笑&source=360天都陪着你" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.g5kk.com/2017/05/10/travis-ci/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《利用Travis CI 让你的github项目持续构建》 — ぃ 陪_著你笑&url=http://www.g5kk.com/2017/05/10/travis-ci/&via=http://www.g5kk.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.g5kk.com/2017/05/10/travis-ci/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABw0lEQVR42u3aQW7DIBAF0Nz/0qnUVaXW9p8ZTKzqsYocBx5ZjODD6xW393f7/fnnk6N3jr793c+yhouLO+a+T1tOPJpedUpHBlxc3P3cpHgddXH+pEq/sOHi4j6Me150qhPDxcX9H9y1+y1cXNznc/Py1Nv8JEucxXs1XFzcAXdSdFZ93pTv4uLijk8lkoIyKT3l0XFxcbdwk7izOkAeiVbfx8XF3cOtBhP5lqa3+bnoBxcXdzu3GnZU38zjlcOSh4uL+yFur9z0YpTy34GLi7uF2ztKyeOP3ibqorDi4uLezE0CkcK8x8cz0WkwLi7uzdzecmTVRY3mNQtcXNyN3PPhkwGSN5P44yIowcXF/RC3F5rMo9UoQsXFxb2ZOwlMJ8udXjiCi4u7h9u7NjEPRvP+o3wXFxd3KbdXepIyNGEdenBxcTdy8y1K9Vg07z9aZuHi4m7k5m10oaoYv76q/xkuLu4ibu+qRJWb0/NvcXFx7+YmxSu/YDEJTKPFEC4u7kZub+GST6lZQXFxcR/PnSxTekcsfzzHxcV9MDc5Vlm7JMLFxd3PzYesBh/5r5LDXVxc3D3c6o6jt/TJSyEuLu5HuV9JFHadlHK63AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261927928&web_id=1261927928')
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
