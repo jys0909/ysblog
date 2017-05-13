@@ -99,7 +99,7 @@ return Arrays.<ReactPackage>asList(
 > No signature of method: java.util.LinkedHashMap.getProperty() is applicable for argument types: (java.lang.String) values: 
 [code_push_key_production]
 
-是因react-native 不支持`local.properties`文件方式保存，修改`build.gradle`
+可能是因react-native 不支持`local.properties`文件方式保存，修改`build.gradle`
 ```
 buildTypes {
     releaseStaging {
@@ -112,7 +112,7 @@ buildTypes {
         buildConfigField "String", "CODEPUSH_KEY", '"VfzbGk_YDjTyV8DOtGR3PE1yQ46VE1IE1U50M"'
     }
 }
-```    
+```
 注意`'"SeGH3j6xEzTU54TWEDMbmFVkJuTRE1IE1U50M"'`中的单引号不能去掉， 否则会报错
 ```
 错误: 找不到符号
@@ -121,8 +121,6 @@ buildTypes {
   符号:   变量 VfzbGk_YDjTyV8DOtGR3PE1yQ46VE1IE1U50M
   位置: 类 BuildConfig
 ```
-
-
 ### 6、添加更新监听
 部署完code-push后接下来有两步要做
 > 1. 什么时候检查更新 （在APP启动的时候？在设置页面添加一个检查更新按钮？）
