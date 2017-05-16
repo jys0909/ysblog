@@ -15,41 +15,34 @@ categories: 个人整理
   4. 在你项目的根目录建立一个.travis.yml文件，内容为
   ```
   language: node_js
-    node_js:  
-    - stable 
-    - 10.3
+  node_js: stable
+
+  # S: Build Lifecycle
+  install:
+    - npm install
+
+  # before_script:
+    # -
+  script:
+    - hexo g
+
+  after_script:
+    - cd ./public
+    - git init
+    - git config user.name "jys0909"
+    - git config user.email "276977683@qq.com"
+    - git add .
+    - git commit -m "Update docs"
+    - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+  # E: Build LifeCycle
+
+  branches:
+    only:
+      - blog-source
+  env:
+   global:
+   - GH_REF: github.com/jys0909/ysblog.git
   ```
   
- 5. 在打开你的node.js的`package.json`文件，确保加入`script/test`节点：
- ```
- "scripts": {
-    "test": "XXXX"
-  }
-  ```
-  这里你可以选择mak或者`jasmine-node`等node.js测试框架的测试命令。并且可以把依赖加入package的depends
-  
-  6. 在你项目中运行`npm test`，确保正常工作
-  7. ==check in==你的code到github,打开==tracivs ci==界面等待其同步并运行你的build构建。
-  
->   如果你需要将你的build构建状态放在一个显眼的位置或者项目readme，你可以在首页My Repositories中找到项目并设置中复制状态图片code，形如：
-[![Build Status](https://travis-ci.org/greengerong/qing.png?branch=master)](https://travis-ci.org/greengerong/qing)
-
- Travs CI 支持多中语言如ruby，java的maven，gradle,Go等请参见文档Travis Docs.
-
- 在上面提到的travis.yml文件中我们还可以加入build前后执行脚本，形如：
-
-before_script:  
-
-     - before_command_1  
-
-     - before_command_2
-
-after_script:  
-
-     - after_command_1 
-
-     - after_command_2
-
-将你的开源项目加入Travis CI队列吧，很容易让你的项目加入持续集成，持续构建队列。
 
 > 来源： http://www.cnblogs.com/whitewolf/archive/2013/04/14/3019838.html
