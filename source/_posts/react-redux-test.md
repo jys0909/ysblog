@@ -1,5 +1,5 @@
 ---
-title: Git相关收集
+title: 如何在 React+Redux 的项目中更优雅的实现前端自动化测试
 date: 2017-05-16 17:30:39
 tags: 个人整理
 categories: 个人整理
