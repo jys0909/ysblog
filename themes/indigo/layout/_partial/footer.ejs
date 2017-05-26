@@ -5,10 +5,11 @@
             <% if ((config.feed) && (config.feed.path.length)) { %>
                 <span><a href="<%- url_for(config.feed.path) %>" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             <% } %>
-            <span><%- __('footer.license') %></span>
+            
         </p>
     </div> -->
     <div class="bottom">
+		<p><span><%- __('footer.license') %></span></p>
         <p>
             <span> <%- partial('plugins/site-visit') %></span>
             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
