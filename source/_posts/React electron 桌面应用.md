@@ -1,5 +1,5 @@
 ---
-title: Git相关收集
+title: React Electron 创建简单桌面应用
 date: 2017-06-20 12:45:40
 tags: 个人整理
 categories: 个人整理
