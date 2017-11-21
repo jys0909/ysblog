@@ -41,7 +41,7 @@ brand: /img/brand.jpg
 favicon: /favicon.ico
 
 # email
-email: 276977683@qq.com
+email: wwtbless@163.com
 
 # 设置 Android L Chrome 浏览器状态栏颜色
 color: '#3F51B5'
@@ -62,13 +62,13 @@ archive_yearly: true
 show_last_updated: true
 
 # 是否开启分享
-share: true
+share: false
 
 # 是否开启打赏，关闭 reward: false
 reward: 
   title: 谢大爷赏~
-  wechat: /img/wechat.jpg     #微信，关闭设为 false
-  alipay: /img/alipay.jpg     #支付宝，关闭设为 false
+  wechat: false     #微信，关闭设为 false
+  alipay: false     #支付宝，关闭设为 false
 
 # 是否开启搜索
 search: true
@@ -82,7 +82,7 @@ toc:
   list_number: false  # 是否显示数字排序
 
 # 文章页留言内容，hexo中所有变量及辅助函数等均可调用，具体请查阅 hexo.io
-postMessage: 轻轻的，你来了;轻轻的，你又走了。。。
+postMessage: false
 # 这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="<%- url_for(page.path).replace(/index\.html$/, '') %>" target="_blank" rel="external"><%- url.replace(/index\.html$/, '') %></a>
 
 # 站长统计，如要开启，输入CNZZ站点id，如 cnzz: 1261927928
