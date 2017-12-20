@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>reactNative 热更新方法 | ぃ 陪_著你笑 | 看不惯你的哭，只想看到你的笑。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="reactNative">
+    <meta name="description" content="1、安装code-push1npm install -g code-push-cli 新用户code-push register会要求用户登录github账户或 微软账户、登录成功后会返回一个key, 输入这个key的值  相关命令:  code-push login 登陆  code-push loout 注销  code-push access-key ls 列出登陆的token code-p">
+<meta name="keywords" content="reactNative">
+<meta property="og:type" content="article">
+<meta property="og:title" content="reactNative 热更新方法">
+<meta property="og:url" content="http://www.g5kk.com/2017/05/13/react-native-code-push/index.html">
+<meta property="og:site_name" content="ぃ 陪_著你笑">
+<meta property="og:description" content="1、安装code-push1npm install -g code-push-cli 新用户code-push register会要求用户登录github账户或 微软账户、登录成功后会返回一个key, 输入这个key的值  相关命令:  code-push login 登陆  code-push loout 注销  code-push access-key ls 列出登陆的token code-p">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-20T13:30:46.855Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="reactNative 热更新方法">
+<meta name="twitter:description" content="1、安装code-push1npm install -g code-push-cli 新用户code-push register会要求用户登录github账户或 微软账户、登录成功后会返回一个key, 输入这个key的值  相关命令:  code-push login 登陆  code-push loout 注销  code-push access-key ls 列出登陆的token code-p">
+    
+        <link rel="alternate" type="application/atom+xml" title="ぃ 陪_著你笑" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jys0909" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                GitHub
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header>
+</header>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、安装code-push"><span class="post-toc-text">1、安装code-push</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、在CodePush上注册app"><span class="post-toc-text">2、在CodePush上注册app</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、项目中添加code-push"><span class="post-toc-text">3、项目中添加code-push</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、添加部署key"><span class="post-toc-text">4、添加部署key</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、修改versionName"><span class="post-toc-text">5、修改versionName</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、添加更新监听"><span class="post-toc-text">6、添加更新监听</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7、打包发布"><span class="post-toc-text">7、打包发布</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8、更新规则"><span class="post-toc-text">8、更新规则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9、修改更新"><span class="post-toc-text">9、修改更新</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10、升级环境"><span class="post-toc-text">10、升级环境</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11、回滚更新"><span class="post-toc-text">11、回滚更新</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-react-native-code-push"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">reactNative 热更新方法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-13 12:48:01" datetime="2017-05-13T12:48:01.000Z"  itemprop="datePublished">2017-05-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/reactNative/">reactNative</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="1、安装code-push"><a href="#1、安装code-push" class="headerlink" title="1、安装code-push"></a>1、安装code-push</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g code-push-cli</span><br></pre></td></tr></table></figure>
+<p>新用户<code>code-push register</code>会要求用户登录github账户或 微软账户、登录成功后会返回一个key, 输入这个key的值</p>
+<blockquote>
+<p>相关命令:</p>
+<ul>
+<li>code-push login 登陆 </li>
+<li>code-push loout 注销 </li>
+<li>code-push access-key ls 列出登陆的token</li>
+<li>code-push access-key rm <accesskye> 删除某个 key值</accesskye></li>
+</ul>
+</blockquote>
+<h3 id="2、在CodePush上注册app"><a href="#2、在CodePush上注册app" class="headerlink" title="2、在CodePush上注册app"></a>2、在CodePush上注册app</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push app add &lt;appName&gt;</span><br></pre></td></tr></table></figure>
+<p>返回如下表格<br>Name | Deployment Key<br>—|—<br>Production | SeGH3j6xEzTU54TWEDMbmFVkJuTRE1IE1U50M<br>Staging |  VfzbGk_YDjTyV8DOtGR3PE1yQ46VE1IE1U50M</p>
+<p>相关命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">add       Add a new app to your account</span><br><span class="line">remove    Remove an app from your account</span><br><span class="line">rm        Remove an app from your account</span><br><span class="line">rename    Rename an existing app</span><br><span class="line">list      Lists the apps associated with your account</span><br><span class="line">ls        Lists the apps associated with your account</span><br><span class="line">transfer  Transfer the ownership of an app to another account</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -v, --version  Show version number  [boolean]</span><br></pre></td></tr></table></figure></p>
+<h3 id="3、项目中添加code-push"><a href="#3、项目中添加code-push" class="headerlink" title="3、项目中添加code-push"></a>3、项目中添加code-push</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react-native-code-push@latest</span><br><span class="line">rnpm link react-native-code-push</span><br></pre></td></tr></table></figure>
+<p>检查 <code>android/app/build.gradle</code>, 添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply from: &quot;../../node_modules/react-native-code-push/android/codepush.gradle&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="4、添加部署key"><a href="#4、添加部署key" class="headerlink" title="4、添加部署key"></a>4、添加部署key</h3><p>查看部署的key<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push deployment  ls &lt;appName&gt; -k</span><br></pre></td></tr></table></figure></p>
+<p>默认的部署名是 staging，所以部署秘钥就是staging<br>在<code>android</code>目录下新建<code>local.properties</code>文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">code_push_key_production=SeGH3j6xEzTU54TWEDMbmFVkJuTRE1IE1U50M</span><br><span class="line">code_push_key_staging=VfzbGk_YDjTyV8DOtGR3PE1yQ46VE1IE1U50M</span><br></pre></td></tr></table></figure></p>
+<p>配置 <code>android/app/build.gradle</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">buildTypes &#123;</span><br><span class="line">    ...</span><br><span class="line">    releaseStaging &#123;</span><br><span class="line">        ...</span><br><span class="line">        buildConfigField &quot;String&quot;, &quot;CODEPUSH_KEY&quot;, &apos;&quot;&apos;+properties.getProperty(&quot;code_push_key_production&quot;)+&apos;&quot;&apos;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">     release &#123;</span><br><span class="line">        ...</span><br><span class="line">        buildConfigField &quot;String&quot;, &quot;CODEPUSH_KEY&quot;, &apos;&quot;&apos;+properties.getProperty(&quot;code_push_key_staging&quot;)+&apos;&quot;&apos;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>更新 <code>MainApplication.java</code>文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">return Arrays.&lt;ReactPackage&gt;asList(</span><br><span class="line">    new MainReactPackage(),</span><br><span class="line">     new CodePush(BuildConfig.CODEPUSH_KEY, MainApplication.this, BuildConfig.DEBUG)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<h3 id="5、修改versionName"><a href="#5、修改versionName" class="headerlink" title="5、修改versionName"></a>5、修改versionName</h3><p>在 <code>android/app/build.gradle</code> 中有个 <code>android.defaultConfig.versionName</code>属性，我们需要把 应用版本改成 1.0.0（默认是1.0，但是codepush需要三位数）</p>
+<p>至此Code-Push 集成完毕。<br>进入 <code>android</code>目录执行<code>gradlew assembleRelease</code>进行一次打包， 看下是否会存在错误， 若出现</p>
+<blockquote>
+<p>No signature of method: java.util.LinkedHashMap.getProperty() is applicable for argument types: (java.lang.String) values:<br>[code_push_key_production]</p>
+</blockquote>
+<p>可能是因react-native 不支持<code>local.properties</code>文件方式保存，修改<code>build.gradle</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">buildTypes &#123;</span><br><span class="line">    releaseStaging &#123;</span><br><span class="line">      buildConfigField &quot;String&quot;, &quot;CODEPUSH_KEY&quot;, &apos;&quot;SeGH3j6xEzTU54TWEDMbmFVkJuTRE1IE1U50M&quot;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    release &#123;</span><br><span class="line">        minifyEnabled enableProguardInReleaseBuilds</span><br><span class="line">        proguardFiles getDefaultProguardFile(&quot;proguard-android.txt&quot;), &quot;proguard-rules.pro&quot;</span><br><span class="line">        signingConfig signingConfigs.release</span><br><span class="line">        buildConfigField &quot;String&quot;, &quot;CODEPUSH_KEY&quot;, &apos;&quot;VfzbGk_YDjTyV8DOtGR3PE1yQ46VE1IE1U50M&quot;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意<code>&#39;&quot;SeGH3j6xEzTU54TWEDMbmFVkJuTRE1IE1U50M&quot;&#39;</code>中的单引号不能去掉， 否则会报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">错误: 找不到符号</span><br><span class="line">  public static final String CODEPUSH_KEY = VfzbGk_YDjTyV8DOtGR3PE1yQ46VE1IE1U50M;</span><br><span class="line">                                            ^</span><br><span class="line">  符号:   变量 VfzbGk_YDjTyV8DOtGR3PE1yQ46VE1IE1U50M</span><br><span class="line">  位置: 类 BuildConfig</span><br></pre></td></tr></table></figure></p>
+<h3 id="6、添加更新监听"><a href="#6、添加更新监听" class="headerlink" title="6、添加更新监听"></a>6、添加更新监听</h3><p>部署完code-push后接下来有两步要做</p>
+<blockquote>
+<ol>
+<li>什么时候检查更新 （在APP启动的时候？在设置页面添加一个检查更新按钮？）</li>
+<li>什么时候可以更新，如何将更新呈现给终端用户？</li>
+</ol>
+</blockquote>
+<p>如果有发布热更新时 mandatory 则 Code Push 会根据 mandatory 是 true 或false 来控制应用是否强制更新。默认情况下 mandatory 为 false 即不强制更新。mandatory 为 false时以下三种设置方法才有效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 第一种:</span><br><span class="line">codePush.sync();</span><br><span class="line"></span><br><span class="line">// 第二种:</span><br><span class="line">codePush.sync(&#123;</span><br><span class="line">    updateDialog: false,</span><br><span class="line">    installMode: codePush.InstallMode.IMMEDIATE</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 第三种:</span><br><span class="line">CodePush.sync(&#123;</span><br><span class="line">    deploymentKey: &apos;deployment-key-here&apos;,</span><br><span class="line">    updateDialog: &#123;</span><br><span class="line">        optionalIgnoreButtonLabel: &apos;稍后&apos;,</span><br><span class="line">        optionalInstallButtonLabel: &apos;后台更新&apos;,</span><br><span class="line">        optionalUpdateMessage: &apos;有新版本了，是否更新？&apos;,</span><br><span class="line">        title: &apos;更新提示&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    installMode: CodePush.InstallMode.IMMEDIATE</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>三种更新的策略: 配置到installMode: 之后即可生效</p>
+<ul>
+<li>IMMEDIATE 立即更新APP</li>
+<li>ON_NEXT_RESTART 到下一次启动应用时</li>
+<li>ON_NEXT_RESUME 当应用从后台返回时</li>
+</ul>
+<h3 id="7、打包发布"><a href="#7、打包发布" class="headerlink" title="7、打包发布"></a>7、打包发布</h3><p>方法1: 只打包js文件,<br>创建一个bundles文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">打包命令: </span><br><span class="line">react-native bundle --platform 平台 --entry-file 启动文件 --bundle-output 打包js输出文件 --assets-dest 资源输出目录 --dev 是否调试</span><br></pre></td></tr></table></figure></p>
+<p>eg:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --platform android --entry-file index.android.js --bundle-output ./bundles/index.android.bundle --dev false</span><br></pre></td></tr></table></figure>
+<p>发布更新</p>
+<p>发布命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ode-push release &lt;应用名称&gt; &lt;Bundles所在目录&gt; &lt;对应的应用版本&gt; --deploymentName 更新环境 --description 更新描述 --mandatory 是否强制更新</span><br></pre></td></tr></table></figure></p>
+<p>eg:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push release DemoApp ./bundles/index.android.bundle 1.0.0 --deploymentName Production --description &quot;第1次更新&quot; --mandatory true</span><br></pre></td></tr></table></figure></p>
+<p>方法2： 打包js + 图片资源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --platform android --entry-file index.android.js --bundle-output ./bundles/index.android.bundle --assets-dest ./bundles --dev false</span><br></pre></td></tr></table></figure>
+<p>–assets-dest 后就是放图片的文件夹路径</p>
+<p>push bundles文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push &lt;release/debug&gt; &lt;projectName(与注册的app同名)&gt;&lt;bundle文件名&gt; &lt;版本号&gt;</span><br></pre></td></tr></table></figure></p>
+<p>eg :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push release appName ./bundles 1.0.0</span><br></pre></td></tr></table></figure></p>
+<h3 id="8、更新规则"><a href="#8、更新规则" class="headerlink" title="8、更新规则"></a>8、更新规则</h3><p>你APP内plist文件写的版本号可能是1.0.0，所以你的reactjs打包上传的版本也要是1.0.0（而不是1.0.1这样递增），你需要和APP保持一致，然后服务器会根据你最新上传的且和APP一样的版本作为最新版。</p>
+<h3 id="9、修改更新"><a href="#9、修改更新" class="headerlink" title="9、修改更新"></a>9、修改更新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Usage: code-push patch &lt;appName&gt; &lt;deploymentName&gt; [--label &lt;label&gt;] [--description &lt;description&gt;] [--disabled] [--mandatory] [--rollout &lt;rolloutPercentage&gt;]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">  --label, -l           指定标签版本更新，默认最新版本 [string] [默认值: null]</span><br><span class="line">  --description, --des  描述  [string] [默认值: null]</span><br><span class="line">  --disabled, -x        是否禁用该更新  [boolean] [默认值: null]</span><br><span class="line">  --mandatory, -m       是否强制更新  [boolean] [默认值: null]</span><br><span class="line">  --rollout, -r         此更新推送用户的百分比，此值仅可以从先前的值增加。  [string] [默认值: null]</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">  code-push patch MyApp Production --des &quot;Updated description&quot; -r 50         修改&quot;MyApp&quot;的&quot;Production&quot;部署中最新更新的描述 ，并且更新推送范围为50％</span><br><span class="line">  code-push patch MyApp Production -l v3 --des &quot;Updated description for v3&quot;  修改&quot;MyApp&quot;的&quot;Production&quot;部署中标签为v3的更新的描述</span><br></pre></td></tr></table></figure>
+<h3 id="10、升级环境"><a href="#10、升级环境" class="headerlink" title="10、升级环境"></a>10、升级环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Usage: code-push promote &lt;appName&gt; &lt;sourceDeploymentName&gt; &lt;destDeploymentName&gt; [--description &lt;description&gt;] [--mandatory] [--rollout &lt;rolloutPercentage&gt;]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">  --description, --des  描述  [string] [默认值: null]</span><br><span class="line">  --disabled, -x        是否禁用该更新  [boolean] [默认值: null]</span><br><span class="line">  --mandatory, -m       是否强制更新  [boolean] [默认值: null]</span><br><span class="line">  --rollout, -r         此促进更新推送用户的百分比  [string] [默认值: null]</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">  code-push promote MyApp Staging Production                                   &quot;MyApp&quot;中&quot;Staging&quot;部署的最新更新发布到&quot;Production&quot;部署中</span><br><span class="line">  code-push promote MyApp Staging Production --des &quot;Production rollout&quot; -r 25  &quot;MyApp&quot;中&quot;Staging&quot;部署的最新更新发布到&quot;Production&quot;部署中, 并且只推送25%的用户</span><br></pre></td></tr></table></figure>
+<h3 id="11、回滚更新"><a href="#11、回滚更新" class="headerlink" title="11、回滚更新"></a>11、回滚更新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Usage: code-push rollback &lt;appName&gt; &lt;deploymentName&gt; [--targetRelease &lt;releaseLabel&gt;]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">  --targetRelease, -r  指定回归到哪个标签，默认是回滚到上一个更新  [string] [默认值: null]</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">  code-push rollback MyApp Production                     &quot;MyApp&quot;中&quot;Production&quot;部署执行回滚</span><br><span class="line">  code-push rollback MyApp Production --targetRelease v4  &quot;MyApp&quot;中&quot;Production&quot;部署执行回滚，回滚到v4这个标签版本</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注： 本博文来自网络</p>
+</blockquote>
+
+        </div>
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-20T13:30:46.855Z" itemprop="dateUpdated">2017-12-20 13:30:46</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://www.g5kk.com">
+            <img src="/img/avatar.png" alt="ぃ 陪_著你笑">
+            ぃ 陪_著你笑
+        </a>
+    </footer>
+</blockquote>
+-->
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactNative/">reactNative</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/05/16/react-auto-doc/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">React组件自动化文档</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/12/list-between-day/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">列出两个日期之间的所有天</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢大爷赏~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

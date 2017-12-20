@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>windows Node 版本管理 | ぃ 陪_著你笑 | 看不惯你的哭，只想看到你的笑。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="node">
+    <meta name="description" content="1、下载 nvm-windows 是 Windows 下的 Node.js 版本管理工具  下载 nvm-window包, 选择最新版本nvm-setup包, 然后进行安装 安装成功后查看下环境变量是否正常$ nvm version  可查看版本">
+<meta name="keywords" content="node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows Node 版本管理">
+<meta property="og:url" content="http://www.g5kk.com/2017/05/11/node-version-manager/index.html">
+<meta property="og:site_name" content="ぃ 陪_著你笑">
+<meta property="og:description" content="1、下载 nvm-windows 是 Windows 下的 Node.js 版本管理工具  下载 nvm-window包, 选择最新版本nvm-setup包, 然后进行安装 安装成功后查看下环境变量是否正常$ nvm version  可查看版本">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://jys0909.github.io/blogImage/nvm/nvm-01.png">
+<meta property="og:image" content="https://jys0909.github.io/blogImage/nvm/nvm-02.png">
+<meta property="og:updated_time" content="2017-12-20T13:30:46.855Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="windows Node 版本管理">
+<meta name="twitter:description" content="1、下载 nvm-windows 是 Windows 下的 Node.js 版本管理工具  下载 nvm-window包, 选择最新版本nvm-setup包, 然后进行安装 安装成功后查看下环境变量是否正常$ nvm version  可查看版本">
+<meta name="twitter:image" content="https://jys0909.github.io/blogImage/nvm/nvm-01.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ぃ 陪_著你笑" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jys0909" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                GitHub
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header>
+</header>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、下载"><span class="post-toc-text">1、下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、使用方法"><span class="post-toc-text">2、使用方法</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-node-version-manager"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">windows Node 版本管理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-11 14:56:00" datetime="2017-05-11T14:56:00.000Z"  itemprop="datePublished">2017-05-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/node/">node</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="1、下载"><a href="#1、下载" class="headerlink" title="1、下载"></a>1、下载</h3><blockquote>
+<p>nvm-windows 是 Windows 下的 Node.js 版本管理工具</p>
+</blockquote>
+<p>下载 <a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="noopener">nvm-window</a>包, 选择最新版本nvm-setup包, 然后进行安装</p>
+<p>安装成功后查看下环境变量是否正常<br><code>$ nvm version</code>  可查看版本</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/nvm/nvm-01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/nvm/nvm-02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="2、使用方法"><a href="#2、使用方法" class="headerlink" title="2、使用方法"></a>2、使用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nvm install v6.10.3 // 安装node 版本</span><br><span class="line">nvm uninstall v6.10.3 // 卸载node 版本</span><br><span class="line">nvm use v6.10.3 // 使用node版本</span><br><span class="line">nvm help  // 查看帮助</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-20T13:30:46.855Z" itemprop="dateUpdated">2017-12-20 13:30:46</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://www.g5kk.com">
+            <img src="/img/avatar.png" alt="ぃ 陪_著你笑">
+            ぃ 陪_著你笑
+        </a>
+    </footer>
+</blockquote>
+-->
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/05/11/loadsh/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">lodash 常用函数</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/11/openAndroidSetting/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">ReactNative 打开手机WiFi设置</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢大爷赏~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

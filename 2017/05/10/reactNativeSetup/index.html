@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>搭建开发环境 | ぃ 陪_著你笑 | 看不惯你的哭，只想看到你的笑。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="reactNative">
+    <meta name="description" content="1、安装ChocolateyChocolatey是一个Windows上的包管理器，类似于linux上的yum和 apt-get。 你可以在其官方网站上查看具体的使用说明。一般的安装步骤应该是下面这样1@powershell -NoProfile -ExecutionPolicy Bypass -Command &amp;quot;iex ((new-object net.webclient).Downlo">
+<meta name="keywords" content="reactNative">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建开发环境">
+<meta property="og:url" content="http://www.g5kk.com/2017/05/10/reactNativeSetup/index.html">
+<meta property="og:site_name" content="ぃ 陪_著你笑">
+<meta property="og:description" content="1、安装ChocolateyChocolatey是一个Windows上的包管理器，类似于linux上的yum和 apt-get。 你可以在其官方网站上查看具体的使用说明。一般的安装步骤应该是下面这样1@powershell -NoProfile -ExecutionPolicy Bypass -Command &amp;quot;iex ((new-object net.webclient).Downlo">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://jys0909.github.io/blogImage/reactnaive_setup/01.png">
+<meta property="og:image" content="https://jys0909.github.io/blogImage/reactnaive_setup/02.png">
+<meta property="og:image" content="https://jys0909.github.io/blogImage/reactnaive_setup/03.png">
+<meta property="og:image" content="https://jys0909.github.io/blogImage/reactnaive_setup/04.png">
+<meta property="og:updated_time" content="2017-12-20T13:30:46.855Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搭建开发环境">
+<meta name="twitter:description" content="1、安装ChocolateyChocolatey是一个Windows上的包管理器，类似于linux上的yum和 apt-get。 你可以在其官方网站上查看具体的使用说明。一般的安装步骤应该是下面这样1@powershell -NoProfile -ExecutionPolicy Bypass -Command &amp;quot;iex ((new-object net.webclient).Downlo">
+<meta name="twitter:image" content="https://jys0909.github.io/blogImage/reactnaive_setup/01.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ぃ 陪_著你笑" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jys0909" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                GitHub
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header>
+</header>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、安装Chocolatey"><span class="post-toc-text">1、安装Chocolatey</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、安装Python-2"><span class="post-toc-text">2、安装Python 2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、Node"><span class="post-toc-text">3、Node</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、Yarn、React-Native的命令行工具（react-native-cli）"><span class="post-toc-text">4、Yarn、React Native的命令行工具（react-native-cli）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、Android-Studio"><span class="post-toc-text">5、Android Studio</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、ANDROID-HOME环境变量"><span class="post-toc-text">6、ANDROID_HOME环境变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7、配置Android-Studio-参数"><span class="post-toc-text">7、配置Android Studio 参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8、安装模拟器-Genymotion"><span class="post-toc-text">8、安装模拟器 Genymotion</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9、测试安装程序"><span class="post-toc-text">9、测试安装程序</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-reactNativeSetup"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">搭建开发环境</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-10 16:56:29" datetime="2017-05-10T16:56:29.000Z"  itemprop="datePublished">2017-05-10</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/reactNative/">reactNative</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="1、安装Chocolatey"><a href="#1、安装Chocolatey" class="headerlink" title="1、安装Chocolatey"></a>1、安装Chocolatey</h3><p>Chocolatey是一个Windows上的包管理器，类似于linux上的yum和 apt-get。 你可以在其官方网站上查看具体的使用说明。一般的安装步骤应该是下面这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@powershell -NoProfile -ExecutionPolicy Bypass -Command &quot;iex ((new-object net.webclient).DownloadString(&apos;https://chocolatey.org/install.ps1&apos;))&quot; &amp;&amp; SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin</span><br></pre></td></tr></table></figure></p>
+<h3 id="2、安装Python-2"><a href="#2、安装Python-2" class="headerlink" title="2、安装Python 2"></a>2、安装Python 2</h3><p>安装了Chocolatey后就可以使用下面的命令了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install python2</span><br></pre></td></tr></table></figure></p>
+<p>注意目前不支持Python 3版本。</p>
+<h3 id="3、Node"><a href="#3、Node" class="headerlink" title="3、Node"></a>3、Node</h3><p>Node环境是必须的，使用稳定版本，不要使用cnpm加速，可用如下加速镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org --global</span><br><span class="line">npm config set disturl https://npm.taobao.org/dist --global</span><br></pre></td></tr></table></figure></p>
+<h3 id="4、Yarn、React-Native的命令行工具（react-native-cli）"><a href="#4、Yarn、React-Native的命令行工具（react-native-cli）" class="headerlink" title="4、Yarn、React Native的命令行工具（react-native-cli）"></a>4、Yarn、React Native的命令行工具（react-native-cli）</h3><p>Yarn是Facebook提供的替代npm的工具，可以加速node模块的下载。React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yarn react-native-cli</span><br></pre></td></tr></table></figure></p>
+<p>安装完yarn后同理也要设置镜像源：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn config set registry https://registry.npm.taobao.org --global</span><br><span class="line">yarn config set disturl https://npm.taobao.org/dist --global</span><br></pre></td></tr></table></figure></p>
+<h3 id="5、Android-Studio"><a href="#5、Android-Studio" class="headerlink" title="5、Android Studio"></a>5、Android Studio</h3><blockquote>
+<p>它不是必须的，主要是为了使用里面的SDK, 版本2.0以上<br>Android Studio需要Java Development Kit [JDK]<br>1.8或更高版本。你可以在命令行中输入 javac<br>-version来查看你当前安装的JDK版本。如果版本不合要求，则<br>可以到 <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">官网</a>上下载。</p>
+</blockquote>
+<h3 id="6、ANDROID-HOME环境变量"><a href="#6、ANDROID-HOME环境变量" class="headerlink" title="6、ANDROID_HOME环境变量"></a>6、ANDROID_HOME环境变量</h3><p>确保ANDROID_HOME环境变量正确地指向了你安装的Android SDK的路径。</p>
+<p>打开控制面板 -&gt; 系统和安全 -&gt; 系统 -&gt; 高级系统设置 -&gt; 高级 -&gt; 环境变量 -&gt; 新建</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/reactnaive_setup/01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="7、配置Android-Studio-参数"><a href="#7、配置Android-Studio-参数" class="headerlink" title="7、配置Android Studio 参数"></a>7、配置Android Studio 参数</h3><p>打开SDK Manager ， 配置如下几个参数<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/reactnaive_setup/02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/reactnaive_setup/03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/reactnaive_setup/04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="8、安装模拟器-Genymotion"><a href="#8、安装模拟器-Genymotion" class="headerlink" title="8、安装模拟器 Genymotion"></a>8、安装模拟器 Genymotion</h3><p>比起Android Studio自带的原装模拟器，Genymotion是一个性能更好的选择，但它只对个人用户免费。</p>
+<blockquote>
+<ol>
+<li>下载和安装<a href="https://www.genymotion.com/download" target="_blank" rel="noopener">Genymotion</a>（genymotion需要依赖VirtualBox虚拟机，下载选项中提供了包含VirtualBox和不包含的选项，请按需选择）。</li>
+<li>打开Genymotion。如果你还没有安装VirtualBox，则此时会提示你安装。</li>
+<li>创建一个新模拟器并启动。</li>
+<li>启动React Native应用后，可以按下F1来打开开发者菜单。</li>
+</ol>
+</blockquote>
+<p>选择合适的下载安装</p>
+<h3 id="9、测试安装程序"><a href="#9、测试安装程序" class="headerlink" title="9、测试安装程序"></a>9、测试安装程序</h3><p>先打开模拟器， 当然使用真机也是可以的。真机的话需要打开USB调试模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">react-native init HelloWord</span><br><span class="line">cd HelloWord</span><br><span class="line">react-native run-android</span><br></pre></td></tr></table></figure></p>
+<p>使用<code>adb devices</code> 查看当前设备</p>
+
+        </div>
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-20T13:30:46.855Z" itemprop="dateUpdated">2017-12-20 13:30:46</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://www.g5kk.com">
+            <img src="/img/avatar.png" alt="ぃ 陪_著你笑">
+            ぃ 陪_著你笑
+        </a>
+    </footer>
+</blockquote>
+-->
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactNative/">reactNative</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/05/11/win10Update/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">关闭win10自动更新</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/10/reactnative/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">reactNative 打包测试</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢大爷赏~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

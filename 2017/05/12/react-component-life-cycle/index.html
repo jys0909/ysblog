@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>React组件生命周期 | ぃ 陪_著你笑 | 看不惯你的哭，只想看到你的笑。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="个人整理">
+    <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647// 字义组件class TodoList extends React.Component &amp;#123;    // 构造函数，在创建组件的时候调用一次    constructor(props, context) &amp;#123;">
+<meta name="keywords" content="个人整理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React组件生命周期">
+<meta property="og:url" content="http://www.g5kk.com/2017/05/12/react-component-life-cycle/index.html">
+<meta property="og:site_name" content="ぃ 陪_著你笑">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647// 字义组件class TodoList extends React.Component &amp;#123;    // 构造函数，在创建组件的时候调用一次    constructor(props, context) &amp;#123;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1814354-4bf62e54553a32b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-12-20T13:30:46.855Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React组件生命周期">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647// 字义组件class TodoList extends React.Component &amp;#123;    // 构造函数，在创建组件的时候调用一次    constructor(props, context) &amp;#123;">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1814354-4bf62e54553a32b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+        <link rel="alternate" type="application/atom+xml" title="ぃ 陪_著你笑" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jys0909" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                GitHub
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header>
+</header>
+
+<div class="container body-wrap">
+    
+<article id="post-react-component-life-cycle"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">React组件生命周期</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-12 10:08:56" datetime="2017-05-12T10:08:56.000Z"  itemprop="datePublished">2017-05-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/个人整理/">个人整理</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">// 字义组件</span><br><span class="line">class TodoList extends React.Component &#123;</span><br><span class="line">    // 构造函数，在创建组件的时候调用一次</span><br><span class="line">    constructor(props, context) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    // 在组件挂载之前调用一次,如果在这个函数里面调用setState，本次的render函数可以看到更新后的state，并且只渲染一次</span><br><span class="line">    void componentWillMount() &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    // 在组件挂载之后调用一次。这个时候，子主键也都挂载好了，可以在这里使用refs</span><br><span class="line">    void componentDidMount() &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    // props是父组件传递给子组件的。父组件发生render的时候子组件就会调用componentWillReceiveProps（不管props有没有更新，也不管父子组件之间有没有数据交换）。</span><br><span class="line">    void componentWillReceiveProps(nextProps) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 组件挂载之后，每次调用setState后都会调用shouldComponentUpdate判断是否需要重新渲染组件。默认返回true，需要重新render。在比较复杂的应用里，有一些数据的改变并不影响界面展示，可以在这里做判断，优化渲染效率。</span><br><span class="line">    bool shouldComponentUpdate(nextProps, nextState) &#123;</span><br><span class="line">        return true</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // shouldComponentUpdate返回true或者调用forceUpdate之后，componentWillUpdate会被调用。</span><br><span class="line">    void componentWillUpdate(nextProps, nextState) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    // 除了首次render之后调用componentDidMount，其它render结束之后都是调用componentDidUpdate。</span><br><span class="line">    void componentDidUpdate() &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    // 组件被卸载的时候调用。一般在componentDidMount里面注册的事件需要在这里删除。</span><br><span class="line">    void componentWillUnmount() &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    // componentWillMount、componentDidMount和componentWillUpdate、componentDidUpdate可以对应起来。区别在于，前者只有在挂载的时候会被调用；而后者在以后的每次更新渲染之后都会被调用</span><br><span class="line">    </span><br><span class="line">    // render是一个React组件所必不可少的核心函数（上面的其它函数都不是必须的）。记住，不要在render里面修改state。</span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                ...</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/1814354-4bf62e54553a32b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>来源：<a href="http://www.jianshu.com/p/4784216b8194" target="_blank" rel="noopener">http://www.jianshu.com/p/4784216b8194</a></p>
+</blockquote>
+
+        </div>
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-20T13:30:46.855Z" itemprop="dateUpdated">2017-12-20 13:30:46</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://www.g5kk.com">
+            <img src="/img/avatar.png" alt="ぃ 陪_著你笑">
+            ぃ 陪_著你笑
+        </a>
+    </footer>
+</blockquote>
+-->
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/个人整理/">个人整理</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/05/12/git-collect/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Git相关收集</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/11/loadsh/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">lodash 常用函数</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢大爷赏~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

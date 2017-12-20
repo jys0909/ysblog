@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[找回iphone 访问限制密码]]></title>
+      <url>/2017/06/22/%E6%89%BE%E5%9B%9Eiphone%20%E8%AE%BF%E9%97%AE%E9%99%90%E5%88%B6%E5%AF%86%E7%A0%81/</url>
+      <content type="html"><![CDATA[<p>最近不小心把 iphone 5s的访问限制密码忘记了， 下面记录找回密码方法:</p>
+<h1 id="1-下载-iBackupBot-for-iTunes"><a href="#1-下载-iBackupBot-for-iTunes" class="headerlink" title="1. 下载 iBackupBot for iTunes"></a>1. 下载 iBackupBot for iTunes</h1><p>iBackupBot官方版是一个为iPad，iPhone和iPod Touch等苹果设备专用的备份管理器软件。iBackupBot可以直接读取备份文件资料，不论是通讯录、短信内容、通话记录、还是照片，都能在其中找到，你只需选择正确的备份文件然后搜索响应的目录直接就能导入导出，甚至还能恢复游戏记录。<br>单独恢复通讯录只需用手机连接电脑，在iBackupBot中打开iTunes备份，选中AddressBook.sqlitedb和AddressBookImages.sqlitedb这实际上就是通讯录的数据库文件备份，点击上方恢复到手机就行了，之后手机就如同在itunes下做恢复一样，不同的是你只恢复了通讯录，非常好用。<br><a href="http://xiazai.xiazaiba.com/Soft/I/iBackupBot_5.4.2_XiaZaiBa.zip?pcid=27567&amp;filename=iBackupBot_5.4.2_XiaZaiBa.zip&amp;downloadtype=xiazaiba_seo" target="_blank" rel="noopener">点击下载</a></p>
+<h1 id="2-安装iTunes"><a href="#2-安装iTunes" class="headerlink" title="2. 安装iTunes,"></a>2. 安装iTunes,</h1><p>安装好后打开iTunes, 找到资料， 然后进行备份</p>
+<h1 id="3-运行iBackupBot"><a href="#3-运行iBackupBot" class="headerlink" title="3. 运行iBackupBot"></a>3. 运行iBackupBot</h1><p>找到 <code>System Files/HomeDomain/Library/Preferences</code> 目录下<code>com.apple.restrictionspassword.plist</code>文件， 并打开， 找到下面的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dict&gt;</span><br><span class="line">    &lt;key&gt;RestrictionsPasswordKey&lt;/key&gt;</span><br><span class="line">     &lt;data&gt;</span><br><span class="line">     HxfREedr37oisGRd+lduyLHkw==</span><br><span class="line">     &lt;/data&gt;</span><br><span class="line">    &lt;key&gt;RestrictionsPasswordSalt&lt;/key&gt;</span><br><span class="line">   &lt;data&gt;</span><br><span class="line">      B7hsGA==</span><br><span class="line">   &lt;/data&gt;</span><br><span class="line">  &lt;/dict&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="4-打开解密网站-http-ios7hash-derson-us"><a href="#4-打开解密网站-http-ios7hash-derson-us" class="headerlink" title="4. 打开解密网站  http://ios7hash.derson.us/"></a>4. 打开解密网站  <a href="http://ios7hash.derson.us/" target="_blank" rel="noopener">http://ios7hash.derson.us/</a></h1><p>对应输入 RestrictionsPasswordKey 和 RestrictionsPasswordSalt 的值 <code>HxfREedr37oisGRd+lduyLHkw==</code><br>和<br><code>B7hsGA==</code><br>后， 点击 <code>Search for Code</code>按钮， 速度很快， 最多20来分钟就可完成解密</p>
+<h1 id="5-另外一个方法"><a href="#5-另外一个方法" class="headerlink" title="5. 另外一个方法"></a>5. 另外一个方法</h1><p>在第3步中同一目录中找到<code>COM.APPLE.SPRINGBOARD.PLIST</code>文件<br>打开文件， 找到如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;countryCode&lt;/key&gt;</span><br><span class="line">　&lt;string&gt;cn&lt;/string&gt;</span><br><span class="line">&lt;/dict&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在这代码下加入下面代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;SBParentalControlsPIN&lt;/key&gt;</span><br><span class="line">&lt;string&gt;1234&lt;/string&gt;</span><br></pre></td></tr></table></figure></p>
+<p>1234就是你的新访问限制密码</p>
+<p>保存，并退出iBackupBot</p>
+<p>然后在<code>iturns</code>里恢复刚修改过的备份到你的设备</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 个人整理 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 个人整理 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[React Electron 创建简单桌面应用]]></title>
+      <url>/2017/06/20/React%20electron%20%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/</url>
+      <content type="html"><![CDATA[<h2 id="Electron简介"><a href="#Electron简介" class="headerlink" title="Electron简介"></a>Electron简介</h2><p>Electron提供了丰富的本地（操作系统）的API，使你能够使用纯JavaScript来创建桌面应用程序</p>
+<h2 id="全局安装Electron"><a href="#全局安装Electron" class="headerlink" title="全局安装Electron"></a>全局安装Electron</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install electron -g</span><br></pre></td></tr></table></figure>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>需要3个文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. main.js</span><br><span class="line">2. package.json</span><br><span class="line">3. index.html</span><br></pre></td></tr></table></figure></p>
+<h3 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h3><p>main.js是在根目录， 而不是src目录，内容如下：<br>对英文菜单实在不感冒， 换成了中文。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br></pre></td><td class="code"><pre><span class="line">const electron = require(&apos;electron&apos;)</span><br><span class="line">const BrowserWindow = electron.BrowserWindow</span><br><span class="line">// const Menu = electron.Menu</span><br><span class="line">const app = electron.app</span><br><span class="line">const path = require(&apos;path&apos;)</span><br><span class="line">const url = require(&apos;url&apos;)</span><br><span class="line">const pkg = require(&apos;./package.json&apos;)</span><br><span class="line">const Menu = electron.Menu</span><br><span class="line">// Keep a global reference of the window object, if you don&apos;t, the window will</span><br><span class="line">// be closed automatically when the JavaScript object is garbage collected.</span><br><span class="line">let win</span><br><span class="line">let template = [&#123;</span><br><span class="line">  label: &apos;编辑&apos;,</span><br><span class="line">  submenu: [&#123;</span><br><span class="line">    label: &apos;撤销&apos;,</span><br><span class="line">    accelerator: &apos;CmdOrCtrl+Z&apos;,</span><br><span class="line">    role: &apos;undo&apos;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    label: &apos;重做&apos;,</span><br><span class="line">    accelerator: &apos;Shift+CmdOrCtrl+Z&apos;,</span><br><span class="line">    role: &apos;redo&apos;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    type: &apos;separator&apos;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    label: &apos;剪切&apos;,</span><br><span class="line">    accelerator: &apos;CmdOrCtrl+X&apos;,</span><br><span class="line">    role: &apos;cut&apos;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    label: &apos;复制&apos;,</span><br><span class="line">    accelerator: &apos;CmdOrCtrl+C&apos;,</span><br><span class="line">    role: &apos;copy&apos;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    label: &apos;粘贴&apos;,</span><br><span class="line">    accelerator: &apos;CmdOrCtrl+V&apos;,</span><br><span class="line">    role: &apos;paste&apos;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    label: &apos;全选&apos;,</span><br><span class="line">    accelerator: &apos;CmdOrCtrl+A&apos;,</span><br><span class="line">    role: &apos;selectall&apos;</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;, &#123;</span><br><span class="line">  label: &apos;查看&apos;,</span><br><span class="line">  submenu: [&#123;</span><br><span class="line">    label: &apos;重载&apos;,</span><br><span class="line">    accelerator: &apos;CmdOrCtrl+R&apos;,</span><br><span class="line">    click: function (item, focusedWindow) &#123;</span><br><span class="line">      if (focusedWindow) &#123;</span><br><span class="line">        // 重载之后, 刷新并关闭所有的次要窗体</span><br><span class="line">        if (focusedWindow.id === 1) &#123;</span><br><span class="line">          BrowserWindow.getAllWindows().forEach(function (win) &#123;</span><br><span class="line">            if (win.id &gt; 1) &#123;</span><br><span class="line">              win.close()</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        focusedWindow.reload()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    label: &apos;切换全屏&apos;,</span><br><span class="line">    accelerator: (function () &#123;</span><br><span class="line">      if (process.platform === &apos;darwin&apos;) &#123;</span><br><span class="line">        return &apos;Ctrl+Command+F&apos;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        return &apos;F11&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)(),</span><br><span class="line">    click: function (item, focusedWindow) &#123;</span><br><span class="line">      if (focusedWindow) &#123;</span><br><span class="line">        focusedWindow.setFullScreen(!focusedWindow.isFullScreen())</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    label: &apos;切换开发者工具&apos;,</span><br><span class="line">    accelerator: (function () &#123;</span><br><span class="line">      if (process.platform === &apos;darwin&apos;) &#123;</span><br><span class="line">        return &apos;Alt+Command+I&apos;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        return &apos;Ctrl+Shift+I&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)(),</span><br><span class="line">    click: function (item, focusedWindow) &#123;</span><br><span class="line">      if (focusedWindow) &#123;</span><br><span class="line">        focusedWindow.toggleDevTools()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    type: &apos;separator&apos;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    label: &apos;应用程序菜单演示&apos;,</span><br><span class="line">    click: function (item, focusedWindow) &#123;</span><br><span class="line">      if (focusedWindow) &#123;</span><br><span class="line">        const options = &#123;</span><br><span class="line">          type: &apos;info&apos;,</span><br><span class="line">          title: &apos;应用程序菜单演示&apos;,</span><br><span class="line">          buttons: [&apos;好的&apos;],</span><br><span class="line">          message: &apos;此演示用于 &quot;菜单&quot; 部分, 展示如何在应用程序菜单中创建可点击的菜单项.&apos;</span><br><span class="line">        &#125;</span><br><span class="line">        electron.dialog.showMessageBox(focusedWindow, options, function () &#123;&#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;, &#123;</span><br><span class="line">  label: &apos;窗口&apos;,</span><br><span class="line">  role: &apos;window&apos;,</span><br><span class="line">  submenu: [&#123;</span><br><span class="line">    label: &apos;最小化&apos;,</span><br><span class="line">    accelerator: &apos;CmdOrCtrl+M&apos;,</span><br><span class="line">    role: &apos;minimize&apos;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    label: &apos;关闭&apos;,</span><br><span class="line">    accelerator: &apos;CmdOrCtrl+W&apos;,</span><br><span class="line">    role: &apos;close&apos;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    type: &apos;separator&apos;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    label: &apos;重新打开窗口&apos;,</span><br><span class="line">    accelerator: &apos;CmdOrCtrl+Shift+T&apos;,</span><br><span class="line">    enabled: false,</span><br><span class="line">    key: &apos;reopenMenuItem&apos;,</span><br><span class="line">    click: function () &#123;</span><br><span class="line">      app.emit(&apos;activate&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;, &#123;</span><br><span class="line">  label: &apos;帮助&apos;,</span><br><span class="line">  role: &apos;help&apos;,</span><br><span class="line">  submenu: [&#123;</span><br><span class="line">    label: &apos;学习更多&apos;,</span><br><span class="line">    click: function () &#123;</span><br><span class="line">      electron.shell.openExternal(&apos;http://electron.atom.io&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;]</span><br><span class="line"></span><br><span class="line">function addUpdateMenuItems (items, position) &#123;</span><br><span class="line">  if (process.mas) return</span><br><span class="line"></span><br><span class="line">  const version = electron.app.getVersion()</span><br><span class="line">  let updateItems = [&#123;</span><br><span class="line">    label: `Version $&#123;version&#125;`,</span><br><span class="line">    enabled: false</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    label: &apos;正在检查更新&apos;,</span><br><span class="line">    enabled: false,</span><br><span class="line">    key: &apos;checkingForUpdate&apos;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    label: &apos;检查更新&apos;,</span><br><span class="line">    visible: false,</span><br><span class="line">    key: &apos;checkForUpdate&apos;,</span><br><span class="line">    click: function () &#123;</span><br><span class="line">      require(&apos;electron&apos;).autoUpdater.checkForUpdates()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    label: &apos;重启并安装更新&apos;,</span><br><span class="line">    enabled: true,</span><br><span class="line">    visible: false,</span><br><span class="line">    key: &apos;restartToUpdate&apos;,</span><br><span class="line">    click: function () &#123;</span><br><span class="line">      require(&apos;electron&apos;).autoUpdater.quitAndInstall()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;]</span><br><span class="line"></span><br><span class="line">  items.splice.apply(items, [position, 0].concat(updateItems))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function findReopenMenuItem () &#123;</span><br><span class="line">  const menu = Menu.getApplicationMenu()</span><br><span class="line">  if (!menu) return</span><br><span class="line"></span><br><span class="line">  let reopenMenuItem</span><br><span class="line">  menu.items.forEach(function (item) &#123;</span><br><span class="line">    if (item.submenu) &#123;</span><br><span class="line">      item.submenu.items.forEach(function (item) &#123;</span><br><span class="line">        if (item.key === &apos;reopenMenuItem&apos;) &#123;</span><br><span class="line">          reopenMenuItem = item</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  return reopenMenuItem</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (process.platform === &apos;darwin&apos;) &#123;</span><br><span class="line">  const name = electron.app.getName()</span><br><span class="line">  template.unshift(&#123;</span><br><span class="line">    label: name,</span><br><span class="line">    submenu: [&#123;</span><br><span class="line">      label: `关于 $&#123;name&#125;`,</span><br><span class="line">      role: &apos;about&apos;</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      type: &apos;separator&apos;</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      label: &apos;服务&apos;,</span><br><span class="line">      role: &apos;services&apos;,</span><br><span class="line">      submenu: []</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      type: &apos;separator&apos;</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      label: `隐藏 $&#123;name&#125;`,</span><br><span class="line">      accelerator: &apos;Command+H&apos;,</span><br><span class="line">      role: &apos;hide&apos;</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      label: &apos;隐藏其它&apos;,</span><br><span class="line">      accelerator: &apos;Command+Alt+H&apos;,</span><br><span class="line">      role: &apos;hideothers&apos;</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      label: &apos;显示全部&apos;,</span><br><span class="line">      role: &apos;unhide&apos;</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      type: &apos;separator&apos;</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      label: &apos;退出&apos;,</span><br><span class="line">      accelerator: &apos;Command+Q&apos;,</span><br><span class="line">      click: function () &#123;</span><br><span class="line">        app.quit()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  // 窗口菜单.</span><br><span class="line">  template[3].submenu.push(&#123;</span><br><span class="line">    type: &apos;separator&apos;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    label: &apos;前置所有&apos;,</span><br><span class="line">    role: &apos;front&apos;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  addUpdateMenuItems(template[0].submenu, 1)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (process.platform === &apos;win32&apos;) &#123;</span><br><span class="line">  const helpMenu = template[template.length - 1].submenu</span><br><span class="line">  addUpdateMenuItems(helpMenu, 0)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function createWindow() &#123;</span><br><span class="line">    // Create the browser window.</span><br><span class="line">    win = new BrowserWindow(&#123;width: 1100, height: 800&#125;)</span><br><span class="line"></span><br><span class="line">    // and load the index.html of the app.   win.loadURL(url.format(&#123;     pathname:</span><br><span class="line">    // path.join(__dirname, &apos;./build/index.html&apos;),     protocol: &apos;file:&apos;,</span><br><span class="line">    // slashes: true   &#125;)) 判断是否是开发模式</span><br><span class="line">    // if (pkg.DEV) &#123;</span><br><span class="line">        win.loadURL(&quot;http://localhost:3000/&quot;)</span><br><span class="line">    // &#125; else &#123;</span><br><span class="line">    //     win.loadURL(url.format(&#123;</span><br><span class="line">    //         pathname: path.join(__dirname, &apos;./build/index.html&apos;),</span><br><span class="line">    //         protocol: &apos;file:&apos;,</span><br><span class="line">    //         slashes: true</span><br><span class="line">    //     &#125;))</span><br><span class="line">    // &#125;</span><br><span class="line">    //  win.loadURL(&apos;http://localhost:3000/&apos;) Open the DevTools.</span><br><span class="line">    // win.webContents.openDevTools()</span><br><span class="line">    // console.log(win.webContents);</span><br><span class="line">    // Emitted when the window is closed.</span><br><span class="line">    win.on(&apos;closed&apos;, () =&gt; &#123;</span><br><span class="line">        // Dereference the window object, usually you would store windows in an array if</span><br><span class="line">        // your app supports multi windows, this is the time when you should delete the</span><br><span class="line">        // corresponding element.</span><br><span class="line">        win = null</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// This method will be called when Electron has finished initialization and is</span><br><span class="line">// ready to create browser windows. Some APIs can only be used after this event</span><br><span class="line">// occurs.</span><br><span class="line">app.on(&apos;ready&apos;, function () &#123;</span><br><span class="line">  createWindow();</span><br><span class="line">  const menu = Menu.buildFromTemplate(template)</span><br><span class="line">  Menu.setApplicationMenu(menu)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.on(&apos;browser-window-created&apos;, function () &#123;</span><br><span class="line">  let reopenMenuItem = findReopenMenuItem()</span><br><span class="line">  if (reopenMenuItem) reopenMenuItem.enabled = false</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// app.on(&apos;window-all-closed&apos;, function () &#123;</span><br><span class="line">//   let reopenMenuItem = findReopenMenuItem()</span><br><span class="line">//   if (reopenMenuItem) reopenMenuItem.enabled = true</span><br><span class="line">// &#125;)</span><br><span class="line">// Quit when all windows are closed.</span><br><span class="line">app.on(&apos;window-all-closed&apos;, () =&gt; &#123;</span><br><span class="line">    // On macOS it is common for applications and their menu bar to stay active</span><br><span class="line">    // until the user quits explicitly with Cmd + Q</span><br><span class="line">    win = null</span><br><span class="line">    let reopenMenuItem = findReopenMenuItem()</span><br><span class="line">    if (reopenMenuItem) reopenMenuItem.enabled = true</span><br><span class="line">    if (process.platform !== &apos;darwin&apos;) &#123;</span><br><span class="line">        app.quit()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.on(&apos;activate&apos;, () =&gt; &#123;</span><br><span class="line">    // On macOS it&apos;s common to re-create a window in the app when the dock icon is</span><br><span class="line">    // clicked and there are no other windows open.</span><br><span class="line">    if (win === null) &#123;</span><br><span class="line">        createWindow()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// In this file you can include the rest of your app&apos;s specific main process</span><br><span class="line">// code. You can also put them in separate files and require them here.</span><br></pre></td></tr></table></figure></p>
+<h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>在<code>package.json</code>下添加如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;main&quot;: &quot;./main.js&quot;,</span><br><span class="line">&quot;homepage&quot;: &quot;.&quot;</span><br></pre></td></tr></table></figure></p>
+<p>React 项目build后生成build文件夹， 将里面的index当作win启动文件。<br>最后在项目下运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">electron .</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 个人整理 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 个人整理 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[JQuery + Gulp + Bootstrap + browserify + Express 搭建前端框架]]></title>
+      <url>/2017/05/26/jq-bt-express-bw/</url>
+      <content type="html"><![CDATA[<h1 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h1><p>新建项目文件夹 web<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; cd web </span><br><span class="line">&gt; express</span><br></pre></td></tr></table></figure></p>
+<p>修改app.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.set(&apos;views&apos;, path.join(__dirname, &apos;views&apos;));</span><br><span class="line">// setting view engine</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br><span class="line">app.engine(&apos;html&apos;, require(&apos;ejs-mate&apos;));</span><br></pre></td></tr></table></figure></p>
+<p>这样我们就可以使用<code>.html</code>文件来编写代码了, 将view下面自动生成的<code>.ejs</code>改成<code>.html</code></p>
+<h1 id="安装-browserify-JQuery-Bootstrap-browserify-shim"><a href="#安装-browserify-JQuery-Bootstrap-browserify-shim" class="headerlink" title="安装 browserify, JQuery, Bootstrap ,browserify-shim"></a>安装 browserify, JQuery, Bootstrap ,browserify-shim</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install browserify --save </span><br><span class="line">npm install browserify-shim --save // 可以使用似如jquery的插件变</span><br><span class="line">npm install jquery --save</span><br><span class="line">npm install bootstrap --save</span><br></pre></td></tr></table></figure>
+<p>browserify-shim 如何使用？<br>在package.json下面添加如下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&quot;browserify&quot;: &#123;</span><br><span class="line">    &quot;transform&quot;: [</span><br><span class="line">      &quot;browserify-shim&quot;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;browser&quot;: &#123;</span><br><span class="line">    // 添加jquery.pep 插件</span><br><span class="line">    &quot;jquery.pep&quot;: &quot;./node_modules/jquery.pep.js/src/jquery.pep.js&quot;,</span><br><span class="line">    // 添加bootstrap插件</span><br><span class="line">    &quot;bootstrap&quot;: &quot;./node_modules/bootstrap/dist/js/bootstrap.min.js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;browserify-shim&quot;: &#123;</span><br><span class="line">  // 添加jquery.pep 插件</span><br><span class="line">    &quot;jquery.pep&quot;: &#123;</span><br><span class="line">      &quot;depends&quot;: [</span><br><span class="line">        &quot;jquery:jQuery&quot;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    // 添加bootstrap插件</span><br><span class="line">    &quot;bootstrap&quot;: &#123;</span><br><span class="line">      &quot;depends&quot;: [</span><br><span class="line">        &quot;jquery:jQuery&quot;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="安装-Gulp"><a href="#安装-Gulp" class="headerlink" title="安装 Gulp"></a>安装 Gulp</h1>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp -g</span><br></pre></td></tr></table></figure>
+<p>  根目录添加<code>gulpfile.js</code>内容如下<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">  var gulp = require(&quot;gulp&quot;);</span><br><span class="line">var browserify = require(&quot;browserify&quot;);</span><br><span class="line">var sourcemaps = require(&quot;gulp-sourcemaps&quot;);</span><br><span class="line">var source = require(&apos;vinyl-source-stream&apos;);</span><br><span class="line">var buffer = require(&apos;vinyl-buffer&apos;);</span><br><span class="line"> </span><br><span class="line">gulp.task(&quot;browserify&quot;, function () &#123;</span><br><span class="line"> var b = browserify(&#123;</span><br><span class="line">  entries: &quot;./static/src/main.js&quot;,</span><br><span class="line">  debug: false</span><br><span class="line"> &#125;);</span><br><span class="line"> </span><br><span class="line"> return b.bundle()</span><br><span class="line">  .pipe(source(&quot;bundle.js&quot;))</span><br><span class="line">  .pipe(buffer())</span><br><span class="line">  .pipe(sourcemaps.init(&#123;loadMaps: true&#125;))</span><br><span class="line">  .pipe(sourcemaps.write(&quot;.&quot;))</span><br><span class="line">  .pipe(gulp.dest(&quot;./static/dist&quot;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>意思是创建<code>browserify</code>任务， 执行<code>browserify</code>编译<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; gulp browserify</span><br></pre></td></tr></table></figure></p>
+<p>会将<code>./static/src/main.js</code>文件及所有依赖打包成<code>.static/dist/bundle.js</code></p>
+<p>main.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var $ = require(&quot;jquery&quot;);</span><br><span class="line">require(&quot;bootstrap&quot;); </span><br><span class="line">require(&quot;jquery.pep&quot;);</span><br><span class="line">$(&quot;.move-box&quot;).pep(&#123;</span><br><span class="line">  useCSSTranslation: false,</span><br><span class="line">  constrainTo: &apos;parent&apos;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>然后index.html 中引用<code>.static/dist/bundle.js</code>就可以了</p>
+<blockquote>
+<p>注： browserify 也可以打包并可以调试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">browserify main.js --debug | exorcist bundle.js.map &gt; bundle.js</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>也可以给gulp添加一个watch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(&quot;watch&quot;,function()&#123;</span><br><span class="line">  gulp.watch(&quot;./static/src/main.js&quot;,[&quot;browserify&quot;]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>这时候修改<code>main.js</code>可以看出效果了</p>
+<p>gulp绑定多个文件</p>
+<p>如果构建的js很多，添加如下插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install gulp-rename --save</span><br><span class="line">cnpm install event-stream --save</span><br></pre></td></tr></table></figure></p>
+<p>修改<code>gulpfile.js</code>文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">var rename = require(&apos;gulp-rename&apos;);</span><br><span class="line">var browserify = require(&apos;browserify&apos;);</span><br><span class="line">var es = require(&apos;event-stream&apos;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;browserify&apos;, function()&#123;</span><br><span class="line">    //定义多个入口文件</span><br><span class="line">    var entityFiles = [</span><br><span class="line">        &apos;./static/src/main.js&apos;,</span><br><span class="line">        &apos;./static/src/log.js&apos;,</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    //遍历映射这些入口文件</span><br><span class="line">    var tasks = entityFiles.map(function(entity)&#123;</span><br><span class="line">        return browserify(&#123;entries: [entity]&#125;)</span><br><span class="line">            .bundle()</span><br><span class="line">            .pipe(source(entity))</span><br><span class="line">            .pipe(rename(&#123;</span><br><span class="line">                extname: &apos;.bundle.js&apos;,</span><br><span class="line">                dirname: &apos;&apos;</span><br><span class="line">            &#125;))</span><br><span class="line">            .pipe(gulp.dest(&apos;./static/dist&apos;));</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    //创建一个合并流</span><br><span class="line">    return es.merge.apply(null, tasks);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>下面看另一种<code>glob</code>插件方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install glob --save;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">var source = require(&apos;vinyl-source-stream&apos;);</span><br><span class="line">var rename = require(&apos;gulp-rename&apos;);</span><br><span class="line">var browserify = require(&apos;browserify&apos;);</span><br><span class="line">var es = require(&apos;event-stream&apos;);</span><br><span class="line">var glob = require(&apos;glob&apos;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;browserify&apos;, function(done)&#123;</span><br><span class="line">    glob(&apos;./static/src/*.js&apos;, function(err, files) &#123;</span><br><span class="line">        if(err) done(err);</span><br><span class="line"></span><br><span class="line">        var tasks = files.map(function(entry) &#123;</span><br><span class="line">            return browserify(&#123; entries: [entry] &#125;)</span><br><span class="line">                .bundle()</span><br><span class="line">                .pipe(source(entry))</span><br><span class="line">                .pipe(rename(&#123;</span><br><span class="line">                    extname: &apos;.bundle.js&apos;,</span><br><span class="line">                    dirname: &apos;&apos;</span><br><span class="line">                &#125;))</span><br><span class="line">                .pipe(gulp.dest(&apos;./static/dist&apos;));</span><br><span class="line">            &#125;);</span><br><span class="line">        es.merge(tasks).on(&apos;end&apos;, done);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&quot;watch&quot;,function()&#123;</span><br><span class="line">  gulp.watch(&quot;./static/src/*.js&quot;,[&quot;browserify&quot;]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="随便介绍下-合并压缩Css"><a href="#随便介绍下-合并压缩Css" class="headerlink" title="随便介绍下 合并压缩Css"></a>随便介绍下 合并压缩Css</h3><p>用到的包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ar concat = require(&apos;gulp-concat&apos;); //- 多个文件合并为一个；</span><br><span class="line">var cssmin = require(&apos;gulp-minify-css&apos;); //- 压缩CSS为一行；</span><br><span class="line">var rev = require(&apos;gulp-rev&apos;);  //- 对文件名加MD5后缀</span><br><span class="line">var revCollector = require(&apos;gulp-rev-collector&apos;); //- 路径替换</span><br><span class="line">var cssver = require(&apos;gulp-make-css-url-version&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>在<code>gulpfile.js</code>中添加如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(&apos;Cssmin&apos;, function() &#123;                              //- 创建一个名为 concat 的 task</span><br><span class="line">    gulp.src(&apos;./static/css/*.css&apos;)    //- 需要处理的css文件</span><br><span class="line">        .pipe(cssver()) </span><br><span class="line">		.pipe(concat(&apos;default.min.css&apos;)) // 合并成一个文件名</span><br><span class="line">		.pipe(rev()) // 文件名加MD5后缀</span><br><span class="line">		.pipe(cssmin()) // 压缩成一行</span><br><span class="line">        .pipe(gulp.dest(&apos;./static/dist&apos;))  //  输出文件本地</span><br><span class="line">		.pipe(rev.manifest()) //- 生成一个rev-manifest.json</span><br><span class="line">		.pipe(gulp.dest(&apos;./static/rev&apos;));  //- 将 rev-manifest.json 保存到 rev 目录内</span><br><span class="line">		</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;rev&apos;, function() &#123;</span><br><span class="line">    gulp.src([&apos;./static/rev/*.json&apos;, &apos;./view/*.html&apos;])   		//- 读取 rev-manifest.json 文件以及需要进行css名替换的文件</span><br><span class="line">        .pipe(revCollector())                                   //- 执行文件内css名的替换</span><br><span class="line">        .pipe(gulp.dest(&apos;./view/&apos;));                     		//- 替换后的文件输出的目录</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;default&apos;, [&apos;Cssmin&apos;, &apos;rev&apos;]);</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 个人整理 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 个人整理 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[如何在 React+Redux 的项目中更优雅的实现前端自动化测试]]></title>
+      <url>/2017/05/16/react-redux-test/</url>
+      <content type="html"><![CDATA[<p>乘着改革开放的浪潮，这段时间我们终于接触到非常火热的前端项目构架React+Redux。</p>
+<p>这个构架下的前端项目，最大的优点就是Redux鼓励各个组件无状态化(no state)，利用store统一管理state，从而使各个组件之间相对更加独立和易于维护，使得前端的构架更加简单化。下图中左边是经典React中各组件的层级关系，右边是引入Redux之后的层级。在左图中，当修改父节点/组件时，子组件也可能会被破坏掉；而右图中能够影响到各个组件的因素只有state。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/1744544-dcfd2a455d06f188.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在传统JS Web项目中的自动化测试，通常会有这些比较突出的问题</p>
+<ul>
+<li>UI自动化功能测试受制于环境(运行os,浏览器等)维护困难，运行缓慢，而且非常容易因为前端变化而被破坏。</li>
+<li>单元测试覆盖点有限，无法覆盖所有的测试点。</li>
+</ul>
+<p>那么作为新技术的React+Redux的出现，会不会给也测试带来一些新的思路或者机会来解决这些问题呢？比如放弃掉经典的UI自动化测试？</p>
+<p>作为浸泡在测试金字塔理论中多年的吃瓜的测试群众，我对越低层的测试成本更少、反馈问题更快这个道理深以为然。所以在面对这样的新鲜事物的时候，总愿意去分析下是否可以结合项目的技术特点，尽量把自动化测试往低层移，减少成本，加速反馈周期。还可以把锅甩给研发同学。</p>
+<h1 id="分析可行性"><a href="#分析可行性" class="headerlink" title="分析可行性"></a>分析可行性</h1><p>为了分析技术上实现的可行性，我们至少需要知道React和Redux的一些基本概念：</p>
+<ul>
+<li>Store : 全局唯一的对象，用来保存state</li>
+<li>State : 某个时间点上state的快照，和改时间点上的view应该是一一对应的</li>
+<li>Action : view 通过store.dispatch(action)发出的通知，表示 state 应该要发生变化了。</li>
+<li>Reducer : 接受action和当前state，返回新的state的函数</li>
+<li>UI Component : 纯负责显示UI，无状态</li>
+<li>Container (Component): 负责一些业务逻辑和connect UI组件</li>
+<li>Provider : React-Redux库的让react组件拿到新的state的方法</li>
+</ul>
+<p>还需要了解Redux大致的工作流程：</p>
+<ol>
+<li>用户操作view触发action</li>
+<li>store被action通知state要变化了，调用reducer</li>
+<li>reducer计算新的 state应该是啥样，返回新的state给store</li>
+<li>store通过react组件把新的state对应的view显示给客户</li>
+</ol>
+<p>我刚好写了个简单的<a href="https://github.com/xuxtc/react-redux-demo" target="_blank" rel="noopener">demo</a>，能大概看懂这个demo中，各个组件是做什么的，如何工作的，对后面的内容有极大帮助。demo使用了webpack作为打包和本地运行工具</p>
+<p>这么看起来，redux通过state-view一一对应的架构保证了只要view变，state一定变，反之亦然。这种一一对应的关系减少了组件之间发生关联(变化)的可能性，从而减轻了测试复杂度。最后再总结一下，发现针对该架构的自动化测试其实只需要保证下面几点就够了：</p>
+<ul>
+<li>各个单独组件能够正常显示DOM元素</li>
+<li>如果state改变了, 那么我只需要确保相应的view发生了变化</li>
+<li>如果view发生了改变, 那么我只需要确保相应的state存进了store</li>
+</ul>
+<h1 id="验证分析结果"><a href="#验证分析结果" class="headerlink" title="验证分析结果"></a>验证分析结果</h1><p>从上面儿的分析结果来看，只用低层测试来保证质量的想法，好像有点儿靠谱的样子。接下来就是做一些小的demo来验证下真实项目中是否行得通。</p>
+<p>好的单元测试应该有哪些特点呢？</p>
+<ul>
+<li>简单易懂。最好是BDD风格的，一眼就可以看出你在测试什么，减少维护成本</li>
+<li>高覆盖率，研发重构的时候会更有信心</li>
+<li>跑的快，不要有额外的工作(例如维护复杂的环境依赖等)</li>
+<li>从客户价值(business value)角度出发，确保软件的可交付性。</li>
+</ul>
+<p>那么首先，我们应该是尽量选择一款满足上面需求的测试工具。</p>
+<h4 id="测试工具选择"><a href="#测试工具选择" class="headerlink" title="测试工具选择"></a>测试工具选择</h4><p>满足上面条件的JS前端单元测试工具/框架很多，比较流行的是mocha+chai、JEST等。这里我们使用<a href="http://facebook.github.io/jest/" target="_blank" rel="noopener">JEST</a>测试框架和<a href="http://airbnb.io/enzyme/index.html" target="_blank" rel="noopener">Enzyme</a>测试工具库。</p>
+<p>经过实际使用后发现，JEST对比Mocha来说，虽然运行速度上感觉比Mocha稍慢，但是因为如下几个优点最后胜出：</p>
+<ul>
+<li>和React师出同门，FB官方支持</li>
+<li>已经集成了测试覆盖率检查、mock等功能，不需要安装额外的库</li>
+<li>文档完备，官方提供了和babel、webpack集成情况下以及异步调用的测试解决方案</li>
+<li>官方提供snapshot testing解决方案</li>
+</ul>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>JEST 和 Enzyme 官方提供了详细的安装指导，实际安装完成后发现还是有坑。这里把安装过程重新梳理下。</p>
+<p>首先是JEST<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev jest</span><br></pre></td></tr></table></figure></p>
+<p>如果需要在测试项目中使用<code>babel</code>，还需要额外安装<code>babel-jest</code>,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev babel-jest</span><br></pre></td></tr></table></figure></p>
+<p>然后是Enzyme,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install enzyme --save-dev</span><br></pre></td></tr></table></figure></p>
+<p>如果使用的是react13以上的版本，则需要额外安装<code>react-addons-test-utils</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save-dev react-addons-test-utils</span><br></pre></td></tr></table></figure></p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>安装完成后，就可以开始写测试啦~<br>不要方！JEST运行基础功能虽然无需配置，但是官方依然提供了配置选项来实现个性化需求。</p>
+<p>例如，在单元测试覆盖率检查的时候，默认只检查被测试文件所使用到的源文件的覆盖率。然而，我们可以通过在package.json文件中配置jest的collectCoverageFrom参数，来指定检查所有需要测试的文件(无论源文件有没有被测试文件使用到）</p>
+<p>以上面提到的demo为例。我们需要确定单元测试的范围–目标测试的文件是<code>src</code>文件夹下面的<code>.jsx</code>或者<code>js</code>文件，同时需要忽略其中的一些配置性质的<code>jsx/js</code>，比如<code>store.js</code>、<code>provider.jsx</code>和用于合并<code>reducer</code>的<code>index.js</code>。另外，还有覆盖率检查的时候生成<code>coverage</code>文件夹下面的js，编译后在<code>dist</code>文件夹下面生成的<code>js</code>文件，以及<code>webpack</code>的<code>config</code>文件都不需要测试。那么我们就在<code>package.json</code>里面加上这样一段内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&quot;jest&quot;: &#123;</span><br><span class="line">    &quot;collectCoverageFrom&quot; : [</span><br><span class="line">      &quot;**/*.&#123;js,jsx&#125;&quot;,</span><br><span class="line">      &quot;!**/coverage/**&quot;,</span><br><span class="line">      &quot;!**/dist/**&quot;,</span><br><span class="line">      &quot;!**/store.js&quot;,</span><br><span class="line">      &quot;!**/provider.jsx&quot;,</span><br><span class="line">      &quot;!**/index.js&quot;,</span><br><span class="line">      &quot;!**/webpack.config.js&quot;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后给我们单元测试的覆盖率定个小目标，95%吧。只有当测试覆盖率大于等于这个比例的时候测试才会通过。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&quot;jest&quot;: &#123;</span><br><span class="line">  &quot;collectCoverageFrom&quot; : [</span><br><span class="line">    &quot;**/*.&#123;js,jsx&#125;&quot;,</span><br><span class="line">    &quot;!**/coverage/**&quot;,</span><br><span class="line">    &quot;!**/store.js&quot;,</span><br><span class="line">    &quot;!**/provider.jsx&quot;,</span><br><span class="line">    &quot;!**/index.js&quot;,</span><br><span class="line">    &quot;!**/webpack.config.js&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;coverageThreshold&quot;: &#123;</span><br><span class="line">    &quot;global&quot;: &#123;</span><br><span class="line">      &quot;branches&quot;: 95,</span><br><span class="line">      &quot;functions&quot;: 95,</span><br><span class="line">      &quot;lines&quot;: 95,</span><br><span class="line">      &quot;statements&quot;: 95</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>JEST配置选项有很多有用的功能，例如指定加载启动文件、指定moduleNameMapper、指定别名等。<a href="http://facebook.github.io/jest/docs/configuration.html" target="_blank" rel="noopener">详见这里</a>。</p>
+<p>最后，我们还要给执行JEST加上一个命令：在package.json文件的scripts区域中增加一句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  ...</span><br><span class="line">  &quot;test&quot;: &quot;jest&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样，我们就可以通过 <code>npm test</code> 命令来跑测试了。</p>
+<h4 id="实现单元测试"><a href="#实现单元测试" class="headerlink" title="实现单元测试"></a>实现单元测试</h4><p>工具准备完成，就可以开始写测试啦~<br>不要方！我们知道Redux基本概念中的store等组件的功能和目的各不相同，那么针对各种组件的特性，我们分别应该如何测试呢？翻看Redux官网，发现这里有详细的例子和介绍，附上<a href="http://redux.js.org/docs/recipes/WritingTests.html" target="_blank" rel="noopener">官网传送门</a>。</p>
+<p>需要注意的是，<code>UI Component</code>由于无状态化，和只负责显示DOM的作用，所以针对它们的单元测试只需要验证是否按预期显示了DOM就行了。组件中的<code>props</code>、方法等则无需测试。</p>
+<p>还是以demo中的代码为例子。我们<code>footer.jsx</code>组件的代码是酱紫的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export default class Footer extends React.Component &#123;</span><br><span class="line">  constructor() &#123;</span><br><span class="line">    super()</span><br><span class="line">    this.handleClick = this.handleClick.bind(this)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  handleClick()&#123;</span><br><span class="line">    this.props.onClick()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render()&#123;</span><br><span class="line">    return(</span><br><span class="line">      &lt;div style=&#123;styles.base&#125;&gt;</span><br><span class="line">        &lt;footer&gt;</span><br><span class="line">          &lt;a onClick=&#123;this.handleClick&#125;&gt;click footer to back&lt;/a&gt;</span><br><span class="line">        &lt;/footer&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Footer.propTypes = &#123;</span><br><span class="line">  onClick: React.PropTypes.func.isRequired</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其中<code>render()</code>是React中负责显示DOM的代码, <code>handleClick()</code>是一个自定义方法，<code>onClick</code>则是一个<code>props</code>。再来看看测试代码<code>footer.test.js</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;</span><br><span class="line">import &#123; shallow &#125; from &apos;enzyme&apos;</span><br><span class="line"></span><br><span class="line">import Footer from &apos;../../src/components/UIs/footer&apos;</span><br><span class="line">const props = &#123;</span><br><span class="line">  onClick: jest.fn()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">describe(&apos;Footer component&apos;, () =&gt; &#123;</span><br><span class="line">  it(&apos;should render dom&apos;, () =&gt; &#123;</span><br><span class="line">    const wrapper = shallow(&lt;Footer &#123;...props&#125;/&gt;)</span><br><span class="line">    expect(wrapper.find(&apos;a&apos;).text()).toContain(&apos;click footer&apos;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>测试代码中使用了enzyme库中的shallow功能。shallow是官方测试工具库react-addons-test-utils中shallow rendering的封装。是将一个组件渲染成虚拟DOM对象的“浅渲染”。这种渲染不会涉及子组件，不需要DOM，速度非常快。</p>
+<p>源代码中onClick后调用的方法，在这里被JEST自带的mocked方法jest.fn()代替掉了，我们这个测试只测试了组件是否被正常显示出来了。expect部分是断言，实现内容是在被渲染出的footer组件中找到a标签，然后断言它的text()中有没有包含期望的文字。通过这种方式我们可以得知组件是否有被显示出来。</p>
+<p>除了text()属性以外，还可非常灵活的通过其他方式来得知组件是否被正常显示。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">expect(wrapper.find(&apos;button&apos;).exists()).toBeTruthy()</span><br><span class="line">expect(wrapper.find(&apos;input&apos;).props().type).toBe(&apos;text&apos;)</span><br></pre></td></tr></table></figure>
+<p>前者是断言被渲染出的组件中是否有button标签的存在；后者是断言组件中的input标签是否有type=”text”这个属性。</p>
+<p>针对各个action、reducer和UI Component的测试写完成后，我们来运行下测试，查看覆盖率。</p>
+<blockquote>
+<p>Tips: 可以通过npm test &lt;测试文件名&gt; 运行单个测试<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/1744544-3b5c0892abd54953.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+</blockquote>
+<p>这个时候我们就看到了之前配置的测试覆盖率检查范围的作用了：报告明确告诉了我们，app.jsx没有被测试到。另外，在footer.jsx中还有第19行以及userName.jsx第34行也没有被测试到，覆盖率一片红..</p>
+<p>检查了下未被覆盖的footer 19行和userName 34行，发现正是之前特意忽略掉的UI Component内的方法。app.jsx是一个Container组件，还没有写任何测试。</p>
+<h4 id="实现功能测试"><a href="#实现功能测试" class="headerlink" title="实现功能测试"></a>实现功能测试</h4><p>发现问题了，那就赶紧补测试吧~<br>不要方！我们先来仔细分析下。</p>
+<ul>
+<li>容器(container)组件的主要作用是链接UI组件，里面可能也包含了一些业务逻辑</li>
+<li>UI Component中的方法，最终会通过容器组件对组件的调用而被调用到。</li>
+</ul>
+<p>那么换句话说，我只需要按照功能测试的方法，以user journey的角度来测试这个组件，就可以覆盖到所有东西咯？再拿demo来练练手。</p>
+<p>先确定demo的功能和user journey是：</p>
+<ul>
+<li>用户输入任意字符，输入的同时，会在下方显示出输入的值</li>
+<li>点击Submit按钮后提交form，更新界面显示</li>
+<li>点击footer后可以回到首页</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/1744544-f69556cc09f3b597.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/1744544-ffd3d147d7f2a796.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>那么我们测试的内容就应该是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;</span><br><span class="line">import &#123; createStore &#125; from &apos;redux&apos;</span><br><span class="line">import &#123; mount &#125; from &apos;enzyme&apos;</span><br><span class="line">import &#123; Provider &#125; from &apos;react-redux&apos;</span><br><span class="line">import ReactDom from &apos;react-dom&apos;</span><br><span class="line"></span><br><span class="line">import App from &apos;../../src/components/app&apos;</span><br><span class="line">import Reducer from &apos;../../src/reducers&apos;</span><br><span class="line"></span><br><span class="line">let store</span><br><span class="line">let wrapper</span><br><span class="line"></span><br><span class="line">const fillin = (byCssSelector, text) =&gt; &#123;</span><br><span class="line">  wrapper.find(byCssSelector).simulate(&apos;change&apos;, &#123;target: &#123;value:text&#125;&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">beforeEach( () =&gt; &#123;</span><br><span class="line">  store = createStore(Reducer)</span><br><span class="line">  wrapper = mount (</span><br><span class="line">    &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">    &lt;App /&gt;</span><br><span class="line">    &lt;/Provider&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">describe(&apos;User journey&apos;, ()=&gt; &#123;</span><br><span class="line">  describe(&apos;user input a string in the field&apos;, ()=&gt; &#123;</span><br><span class="line">    it(&apos;should display inputed name&apos;, ()=&gt; &#123;</span><br><span class="line">      fillin(&apos;#userName&apos;, &apos;Han mei 妹@&apos;)</span><br><span class="line">      expect(wrapper.find(&apos;#userInput&apos;).text()).toContain(&apos;Han mei 妹@&apos;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  describe(&apos;click submit button&apos;, ()=&gt; &#123;</span><br><span class="line">    it(&apos;should show welcome page, and original view disappear&apos;, ()=&gt; &#123;</span><br><span class="line">      fillin(&apos;#userName&apos;, &apos;李磊@_@&apos;)</span><br><span class="line">      wrapper.find(&apos;form&apos;).simulate(&apos;submit&apos;)</span><br><span class="line">      expect(wrapper.find(&apos;#welcome&apos;).text()).toContain(&apos;李磊@_@&apos;)</span><br><span class="line">      expect(wrapper.find(&apos;#userInput&apos;).exists()).toBeFalsy()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  describe(&apos;click footer to back&apos;, ()=&gt; &#123;</span><br><span class="line">    it(&apos;should show welcome page, and original view disappear&apos;, ()=&gt; &#123;</span><br><span class="line">      fillin(&apos;#userName&apos;, &apos;linTao123&apos;)</span><br><span class="line">      wrapper.find(&apos;form&apos;).simulate(&apos;submit&apos;)</span><br><span class="line">      wrapper.find(&apos;a&apos;).simulate(&apos;click&apos;)</span><br><span class="line">      expect(wrapper.find(&apos;#userInput&apos;).exists()).toBeTruthy()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>simulate方法是enzyme封装好的模拟页面元素事件的方法，用来模拟<code>&quot;click&quot;,&quot;submit&quot;,&quot;change&quot;,&quot;doubeClick&quot;</code>等事件。</p>
+<p>测试代码中的fillin方法实现的是在渲染后的DOM中找到一个web element，然后用simulate方法模拟绑定在该元素上面的onChange()事件。</p>
+<p>beforeEach方法是一个JEST的Hook，在每一个it/test开头的测试之前都会执行里面的内容。在demo的案例中，我把store.js和provider.js里面的内容照搬了过来，每个测试执行前都会新生成一个store，实现重置store的功能（重置测试环境）。</p>
+<p>功能测试看上去也没问题了，所有的用户场景貌似都覆盖完了。这个时候我们再来检查下覆盖率</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm test -- --coverage</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/1744544-95f196802e1c8dd0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>100%覆盖率了有木有！完美啊有木有！<br>为何加上功能测试以后，之前UI组件里面没有测试到的方法也被覆盖到了呢？分析下产品代码，原来是在页面元素上执行操作的时候，就会调用到UI组件上的这些方法，而这些操作后来被功能测试覆盖到了。</p>
+<p>这么一来，又避免了重复的测试代码 :）</p>
+<blockquote>
+<p>引自： <a href="https://testerhome.com/topics/8032" target="_blank" rel="noopener">https://testerhome.com/topics/8032</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 个人整理 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 个人整理 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[React组件自动化文档]]></title>
+      <url>/2017/05/16/react-auto-doc/</url>
+      <content type="html"><![CDATA[<p>构建和共享组件是React最强大的功能之一，但是没有任何文档，我们的组件有什么好处？</p>
+<p>我最近参与了一个项目，创建了将被广泛开发人员采用的组件，并且已经学会了一种方便自动化组件文档的方法</p>
+<p>在这篇文章中，我们将介绍为什么您可能需要记录您的组件，以及如何使用React轻松实现。</p>
+<h1 id="为什么要做文档组件？"><a href="#为什么要做文档组件？" class="headerlink" title="为什么要做文档组件？"></a>为什么要做文档组件？</h1><p>那么首先你可能会想，为什么我们需要记录我们的组件？<br>说实话，这真的取决于你正在建造什么，谁将会消耗你的组件。<br>在我们的测试中构建Web应用程序时，可能会为我们的组件提供足够的文档。<br>但是，如果您在整个业务或在线社区中使用大量应用程序或大量组件，那么文档就是关键。<br>如果我们看一些例如<code>React Bootstrap</code>或<code>Material UI</code>，他们的文档真的可以帮助开发人员在几分钟之内完成设置并利用它们的组件。<br>从这些项目中吸取灵感，我想为我的项目做类似的事情，并设法使用我在路上找到的一些令人敬畏的工具。</p>
+<p>所以我们来看看他们。</p>
+<h1 id="react-docgen"><a href="#react-docgen" class="headerlink" title="react-docgen"></a>react-docgen</h1><p><code>react-docgen</code>是一个CLI和工具箱，用于从React组件中提取信息，并从中生成文档。</p>
+<p>这个想法很简单 我们将组件传递给反应文件，它将返回一个对象。</p>
+<p>让我们来看看这个反馈文档<a href="https://github.com/reactjs/react-docgen" target="_blank" rel="noopener">GitHub页面上的例子</a>。</p>
+<h5 id="Component-Example"><a href="#Component-Example" class="headerlink" title="Component Example"></a>Component Example</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">var React = require(&apos;react&apos;);</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * General component description.</span><br><span class="line"> */</span><br><span class="line">var Component = React.createClass(&#123;</span><br><span class="line">  propTypes: &#123;</span><br><span class="line">    /**</span><br><span class="line">     * Description of prop &quot;foo&quot;.</span><br><span class="line">     */</span><br><span class="line">    foo: React.PropTypes.number,</span><br><span class="line">    /**</span><br><span class="line">     * Description of prop &quot;bar&quot; (a custom validation function).</span><br><span class="line">     */</span><br><span class="line">    bar: function(props, propName, componentName) &#123;</span><br><span class="line">      // ...</span><br><span class="line">    &#125;,</span><br><span class="line">    baz: React.PropTypes.oneOfType([</span><br><span class="line">      React.PropTypes.number,</span><br><span class="line">      React.PropTypes.string</span><br><span class="line">    ]),</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  getDefaultProps: function() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      foo: 42,</span><br><span class="line">      bar: 21</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  render: function() &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">module.exports = Component;</span><br></pre></td></tr></table></figure>
+<h5 id="JSON-output"><a href="#JSON-output" class="headerlink" title="JSON output"></a>JSON output</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;props&quot;: &#123;</span><br><span class="line">    &quot;foo&quot;: &#123;</span><br><span class="line">      &quot;type&quot;: &#123;</span><br><span class="line">        &quot;name&quot;: &quot;number&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;required&quot;: false,</span><br><span class="line">      &quot;description&quot;: &quot;Description of prop \&quot;foo\&quot;.&quot;,</span><br><span class="line">      &quot;defaultValue&quot;: &#123;</span><br><span class="line">        &quot;value&quot;: &quot;42&quot;,</span><br><span class="line">        &quot;computed&quot;: false</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;bar&quot;: &#123;</span><br><span class="line">      &quot;type&quot;: &#123;</span><br><span class="line">        &quot;name&quot;: &quot;custom&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;required&quot;: false,</span><br><span class="line">      &quot;description&quot;: &quot;Description of prop \&quot;bar\&quot; (a custom validation function).&quot;,</span><br><span class="line">      &quot;defaultValue&quot;: &#123;</span><br><span class="line">        &quot;value&quot;: &quot;21&quot;,</span><br><span class="line">        &quot;computed&quot;: false</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;baz&quot;: &#123;</span><br><span class="line">      &quot;type&quot;: &#123;</span><br><span class="line">        &quot;name&quot;: &quot;union&quot;,</span><br><span class="line">        &quot;value&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;number&quot;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;string&quot;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;required&quot;: false,</span><br><span class="line">      &quot;description&quot;: &quot;&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;description&quot;: &quot;General component description.&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们返回的JSON对象已经从我们的组件中提取了文档。</p>
+<p>对象包含我们在组件中定义的所有属性。</p>
+<p>对于每个prop的返回类型，如果必须，说明和任何默认值。</p>
+<p>所以使用CLI是好的，但是我们如何在React应用程序中使用它并自动化进程？ 它实际上很直接，所以让我们来看看。</p>
+<h1 id="如何在React中使用react-docgen"><a href="#如何在React中使用react-docgen" class="headerlink" title="如何在React中使用react-docgen"></a>如何在React中使用react-docgen</h1><p>首先, 安装 <code>react-docgen</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react-docgen</span><br></pre></td></tr></table></figure></p>
+<p>接下来, 导入 <code>react-docgen</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;parse&#125; from &apos;react-docgen&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>现在我们可以解析任何组件并获取文档。 但是要使用解析函数，我们需要将组件转为<code>string</code>。</p>
+<p>所以我们可以使用<code>raw-loader</code>将一个组件作为一个字符串导入</p>
+<h4 id="安装raw-loader"><a href="#安装raw-loader" class="headerlink" title="安装raw-loader"></a>安装raw-loader</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install raw-loader</span><br></pre></td></tr></table></figure>
+<p>在使用webpack设置raw-loader后，我们可以以原始格式导入任何文件。<br>以原始格式导入文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import Component from &apos;!raw!./Component&apos;;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意：组件将作为字符串而不是React组件返回给我们。<br>使用组件作为字符串，我们可以将它从反馈文档传递给我们的解析函数，以获取一些文档</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123;parse&#125; from &apos;react-docgen&apos;;</span><br><span class="line">import Component from &apos;!raw!./Component&apos;;</span><br><span class="line"></span><br><span class="line">const componentDocs = parse(Component);</span><br></pre></td></tr></table></figure>
+<p>在这个示例中，componentDocs将组件文档保存为JSON对象。</p>
+<h4 id="这是什么意思？"><a href="#这是什么意思？" class="headerlink" title="这是什么意思？"></a>这是什么意思？</h4><p>对于能够从我们的组件获取文档的大规模的React应用程序可能是一个好主意。</p>
+<p>使用<code>react-docgen</code>和<code>raw-loader</code>，我们可以轻松创建一个简单的用户界面来表示我们的组件库及其文档，供其他开发人员使用。</p>
+<p>使用这些信息，我们可以直观地显示我们使用的组件，我们的组件道具细节和组件描述。</p>
+<p>这是一个我一直在做的工作的例子，你可以通过<code>react-docgen</code>来实现。</p>
+<p>Basic React应用程序，用于呈现组件文档<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://www.davidboyne.co.uk/images/docs.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>Button的描述和道具在组件更改时自动生成，确保文档始终保持最新的其他开发人员。</p>
+<p>这个帖子的灵感来自于在GitHub上<code>material-ui</code>项目。</p>
+<p>在GitHub上检查<code>material-ui</code>项目，了解如何使用此技术来帮助驱动其组件文档的一些很棒的例子。</p>
+<p>如果您有任何问题<a href="https://twitter.com/boyney123" target="_blank" rel="noopener">告诉我</a>，或发表评论。</p>
+<blockquote>
+<ol>
+<li>本文译自: <a href="http://www.davidboyne.co.uk/2016/05/26/automating-react-documentation.html" target="_blank" rel="noopener">http://www.davidboyne.co.uk/2016/05/26/automating-react-documentation.html</a></li>
+<li>另一篇文档参考: <a href="http://www.seekjune.com/post/8426" target="_blank" rel="noopener">http://www.seekjune.com/post/8426</a></li>
+</ol>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 个人整理 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 个人整理 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[reactNative 热更新方法]]></title>
+      <url>/2017/05/13/react-native-code-push/</url>
+      <content type="html"><![CDATA[<h3 id="1、安装code-push"><a href="#1、安装code-push" class="headerlink" title="1、安装code-push"></a>1、安装code-push</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g code-push-cli</span><br></pre></td></tr></table></figure>
+<p>新用户<code>code-push register</code>会要求用户登录github账户或 微软账户、登录成功后会返回一个key, 输入这个key的值</p>
+<blockquote>
+<p>相关命令:</p>
+<ul>
+<li>code-push login 登陆 </li>
+<li>code-push loout 注销 </li>
+<li>code-push access-key ls 列出登陆的token</li>
+<li>code-push access-key rm <accesskye> 删除某个 key值</accesskye></li>
+</ul>
+</blockquote>
+<h3 id="2、在CodePush上注册app"><a href="#2、在CodePush上注册app" class="headerlink" title="2、在CodePush上注册app"></a>2、在CodePush上注册app</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push app add &lt;appName&gt;</span><br></pre></td></tr></table></figure>
+<p>返回如下表格<br>Name | Deployment Key<br>—|—<br>Production | SeGH3j6xEzTU54TWEDMbmFVkJuTRE1IE1U50M<br>Staging |  VfzbGk_YDjTyV8DOtGR3PE1yQ46VE1IE1U50M</p>
+<p>相关命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">add       Add a new app to your account</span><br><span class="line">remove    Remove an app from your account</span><br><span class="line">rm        Remove an app from your account</span><br><span class="line">rename    Rename an existing app</span><br><span class="line">list      Lists the apps associated with your account</span><br><span class="line">ls        Lists the apps associated with your account</span><br><span class="line">transfer  Transfer the ownership of an app to another account</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -v, --version  Show version number  [boolean]</span><br></pre></td></tr></table></figure></p>
+<h3 id="3、项目中添加code-push"><a href="#3、项目中添加code-push" class="headerlink" title="3、项目中添加code-push"></a>3、项目中添加code-push</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react-native-code-push@latest</span><br><span class="line">rnpm link react-native-code-push</span><br></pre></td></tr></table></figure>
+<p>检查 <code>android/app/build.gradle</code>, 添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply from: &quot;../../node_modules/react-native-code-push/android/codepush.gradle&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="4、添加部署key"><a href="#4、添加部署key" class="headerlink" title="4、添加部署key"></a>4、添加部署key</h3><p>查看部署的key<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push deployment  ls &lt;appName&gt; -k</span><br></pre></td></tr></table></figure></p>
+<p>默认的部署名是 staging，所以部署秘钥就是staging<br>在<code>android</code>目录下新建<code>local.properties</code>文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">code_push_key_production=SeGH3j6xEzTU54TWEDMbmFVkJuTRE1IE1U50M</span><br><span class="line">code_push_key_staging=VfzbGk_YDjTyV8DOtGR3PE1yQ46VE1IE1U50M</span><br></pre></td></tr></table></figure></p>
+<p>配置 <code>android/app/build.gradle</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">buildTypes &#123;</span><br><span class="line">    ...</span><br><span class="line">    releaseStaging &#123;</span><br><span class="line">        ...</span><br><span class="line">        buildConfigField &quot;String&quot;, &quot;CODEPUSH_KEY&quot;, &apos;&quot;&apos;+properties.getProperty(&quot;code_push_key_production&quot;)+&apos;&quot;&apos;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">     release &#123;</span><br><span class="line">        ...</span><br><span class="line">        buildConfigField &quot;String&quot;, &quot;CODEPUSH_KEY&quot;, &apos;&quot;&apos;+properties.getProperty(&quot;code_push_key_staging&quot;)+&apos;&quot;&apos;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>更新 <code>MainApplication.java</code>文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">return Arrays.&lt;ReactPackage&gt;asList(</span><br><span class="line">    new MainReactPackage(),</span><br><span class="line">     new CodePush(BuildConfig.CODEPUSH_KEY, MainApplication.this, BuildConfig.DEBUG)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<h3 id="5、修改versionName"><a href="#5、修改versionName" class="headerlink" title="5、修改versionName"></a>5、修改versionName</h3><p>在 <code>android/app/build.gradle</code> 中有个 <code>android.defaultConfig.versionName</code>属性，我们需要把 应用版本改成 1.0.0（默认是1.0，但是codepush需要三位数）</p>
+<p>至此Code-Push 集成完毕。<br>进入 <code>android</code>目录执行<code>gradlew assembleRelease</code>进行一次打包， 看下是否会存在错误， 若出现</p>
+<blockquote>
+<p>No signature of method: java.util.LinkedHashMap.getProperty() is applicable for argument types: (java.lang.String) values:<br>[code_push_key_production]</p>
+</blockquote>
+<p>可能是因react-native 不支持<code>local.properties</code>文件方式保存，修改<code>build.gradle</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">buildTypes &#123;</span><br><span class="line">    releaseStaging &#123;</span><br><span class="line">      buildConfigField &quot;String&quot;, &quot;CODEPUSH_KEY&quot;, &apos;&quot;SeGH3j6xEzTU54TWEDMbmFVkJuTRE1IE1U50M&quot;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    release &#123;</span><br><span class="line">        minifyEnabled enableProguardInReleaseBuilds</span><br><span class="line">        proguardFiles getDefaultProguardFile(&quot;proguard-android.txt&quot;), &quot;proguard-rules.pro&quot;</span><br><span class="line">        signingConfig signingConfigs.release</span><br><span class="line">        buildConfigField &quot;String&quot;, &quot;CODEPUSH_KEY&quot;, &apos;&quot;VfzbGk_YDjTyV8DOtGR3PE1yQ46VE1IE1U50M&quot;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意<code>&#39;&quot;SeGH3j6xEzTU54TWEDMbmFVkJuTRE1IE1U50M&quot;&#39;</code>中的单引号不能去掉， 否则会报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">错误: 找不到符号</span><br><span class="line">  public static final String CODEPUSH_KEY = VfzbGk_YDjTyV8DOtGR3PE1yQ46VE1IE1U50M;</span><br><span class="line">                                            ^</span><br><span class="line">  符号:   变量 VfzbGk_YDjTyV8DOtGR3PE1yQ46VE1IE1U50M</span><br><span class="line">  位置: 类 BuildConfig</span><br></pre></td></tr></table></figure></p>
+<h3 id="6、添加更新监听"><a href="#6、添加更新监听" class="headerlink" title="6、添加更新监听"></a>6、添加更新监听</h3><p>部署完code-push后接下来有两步要做</p>
+<blockquote>
+<ol>
+<li>什么时候检查更新 （在APP启动的时候？在设置页面添加一个检查更新按钮？）</li>
+<li>什么时候可以更新，如何将更新呈现给终端用户？</li>
+</ol>
+</blockquote>
+<p>如果有发布热更新时 mandatory 则 Code Push 会根据 mandatory 是 true 或false 来控制应用是否强制更新。默认情况下 mandatory 为 false 即不强制更新。mandatory 为 false时以下三种设置方法才有效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 第一种:</span><br><span class="line">codePush.sync();</span><br><span class="line"></span><br><span class="line">// 第二种:</span><br><span class="line">codePush.sync(&#123;</span><br><span class="line">    updateDialog: false,</span><br><span class="line">    installMode: codePush.InstallMode.IMMEDIATE</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 第三种:</span><br><span class="line">CodePush.sync(&#123;</span><br><span class="line">    deploymentKey: &apos;deployment-key-here&apos;,</span><br><span class="line">    updateDialog: &#123;</span><br><span class="line">        optionalIgnoreButtonLabel: &apos;稍后&apos;,</span><br><span class="line">        optionalInstallButtonLabel: &apos;后台更新&apos;,</span><br><span class="line">        optionalUpdateMessage: &apos;有新版本了，是否更新？&apos;,</span><br><span class="line">        title: &apos;更新提示&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    installMode: CodePush.InstallMode.IMMEDIATE</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>三种更新的策略: 配置到installMode: 之后即可生效</p>
+<ul>
+<li>IMMEDIATE 立即更新APP</li>
+<li>ON_NEXT_RESTART 到下一次启动应用时</li>
+<li>ON_NEXT_RESUME 当应用从后台返回时</li>
+</ul>
+<h3 id="7、打包发布"><a href="#7、打包发布" class="headerlink" title="7、打包发布"></a>7、打包发布</h3><p>方法1: 只打包js文件,<br>创建一个bundles文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">打包命令: </span><br><span class="line">react-native bundle --platform 平台 --entry-file 启动文件 --bundle-output 打包js输出文件 --assets-dest 资源输出目录 --dev 是否调试</span><br></pre></td></tr></table></figure></p>
+<p>eg:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --platform android --entry-file index.android.js --bundle-output ./bundles/index.android.bundle --dev false</span><br></pre></td></tr></table></figure>
+<p>发布更新</p>
+<p>发布命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ode-push release &lt;应用名称&gt; &lt;Bundles所在目录&gt; &lt;对应的应用版本&gt; --deploymentName 更新环境 --description 更新描述 --mandatory 是否强制更新</span><br></pre></td></tr></table></figure></p>
+<p>eg:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push release DemoApp ./bundles/index.android.bundle 1.0.0 --deploymentName Production --description &quot;第1次更新&quot; --mandatory true</span><br></pre></td></tr></table></figure></p>
+<p>方法2： 打包js + 图片资源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --platform android --entry-file index.android.js --bundle-output ./bundles/index.android.bundle --assets-dest ./bundles --dev false</span><br></pre></td></tr></table></figure>
+<p>–assets-dest 后就是放图片的文件夹路径</p>
+<p>push bundles文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push &lt;release/debug&gt; &lt;projectName(与注册的app同名)&gt;&lt;bundle文件名&gt; &lt;版本号&gt;</span><br></pre></td></tr></table></figure></p>
+<p>eg :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push release appName ./bundles 1.0.0</span><br></pre></td></tr></table></figure></p>
+<h3 id="8、更新规则"><a href="#8、更新规则" class="headerlink" title="8、更新规则"></a>8、更新规则</h3><p>你APP内plist文件写的版本号可能是1.0.0，所以你的reactjs打包上传的版本也要是1.0.0（而不是1.0.1这样递增），你需要和APP保持一致，然后服务器会根据你最新上传的且和APP一样的版本作为最新版。</p>
+<h3 id="9、修改更新"><a href="#9、修改更新" class="headerlink" title="9、修改更新"></a>9、修改更新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Usage: code-push patch &lt;appName&gt; &lt;deploymentName&gt; [--label &lt;label&gt;] [--description &lt;description&gt;] [--disabled] [--mandatory] [--rollout &lt;rolloutPercentage&gt;]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">  --label, -l           指定标签版本更新，默认最新版本 [string] [默认值: null]</span><br><span class="line">  --description, --des  描述  [string] [默认值: null]</span><br><span class="line">  --disabled, -x        是否禁用该更新  [boolean] [默认值: null]</span><br><span class="line">  --mandatory, -m       是否强制更新  [boolean] [默认值: null]</span><br><span class="line">  --rollout, -r         此更新推送用户的百分比，此值仅可以从先前的值增加。  [string] [默认值: null]</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">  code-push patch MyApp Production --des &quot;Updated description&quot; -r 50         修改&quot;MyApp&quot;的&quot;Production&quot;部署中最新更新的描述 ，并且更新推送范围为50％</span><br><span class="line">  code-push patch MyApp Production -l v3 --des &quot;Updated description for v3&quot;  修改&quot;MyApp&quot;的&quot;Production&quot;部署中标签为v3的更新的描述</span><br></pre></td></tr></table></figure>
+<h3 id="10、升级环境"><a href="#10、升级环境" class="headerlink" title="10、升级环境"></a>10、升级环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Usage: code-push promote &lt;appName&gt; &lt;sourceDeploymentName&gt; &lt;destDeploymentName&gt; [--description &lt;description&gt;] [--mandatory] [--rollout &lt;rolloutPercentage&gt;]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">  --description, --des  描述  [string] [默认值: null]</span><br><span class="line">  --disabled, -x        是否禁用该更新  [boolean] [默认值: null]</span><br><span class="line">  --mandatory, -m       是否强制更新  [boolean] [默认值: null]</span><br><span class="line">  --rollout, -r         此促进更新推送用户的百分比  [string] [默认值: null]</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">  code-push promote MyApp Staging Production                                   &quot;MyApp&quot;中&quot;Staging&quot;部署的最新更新发布到&quot;Production&quot;部署中</span><br><span class="line">  code-push promote MyApp Staging Production --des &quot;Production rollout&quot; -r 25  &quot;MyApp&quot;中&quot;Staging&quot;部署的最新更新发布到&quot;Production&quot;部署中, 并且只推送25%的用户</span><br></pre></td></tr></table></figure>
+<h3 id="11、回滚更新"><a href="#11、回滚更新" class="headerlink" title="11、回滚更新"></a>11、回滚更新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Usage: code-push rollback &lt;appName&gt; &lt;deploymentName&gt; [--targetRelease &lt;releaseLabel&gt;]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">  --targetRelease, -r  指定回归到哪个标签，默认是回滚到上一个更新  [string] [默认值: null]</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">  code-push rollback MyApp Production                     &quot;MyApp&quot;中&quot;Production&quot;部署执行回滚</span><br><span class="line">  code-push rollback MyApp Production --targetRelease v4  &quot;MyApp&quot;中&quot;Production&quot;部署执行回滚，回滚到v4这个标签版本</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注： 本博文来自网络</p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> reactNative </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> reactNative </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[列出两个日期之间的所有天]]></title>
+      <url>/2017/05/12/list-between-day/</url>
+      <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * 列出两个日期之间所有的天</span><br><span class="line">  * @param  &#123;[type]&#125; a [description]</span><br><span class="line">  * @param  &#123;[type]&#125; b [description]</span><br><span class="line">  * @return &#123;[Array]&#125;   [description] [&apos;03/16&apos;, &apos;03/17&apos;]</span><br><span class="line">  */</span><br><span class="line"> function listDiffDay(start, end) &#123;</span><br><span class="line">    if (!start || !end) return;</span><br><span class="line">    var resultData = [];</span><br><span class="line">    // 日期格式必须是YYYY-MM-DD</span><br><span class="line">    var regExp = /((((1[6-9]|[2-9]\d)\d&#123;2&#125;)-(1[02]|0?[13578])-([12]\d|3[01]|0?[1-9]))|(((1[6-9]|[2-9]\d)\d&#123;2&#125;)-(1[012]|0?[13456789])-([12]\d|30|0?[1-9]))|(((1[6-9]|[2-9]\d)\d&#123;2&#125;)-0?2-(1\d|2[0-8]|0?[1-9]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))-0?2-29-))/</span><br><span class="line">    // console.log(regExp.test(start))</span><br><span class="line">    if (regExp.test(start) &amp;&amp; regExp.test(end)) &#123;</span><br><span class="line">    	var s = start.split(&quot;-&quot;);</span><br><span class="line">    	var e = end.split(&quot;-&quot;);</span><br><span class="line">    	var d = new Date();</span><br><span class="line">    	</span><br><span class="line">    	var i = 0;</span><br><span class="line">    	var oneDay = 24 * 60 * 60 * 1000;</span><br><span class="line">    	// 设置开始的日期</span><br><span class="line">    	d.setDate(s[2])</span><br><span class="line">    	d.setMonth(s[1] - 1);</span><br><span class="line">    	d.setFullYear(s[0]);</span><br><span class="line">    	while (i == 0) &#123;</span><br><span class="line">    		var c = d.getTime() + oneDay; // 增加一天的时间数</span><br><span class="line">    		d.setTime(c);</span><br><span class="line">    		var this_date = d.getDate();</span><br><span class="line">    		var this_month = d.getMonth() + 1;</span><br><span class="line">    		var this_year = d.getFullYear();</span><br><span class="line">    		this_date = this_date &lt; 10 ? (&apos;0&apos;+ this_date): this_date;</span><br><span class="line">    		this_month = this_month &lt; 10? (&apos;0&apos;+ this_month): this_month;</span><br><span class="line">    		resultData.push(this_month +&apos;/&apos;+ this_date);</span><br><span class="line">    		if (this_year == e[0] &amp;&amp; this_month == e[1] &amp;&amp; this_date == e[2]) &#123;</span><br><span class="line">    			i = 1;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return resultData;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> 调用 `console.log(listDiffDay(&apos;2017-02-20&apos;, 2017-03-10&apos;))`</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> 个人整理 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 个人整理 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Git相关收集]]></title>
+      <url>/2017/05/12/git-collect/</url>
+      <content type="html"><![CDATA[<h3 id="Clone"><a href="#Clone" class="headerlink" title="Clone"></a>Clone</h3><p>从远程仓库下载代码到本地<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/jys0909/ysblog.git</span><br></pre></td></tr></table></figure></p>
+<h3 id="更新代码"><a href="#更新代码" class="headerlink" title="更新代码"></a>更新代码</h3><p>从远程仓库更新代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure></p>
+<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch // 分支列表</span><br><span class="line">git branch devlopment  // 添加分支</span><br></pre></td></tr></table></figure>
+<h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout devlopment</span><br></pre></td></tr></table></figure>
+<h3 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &apos;decription&apos;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<h3 id="提交本地分支到远程仓库"><a href="#提交本地分支到远程仓库" class="headerlink" title="提交本地分支到远程仓库"></a>提交本地分支到远程仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin devlopment:devlopment</span><br></pre></td></tr></table></figure>
+<p>这个操作如果远程仓库已存在devlopment分支， 则为更新</p>
+<h3 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a>全局设置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;xxx&quot;</span><br><span class="line">git config --global user.email &quot;xxx&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="git-pull失败-提示：-fatal-refusing-to-merge-unrelated-histories"><a href="#git-pull失败-提示：-fatal-refusing-to-merge-unrelated-histories" class="headerlink" title="git pull失败,提示：==fatal: refusing to merge unrelated histories=="></a>git pull失败,提示：==fatal: refusing to merge unrelated histories==</h3><p>git pull 时添加参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master --allow-unrelated-histories</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>可以参考<a href="http://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories" target="_blank" rel="noopener">网址</a></p>
+</blockquote>
+<h3 id="git-clone-时提示-Could-not-read-from-remote-repository"><a href="#git-clone-时提示-Could-not-read-from-remote-repository" class="headerlink" title="git clone 时提示 Could not read from remote repository"></a>git clone 时提示 Could not read from remote repository</h3><p>有可能是使用的是 ssh 方式，在提示yes的时候没写正确, 使用https</p>
+<h3 id="git-add-时提示-warning-LF-will-be-replaced-by-CRLF"><a href="#git-add-时提示-warning-LF-will-be-replaced-by-CRLF" class="headerlink" title="git add 时提示 warning: LF will be replaced by CRLF"></a>git add 时提示 warning: LF will be replaced by CRLF</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.autocrlf  false</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> 个人整理 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 个人整理 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[React组件生命周期]]></title>
+      <url>/2017/05/12/react-component-life-cycle/</url>
+      <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">// 字义组件</span><br><span class="line">class TodoList extends React.Component &#123;</span><br><span class="line">    // 构造函数，在创建组件的时候调用一次</span><br><span class="line">    constructor(props, context) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    // 在组件挂载之前调用一次,如果在这个函数里面调用setState，本次的render函数可以看到更新后的state，并且只渲染一次</span><br><span class="line">    void componentWillMount() &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    // 在组件挂载之后调用一次。这个时候，子主键也都挂载好了，可以在这里使用refs</span><br><span class="line">    void componentDidMount() &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    // props是父组件传递给子组件的。父组件发生render的时候子组件就会调用componentWillReceiveProps（不管props有没有更新，也不管父子组件之间有没有数据交换）。</span><br><span class="line">    void componentWillReceiveProps(nextProps) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 组件挂载之后，每次调用setState后都会调用shouldComponentUpdate判断是否需要重新渲染组件。默认返回true，需要重新render。在比较复杂的应用里，有一些数据的改变并不影响界面展示，可以在这里做判断，优化渲染效率。</span><br><span class="line">    bool shouldComponentUpdate(nextProps, nextState) &#123;</span><br><span class="line">        return true</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // shouldComponentUpdate返回true或者调用forceUpdate之后，componentWillUpdate会被调用。</span><br><span class="line">    void componentWillUpdate(nextProps, nextState) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    // 除了首次render之后调用componentDidMount，其它render结束之后都是调用componentDidUpdate。</span><br><span class="line">    void componentDidUpdate() &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    // 组件被卸载的时候调用。一般在componentDidMount里面注册的事件需要在这里删除。</span><br><span class="line">    void componentWillUnmount() &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    // componentWillMount、componentDidMount和componentWillUpdate、componentDidUpdate可以对应起来。区别在于，前者只有在挂载的时候会被调用；而后者在以后的每次更新渲染之后都会被调用</span><br><span class="line">    </span><br><span class="line">    // render是一个React组件所必不可少的核心函数（上面的其它函数都不是必须的）。记住，不要在render里面修改state。</span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                ...</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/1814354-4bf62e54553a32b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>来源：<a href="http://www.jianshu.com/p/4784216b8194" target="_blank" rel="noopener">http://www.jianshu.com/p/4784216b8194</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 个人整理 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 个人整理 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[lodash 常用函数]]></title>
+      <url>/2017/05/11/loadsh/</url>
+      <content type="html"><![CDATA[<h3 id="filter"><a href="#filter" class="headerlink" title="_.filter"></a>_.filter</h3><blockquote>
+<p>遍历 collection（集合）元素，返回 predicate（断言函数）返回真值 的所有元素的数组。 predicate（断言函数）调用三个参数：(value, index|key, collection)。<br><code>返回一个新的过滤后的数组。</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var users = [</span><br><span class="line">  &#123; &apos;user&apos;: &apos;barney&apos;, &apos;age&apos;: 36, &apos;active&apos;: true &#125;,</span><br><span class="line">  &#123; &apos;user&apos;: &apos;fred&apos;,   &apos;age&apos;: 40, &apos;active&apos;: false &#125;</span><br><span class="line">];</span><br><span class="line"> </span><br><span class="line">_.filter(users, function(o) &#123; return !o.active; &#125;);</span><br><span class="line">// =&gt; objects for [&apos;fred&apos;]</span><br><span class="line"> </span><br><span class="line">// The `_.matches` iteratee shorthand.</span><br><span class="line">_.filter(users, &#123; &apos;age&apos;: 36, &apos;active&apos;: true &#125;);</span><br><span class="line">// =&gt; objects for [&apos;barney&apos;]</span><br><span class="line"> </span><br><span class="line">// The `_.matchesProperty` iteratee shorthand.</span><br><span class="line">_.filter(users, [&apos;active&apos;, false]);</span><br><span class="line">// =&gt; objects for [&apos;fred&apos;]</span><br><span class="line"> </span><br><span class="line">// The `_.property` iteratee shorthand.</span><br><span class="line">_.filter(users, &apos;active&apos;);</span><br><span class="line">// =&gt; objects for [&apos;barney&apos;]</span><br></pre></td></tr></table></figure>
+<h3 id="find"><a href="#find" class="headerlink" title="_.find"></a>_.find</h3><blockquote>
+<p>遍历 collection（集合）元素，返回 predicate（断言函数）第一个返回真值的第一个元素。predicate（断言函数）调用3个参数： (value, index|key, collection)。<code>返回匹配元素，否则返回 undefined。</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var users = [</span><br><span class="line">  &#123; &apos;user&apos;: &apos;barney&apos;,  &apos;age&apos;: 36, &apos;active&apos;: true &#125;,</span><br><span class="line">  &#123; &apos;user&apos;: &apos;fred&apos;,    &apos;age&apos;: 40, &apos;active&apos;: false &#125;,</span><br><span class="line">  &#123; &apos;user&apos;: &apos;pebbles&apos;, &apos;age&apos;: 1,  &apos;active&apos;: true &#125;</span><br><span class="line">];</span><br><span class="line"> </span><br><span class="line">_.find(users, function(o) &#123; return o.age &lt; 40; &#125;);</span><br><span class="line">// =&gt; object for &apos;barney&apos;</span><br><span class="line"> </span><br><span class="line">// The `_.matches` iteratee shorthand.</span><br><span class="line">_.find(users, &#123; &apos;age&apos;: 1, &apos;active&apos;: true &#125;);</span><br><span class="line">// =&gt; object for &apos;pebbles&apos;</span><br><span class="line"> </span><br><span class="line">// The `_.matchesProperty` iteratee shorthand.</span><br><span class="line">_.find(users, [&apos;active&apos;, false]);</span><br><span class="line">// =&gt; object for &apos;fred&apos;</span><br><span class="line"> </span><br><span class="line">// The `_.property` iteratee shorthand.</span><br><span class="line">_.find(users, &apos;active&apos;);</span><br><span class="line">// =&gt; object for &apos;barney&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="forEach"><a href="#forEach" class="headerlink" title="_.forEach"></a>_.forEach</h3><blockquote>
+<p>调用 iteratee 遍历 collection(集合) 中的每个元素， iteratee 调用3个参数： (value, index|key, collection)。 如果迭代函数（iteratee）显式的返回 false ，迭代会提前退出。<code>返回集合 collection。</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">_([1, 2]).forEach(function(value) &#123;</span><br><span class="line">  console.log(value);</span><br><span class="line">&#125;);</span><br><span class="line">// =&gt; Logs `1` then `2`.</span><br><span class="line"> </span><br><span class="line">_.forEach(&#123; &apos;a&apos;: 1, &apos;b&apos;: 2 &#125;, function(value, key) &#123;</span><br><span class="line">  console.log(key);</span><br><span class="line">&#125;);</span><br><span class="line">// =&gt; Logs &apos;a&apos; then &apos;b&apos; (iteration order is not guaranteed).</span><br></pre></td></tr></table></figure>
+<h3 id="map"><a href="#map" class="headerlink" title="_.map"></a>_.map</h3><blockquote>
+<p>创建一个数组， value（值） 是 iteratee（迭代函数）遍历 collection（集合）中的每个元素后返回的结果。 iteratee（迭代函数）调用3个参数：<br>(value, index|key, collection). lodash 中有许多方法是防止作为其他方法的迭代函数（愚人码头注：即不能作为iteratee参数传递给其他方法），例如： <em>.every, </em>.filter, <em>.map, </em>.mapValues, <em>.reject, 和 </em>.some。 受保护的方法有（愚人码头注：即这些方法不能使用<em>.every, </em>.filter, <em>.map, </em>.mapValues, <em>.reject, 和 </em>.some作为 iteratee 迭代函数参数） ：<br>ary, chunk, curry, curryRight, drop, dropRight, every, fill, invert, parseInt, random, range, rangeRight, repeat, sampleSize, slice, some, sortBy, split, take, takeRight, template, trim, trimEnd, trimStart, and words<br><code>返回新的映射后数组。</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function square(n) &#123;</span><br><span class="line">  return n * n;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">_.map([4, 8], square);</span><br><span class="line">// =&gt; [16, 64]</span><br><span class="line"> </span><br><span class="line">_.map(&#123; &apos;a&apos;: 4, &apos;b&apos;: 8 &#125;, square);</span><br><span class="line">// =&gt; [16, 64](iteration order is not guaranteed)</span><br><span class="line"> </span><br><span class="line">var users = [</span><br><span class="line">  &#123; &apos;user&apos;: &apos;barney&apos; &#125;,</span><br><span class="line">  &#123; &apos;user&apos;: &apos;fred&apos; &#125;</span><br><span class="line">];</span><br><span class="line"> </span><br><span class="line">// The `_.property` iteratee shorthand.</span><br><span class="line">_.map(users, &apos;user&apos;);</span><br><span class="line">// =&gt; [&apos;barney&apos;, &apos;fred&apos;]</span><br></pre></td></tr></table></figure>
+<h3 id="orderBy"><a href="#orderBy" class="headerlink" title="_.orderBy"></a>_.orderBy</h3><blockquote>
+<p>此方法类似于_.sortBy，除了它允许指定 iteratee（迭代函数）结果如何排序。 如果没指定 orders（排序），所有值以升序排序。 否则，指定为”desc” 降序，或者指定为 “asc” 升序，排序对应值。<code>返回排序后的新数组。</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var users = [</span><br><span class="line">  &#123; &apos;user&apos;: &apos;fred&apos;,   &apos;age&apos;: 48 &#125;,</span><br><span class="line">  &#123; &apos;user&apos;: &apos;barney&apos;, &apos;age&apos;: 34 &#125;,</span><br><span class="line">  &#123; &apos;user&apos;: &apos;fred&apos;,   &apos;age&apos;: 40 &#125;,</span><br><span class="line">  &#123; &apos;user&apos;: &apos;barney&apos;, &apos;age&apos;: 36 &#125;</span><br><span class="line">];</span><br><span class="line"> </span><br><span class="line">// 以 `user` 升序排序 再  `age` 以降序排序。</span><br><span class="line">_.orderBy(users, [&apos;user&apos;, &apos;age&apos;], [&apos;asc&apos;, &apos;desc&apos;]);</span><br><span class="line">// =&gt; objects for [[&apos;barney&apos;, 36], [&apos;barney&apos;, 34], [&apos;fred&apos;, 48], [&apos;fred&apos;, 40]]</span><br></pre></td></tr></table></figure>
+<h3 id="clone"><a href="#clone" class="headerlink" title="_.clone"></a>_.clone</h3><blockquote>
+<p>创建一个 value 的浅拷贝。<br> <strong>注意</strong>: 这个方法参考自 structured clone algorithm 以及支持 arrays、array buffers、 booleans、 date objects、maps、 numbers， Object 对象, regexes, sets, strings, symbols, 以及 typed arrays。 arguments对象的可枚举属性会拷贝为普通对象。 一些不可拷贝的对象，例如error objects、functions, DOM nodes, 以及 WeakMaps 会返回空对象。<code>返回拷贝后的值</code></p>
+</blockquote>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> var objects = [&#123; &apos;a&apos;: 1 &#125;, &#123; &apos;b&apos;: 2 &#125;];</span><br><span class="line"> </span><br><span class="line">var shallow = _.clone(objects);</span><br><span class="line">console.log(shallow[0] === objects[0]);</span><br><span class="line">// =&gt; true</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="续更新…"><a href="#续更新…" class="headerlink" title="续更新…"></a>续更新…</h1><blockquote>
+<p>来源： <a href="http://www.css88.com/doc/lodash/#_forinobject-iteratee_identity" target="_blank" rel="noopener">http://www.css88.com/doc/lodash/#_forinobject-iteratee_identity</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 个人整理 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 个人整理 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[windows Node 版本管理]]></title>
+      <url>/2017/05/11/node-version-manager/</url>
+      <content type="html"><![CDATA[<h3 id="1、下载"><a href="#1、下载" class="headerlink" title="1、下载"></a>1、下载</h3><blockquote>
+<p>nvm-windows 是 Windows 下的 Node.js 版本管理工具</p>
+</blockquote>
+<p>下载 <a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="noopener">nvm-window</a>包, 选择最新版本nvm-setup包, 然后进行安装</p>
+<p>安装成功后查看下环境变量是否正常<br><code>$ nvm version</code>  可查看版本</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/nvm/nvm-01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/nvm/nvm-02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="2、使用方法"><a href="#2、使用方法" class="headerlink" title="2、使用方法"></a>2、使用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nvm install v6.10.3 // 安装node 版本</span><br><span class="line">nvm uninstall v6.10.3 // 卸载node 版本</span><br><span class="line">nvm use v6.10.3 // 使用node版本</span><br><span class="line">nvm help  // 查看帮助</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> node </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> node </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[ReactNative 打开手机WiFi设置]]></title>
+      <url>/2017/05/11/openAndroidSetting/</url>
+      <content type="html"><![CDATA[<h3 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install react-native-android-settings-library --save</span><br></pre></td></tr></table></figure>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ol>
+<li><p>打开 <code>android/settings.gradle</code> 添加如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">include &apos;:react-native-android-settings-library&apos;</span><br><span class="line">project(&apos;:react-native-android-settings-library&apos;).projectDir = new File(rootProject.projectDir, 	&apos;../node_modules/react-native-android-settings-library/android&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开 <code>android/app/build.gradle</code> 添加如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    // add here</span><br><span class="line">    compile project(&apos;:react-native-android-settings-library&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开 <code>MainApplication.java</code> 添加如下代码;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import com.reactlibrary.androidsettings.RNANAndroidSettingsLibraryPackage;</span><br><span class="line"></span><br><span class="line">// 主体</span><br><span class="line">new RNANAndroidSettingsLibraryPackage()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="引入包"><a href="#引入包" class="headerlink" title="引入包"></a>引入包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import RNANAndroidSettingsLibrary from &apos;react-native-android-settings-library&apos;;</span><br><span class="line"></span><br><span class="line">RNANAndroidSettingsLibrary.open(&apos;ACTION_WIFI_SETTINGS&apos;);</span><br></pre></td></tr></table></figure>
+<p>open参数如下：</p>
+<ul>
+<li>ACTION_SETTINGS</li>
+<li>ACTION_WIRELESS_SETTINGS</li>
+<li>ACTION_AIRPLANE_MODE_SETTINGS</li>
+<li>ACTION_WIFI_SETTINGS // 打开wifi 开关</li>
+<li>ACTION_APN_SETTINGS</li>
+<li>ACTION_BLUETOOTH_SETTINGS</li>
+<li>ACTION_DATE_SETTINGS</li>
+<li>ACTION_LOCALE_SETTINGS</li>
+<li>ACTION_INPUT_METHOD_SETTINGS</li>
+<li>ACTION_DISPLAY_SETTINGS</li>
+<li>ACTION_SECURITY_SETTINGS</li>
+<li>ACTION_LOCATION_SOURCE_SETTINGS</li>
+<li>ACTION_INTERNAL_STORAGE_SETTINGS</li>
+<li>ACTION_MEMORY_CARD_SETTINGS</li>
+<li>ACTION_APPLICATION_DETAILS_SETTINGS</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> reactNative </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> reactNative </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[关闭win10自动更新]]></title>
+      <url>/2017/05/11/win10Update/</url>
+      <content type="html"><![CDATA[<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>windows+R 进入 cmd -&gt; gpedit.msc<br>找到window更新，如下图:</p>
+<hr>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/other/01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/other/02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p>打开服务， 找到Windows Update ， 双击打开， 选择禁止，并停止服务</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 个人整理 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[搭建开发环境]]></title>
+      <url>/2017/05/10/reactNativeSetup/</url>
+      <content type="html"><![CDATA[<h3 id="1、安装Chocolatey"><a href="#1、安装Chocolatey" class="headerlink" title="1、安装Chocolatey"></a>1、安装Chocolatey</h3><p>Chocolatey是一个Windows上的包管理器，类似于linux上的yum和 apt-get。 你可以在其官方网站上查看具体的使用说明。一般的安装步骤应该是下面这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@powershell -NoProfile -ExecutionPolicy Bypass -Command &quot;iex ((new-object net.webclient).DownloadString(&apos;https://chocolatey.org/install.ps1&apos;))&quot; &amp;&amp; SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin</span><br></pre></td></tr></table></figure></p>
+<h3 id="2、安装Python-2"><a href="#2、安装Python-2" class="headerlink" title="2、安装Python 2"></a>2、安装Python 2</h3><p>安装了Chocolatey后就可以使用下面的命令了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install python2</span><br></pre></td></tr></table></figure></p>
+<p>注意目前不支持Python 3版本。</p>
+<h3 id="3、Node"><a href="#3、Node" class="headerlink" title="3、Node"></a>3、Node</h3><p>Node环境是必须的，使用稳定版本，不要使用cnpm加速，可用如下加速镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org --global</span><br><span class="line">npm config set disturl https://npm.taobao.org/dist --global</span><br></pre></td></tr></table></figure></p>
+<h3 id="4、Yarn、React-Native的命令行工具（react-native-cli）"><a href="#4、Yarn、React-Native的命令行工具（react-native-cli）" class="headerlink" title="4、Yarn、React Native的命令行工具（react-native-cli）"></a>4、Yarn、React Native的命令行工具（react-native-cli）</h3><p>Yarn是Facebook提供的替代npm的工具，可以加速node模块的下载。React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yarn react-native-cli</span><br></pre></td></tr></table></figure></p>
+<p>安装完yarn后同理也要设置镜像源：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn config set registry https://registry.npm.taobao.org --global</span><br><span class="line">yarn config set disturl https://npm.taobao.org/dist --global</span><br></pre></td></tr></table></figure></p>
+<h3 id="5、Android-Studio"><a href="#5、Android-Studio" class="headerlink" title="5、Android Studio"></a>5、Android Studio</h3><blockquote>
+<p>它不是必须的，主要是为了使用里面的SDK, 版本2.0以上<br>Android Studio需要Java Development Kit [JDK]<br>1.8或更高版本。你可以在命令行中输入 javac<br>-version来查看你当前安装的JDK版本。如果版本不合要求，则<br>可以到 <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">官网</a>上下载。</p>
+</blockquote>
+<h3 id="6、ANDROID-HOME环境变量"><a href="#6、ANDROID-HOME环境变量" class="headerlink" title="6、ANDROID_HOME环境变量"></a>6、ANDROID_HOME环境变量</h3><p>确保ANDROID_HOME环境变量正确地指向了你安装的Android SDK的路径。</p>
+<p>打开控制面板 -&gt; 系统和安全 -&gt; 系统 -&gt; 高级系统设置 -&gt; 高级 -&gt; 环境变量 -&gt; 新建</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/reactnaive_setup/01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="7、配置Android-Studio-参数"><a href="#7、配置Android-Studio-参数" class="headerlink" title="7、配置Android Studio 参数"></a>7、配置Android Studio 参数</h3><p>打开SDK Manager ， 配置如下几个参数<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/reactnaive_setup/02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/reactnaive_setup/03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://jys0909.github.io/blogImage/reactnaive_setup/04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="8、安装模拟器-Genymotion"><a href="#8、安装模拟器-Genymotion" class="headerlink" title="8、安装模拟器 Genymotion"></a>8、安装模拟器 Genymotion</h3><p>比起Android Studio自带的原装模拟器，Genymotion是一个性能更好的选择，但它只对个人用户免费。</p>
+<blockquote>
+<ol>
+<li>下载和安装<a href="https://www.genymotion.com/download" target="_blank" rel="noopener">Genymotion</a>（genymotion需要依赖VirtualBox虚拟机，下载选项中提供了包含VirtualBox和不包含的选项，请按需选择）。</li>
+<li>打开Genymotion。如果你还没有安装VirtualBox，则此时会提示你安装。</li>
+<li>创建一个新模拟器并启动。</li>
+<li>启动React Native应用后，可以按下F1来打开开发者菜单。</li>
+</ol>
+</blockquote>
+<p>选择合适的下载安装</p>
+<h3 id="9、测试安装程序"><a href="#9、测试安装程序" class="headerlink" title="9、测试安装程序"></a>9、测试安装程序</h3><p>先打开模拟器， 当然使用真机也是可以的。真机的话需要打开USB调试模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">react-native init HelloWord</span><br><span class="line">cd HelloWord</span><br><span class="line">react-native run-android</span><br></pre></td></tr></table></figure></p>
+<p>使用<code>adb devices</code> 查看当前设备</p>
+]]></content>
+      
+        <categories>
+            
+            <category> reactNative </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> reactNative </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[reactNative 打包测试]]></title>
+      <url>/2017/05/10/reactnative/</url>
+      <content type="html"><![CDATA[<h3 id="1、生成密钥"><a href="#1、生成密钥" class="headerlink" title="1、生成密钥"></a>1、生成密钥</h3><p>在项目根目录打开命令行（快捷方法：进入根目录win下按住shift键单击右键打开命令行，直接对应该目录）。然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000</span><br></pre></td></tr></table></figure></p>
+<p>按要求填写相关信息后生成的 ==my-release-key.keystore== 文件放到你工程中的==android/app==文件夹下</p>
+<h3 id="2、修改gradle-properties文件"><a href="#2、修改gradle-properties文件" class="headerlink" title="2、修改gradle.properties文件"></a>2、修改gradle.properties文件</h3><p>在android目录下打开gradle.properties文件，添加如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MYAPP_RELEASE_STORE_FILE=my-release-key.keystore</span><br><span class="line">MYAPP_RELEASE_KEY_ALIAS=my-key-alias</span><br><span class="line">MYAPP_RELEASE_STORE_PASSWORD=*******  // 密钥口令</span><br><span class="line">MYAPP_RELEASE_KEY_PASSWORD=******* // 密钥口令</span><br></pre></td></tr></table></figure></p>
+<h3 id="3、修改build-gradle文件"><a href="#3、修改build-gradle文件" class="headerlink" title="3、修改build.gradle文件"></a>3、修改build.gradle文件</h3><p>在android/app目录下打开build.gradle文件，按如下格式修改:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">signingConfigs &#123;</span><br><span class="line">    release &#123;</span><br><span class="line">        storeFile file(MYAPP_RELEASE_STORE_FILE)</span><br><span class="line">        storePassword MYAPP_RELEASE_STORE_PASSWORD</span><br><span class="line">        keyAlias MYAPP_RELEASE_KEY_ALIAS</span><br><span class="line">        keyPassword MYAPP_RELEASE_KEY_PASSWORD</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">buildTypes &#123;</span><br><span class="line">    release &#123;</span><br><span class="line">        minifyEnabled enableProguardInReleaseBuilds</span><br><span class="line">        proguardFiles getDefaultProguardFile(&quot;proguard-android.txt&quot;), &quot;proguard-rules.pro&quot;</span><br><span class="line">        signingConfig signingConfigs.release</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="4、生成index-android-bundle文件"><a href="#4、生成index-android-bundle文件" class="headerlink" title="4、生成index.android.bundle文件"></a>4、生成index.android.bundle文件</h3><p>在android\app\src\main目录下新建名为assets的文件夹，然后在项目根目录的命令行下输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --platform android --dev false --entry-file index.android.js \ --bundle-output android/app/src/main/assets/index.android.bundle \ --assets-dest android/app/src/main/res/</span><br></pre></td></tr></table></figure></p>
+<h3 id="5、生成APK"><a href="#5、生成APK" class="headerlink" title="5、生成APK"></a>5、生成APK</h3><p>在android目录命令行下输入==gradlew assembleRelease==，然后等待几分钟，在==android/app/build/outputs/apk==目录下找到APK文件。</p>
+<blockquote>
+<p>注意事项:</p>
+<ol>
+<li>打包前最好删除app\build文件夹</li>
+<li>src\main 下面的资源不能出现相同名称</li>
+</ol>
+</blockquote>
+<h3 id="其他可能出现的问题记录在此"><a href="#其他可能出现的问题记录在此" class="headerlink" title="其他可能出现的问题记录在此"></a>其他可能出现的问题记录在此</h3><hr>
+<p>1、==unable to process incoming event ‘ProcessComplete’==<br>在/android/目录中执行==gradle assembleRelease==命令 如果出现此类错误，清理下，在==proguard-rules.pro==中加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-keep class android.text &#123;* ;&#125;</span><br><span class="line">-dontwarn android.text.*</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      
+        <categories>
+            
+            <category> reactNative </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> reactNative </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Markdown 语法的简要规则]]></title>
+      <url>/2017/05/10/markdown/</url>
+      <content type="html"><![CDATA[<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>标题是每篇文章都需要也是最常用的格式，在 Markdown 中，如果一段文字被定义为标题，只要在这段文字前加 # 号即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br></pre></td></tr></table></figure></p>
+<p>以此类推 共6级</p>
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><p>熟悉 HTML 的同学肯定知道有序列表与无序列表的区别，在 Markdown 下，列表的显示只需要在文字前加上 - 或 * 即可变为无序列表，有序列表则直接在文字前加1. 2. 3. 符号要和文字之间加上一个字符的空格。</p>
+<ul>
+<li>a</li>
+</ul>
+<ul>
+<li>b</li>
+</ul>
+<ol>
+<li>A</li>
+<li>B</li>
+<li>C</li>
+</ol>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>如果你需要引用一小段别处的句子，那么就要用引用的格式。<br>只需要在文本前加入 &gt; 这种尖括号（大于号）即可</p>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<h1 id="图片与链接"><a href="#图片与链接" class="headerlink" title="图片与链接"></a>图片与链接</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">插入链接与插入图片的语法很像，区别在一个 !号</span><br><span class="line">图片为：![]()</span><br><span class="line">链接为：[]()</span><br><span class="line">插入图片的地址需要图床，这里推荐围脖图床修复计划 与</span><br><span class="line">CloudApp 的服务，生成URL地址即可。</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.baidu.com" target="_blank" rel="noopener">Baidu</a><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://www.baidu.com/img/bd_logo1.png" alt="Baidu" title="">
+                </div>
+                <div class="image-caption">Baidu</div>
+            </figure></p>
+<hr>
+<h1 id="粗体与斜体"><a href="#粗体与斜体" class="headerlink" title="粗体与斜体"></a>粗体与斜体</h1><p>Markdown 的粗体和斜体也非常简单，用两个 <em> 包含一段文本就是粗体的语法，用一个 </em> 包含一段文本就是斜体的语法。<br>例如：<strong>这里是粗体</strong> 这里是<em>斜体</em></p>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><p>表格是 Markdown 比较累人的地方，例子如下：<br>| Tables        | Are           | Cool  |<br>| ————- |:————-:| —–:|<br>| col 3 is      | right-aligned | $1600 |<br>| col 2 is      | centered      |   $12 |<br>| zebra stripes | are neat      |    $1 |</p>
+<h1 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h1><p>如果你是个程序猿，需要在文章里优雅的引用代码框，在 Markdown下实现也非常简单，只需要用三个 ` 把中间的代码包裹起来。图例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = 10;</span><br><span class="line">var obj = &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><p>分割线的语法只需要三个 * 号</p>
+<blockquote>
+<p>到这里，Markdown 的基本语法在日常的使用中基本就没什么大问题了，只要多加练习，配合好用的工具，写起东西来肯定会行云流水。更多的语法规则，其实 Mou 的 Help 文档栗子很好，当你第一次使用 Mou 时，就会显示该文档。可以用来对用的查找和学习。</p>
+</blockquote>
+<h1 id="Mark文字"><a href="#Mark文字" class="headerlink" title="Mark文字"></a>Mark文字</h1><p>使用两个=号包起来, 例如: 下面的文字是==重点==</p>
+<h1 id="选择树结构"><a href="#选择树结构" class="headerlink" title="选择树结构"></a>选择树结构</h1><ul>
+<li>[ ] 节点1<ul>
+<li>[x] 节点1-1</li>
+</ul>
+</li>
+<li>[ ] 节点2<ul>
+<li>[x] 节点2-1</li>
+</ul>
+</li>
+</ul>
+<h1 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E = mc^2</span><br></pre></td></tr></table></figure>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A--&gt;B</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">A-&gt;&gt;B: How are you?</span><br><span class="line">B-&gt;&gt;A: Great!</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gantt</span><br><span class="line">dateFormat YYYY-MM-DD</span><br><span class="line">section S1</span><br><span class="line">T1: 2014-01-01, 9d</span><br><span class="line">section S2</span><br><span class="line">T2: 2014-01-11, 9d</span><br><span class="line">section S3</span><br><span class="line">T3: 2014-01-02, 9d</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考 <a href="http://note.youdao.com/iyoudao/?p=2411" target="_blank" rel="noopener">有道云Markdown语法</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 个人整理 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 个人整理 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[利用Travis CI 让你的github项目持续构建]]></title>
+      <url>/2017/05/10/travis-ci/</url>
+      <content type="html"><![CDATA[<p>   Travis CI 是目前新兴的开源持续集成构建项目，它与jenkins，GO的很明显的特别在于采用yaml格式，简洁清新独树一帜。目前大多数的github项目都已经移入到Travis CI的构建队列中，据说Travis CI每天运行超过4000次完整构建</p>
+<h3 id="搭建-Travis-CI-build，需要-github账号和github项目"><a href="#搭建-Travis-CI-build，需要-github账号和github项目" class="headerlink" title="搭建 Travis CI build，需要 github账号和github项目"></a>搭建 <code>Travis CI build</code>，需要 <code>github</code>账号和<code>github</code>项目</h3><ol>
+<li>用github账号登陆<a href="https://travis-ci.org/" target="_blank" rel="noopener">Travis CI</a>. </li>
+<li>在右上角你的账户名点击进入 ==account==，在==Repositories tab==页点击==Sync now==同步你的github项目</li>
+<li>选中项目将默认的off改变为on开启项目的持续集成</li>
+<li>在你项目的根目录建立一个.travis.yml文件，内容为<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">language: node_js</span><br><span class="line">node_js: stable</span><br><span class="line"></span><br><span class="line"># S: Build Lifecycle</span><br><span class="line">install:</span><br><span class="line">  - npm install</span><br><span class="line"></span><br><span class="line"># before_script:</span><br><span class="line">  # -</span><br><span class="line">script:</span><br><span class="line">  - hexo g</span><br><span class="line"></span><br><span class="line">after_script:</span><br><span class="line">  - cd ./public</span><br><span class="line">  - git init</span><br><span class="line">  - git config user.name &quot;jys0909&quot;</span><br><span class="line">  - git config user.email &quot;276977683@qq.com&quot;</span><br><span class="line">  - git add .</span><br><span class="line">  - git commit -m &quot;Update docs&quot;</span><br><span class="line">  - git push --force --quiet &quot;https://$&#123;GH_TOKEN&#125;@$&#123;GH_REF&#125;&quot; master:master</span><br><span class="line"># E: Build LifeCycle</span><br><span class="line"></span><br><span class="line">branches:</span><br><span class="line">  only:</span><br><span class="line">    - blog-source</span><br><span class="line">env:</span><br><span class="line"> global:</span><br><span class="line"> - GH_REF: github.com/jys0909/ysblog.git</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>来源： <a href="http://www.cnblogs.com/whitewolf/archive/2013/04/14/3019838.html" target="_blank" rel="noopener">http://www.cnblogs.com/whitewolf/archive/2013/04/14/3019838.html</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 个人整理 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 个人整理 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[常用正则收录]]></title>
+      <url>/2017/05/10/regex/</url>
+      <content type="html"><![CDATA[<h3 id="1、两位小数以内的正实数"><a href="#1、两位小数以内的正实数" class="headerlink" title="1、两位小数以内的正实数"></a>1、两位小数以内的正实数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^(([0-9]+)|([0-9]+\.[0-9]&#123;1,2&#125;))$</span><br></pre></td></tr></table></figure>
+<h3 id="2、中文、字母、数字、或者下划线"><a href="#2、中文、字母、数字、或者下划线" class="headerlink" title="2、中文、字母、数字、或者下划线"></a>2、中文、字母、数字、或者下划线</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[\u4e00-\u9fa5A-Za-z0-9_]+$/</span><br></pre></td></tr></table></figure>
+<h3 id="3、电话号码"><a href="#3、电话号码" class="headerlink" title="3、电话号码"></a>3、电话号码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(0[0-9]&#123;2,3&#125;\-)?([2-9][0-9]&#123;6,7&#125;)+(\-[0-9]&#123;1,4&#125;)?$|(^(13[0-9]|15[0|3|6|7|8|9]|18[8|9])\d&#123;8&#125;$|(^400-([0-9])&#123;1&#125;([0-9-]&#123;6&#125;)([0-9])&#123;1&#125;)$)/</span><br></pre></td></tr></table></figure>
+<h3 id="4、网址"><a href="#4、网址" class="headerlink" title="4、网址"></a>4、网址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(f|ht)&#123;1&#125;(tp|tps):\/\/([\w-]+\.)+[\w-]+(\/[\w- ./?%&amp;=]*)?/</span><br></pre></td></tr></table></figure>
+<h3 id="5、邮箱"><a href="#5、邮箱" class="headerlink" title="5、邮箱"></a>5、邮箱</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]&#123;2,14&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6、双字节字符"><a href="#6、双字节字符" class="headerlink" title="6、双字节字符"></a>6、双字节字符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[^\x00-\xff]</span><br></pre></td></tr></table></figure>
+<h3 id="7、时分秒"><a href="#7、时分秒" class="headerlink" title="7、时分秒"></a>7、时分秒</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">([01]?\d|2[0-3]):[0-5]?\d:[0-5]?\d</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 个人整理 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+  
+  
+</search>

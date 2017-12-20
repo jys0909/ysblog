@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>JQuery + Gulp + Bootstrap + browserify + Express 搭建前端框架 | ぃ 陪_著你笑 | 看不惯你的哭，只想看到你的笑。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="个人整理">
+    <meta name="description" content="初始化项目新建项目文件夹 web12&amp;gt; cd web &amp;gt; express 修改app.js1234app.set(&amp;apos;views&amp;apos;, path.join(__dirname, &amp;apos;views&amp;apos;));// setting view engineapp.set(&amp;apos;view engine&amp;apos;, &amp;apos;html&amp;apos;);app.">
+<meta name="keywords" content="个人整理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JQuery + Gulp + Bootstrap + browserify + Express 搭建前端框架">
+<meta property="og:url" content="http://www.g5kk.com/2017/05/26/jq-bt-express-bw/index.html">
+<meta property="og:site_name" content="ぃ 陪_著你笑">
+<meta property="og:description" content="初始化项目新建项目文件夹 web12&amp;gt; cd web &amp;gt; express 修改app.js1234app.set(&amp;apos;views&amp;apos;, path.join(__dirname, &amp;apos;views&amp;apos;));// setting view engineapp.set(&amp;apos;view engine&amp;apos;, &amp;apos;html&amp;apos;);app.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-20T13:30:46.855Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JQuery + Gulp + Bootstrap + browserify + Express 搭建前端框架">
+<meta name="twitter:description" content="初始化项目新建项目文件夹 web12&amp;gt; cd web &amp;gt; express 修改app.js1234app.set(&amp;apos;views&amp;apos;, path.join(__dirname, &amp;apos;views&amp;apos;));// setting view engineapp.set(&amp;apos;view engine&amp;apos;, &amp;apos;html&amp;apos;);app.">
+    
+        <link rel="alternate" type="application/atom+xml" title="ぃ 陪_著你笑" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jys0909" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                GitHub
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header>
+</header>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#初始化项目"><span class="post-toc-text">初始化项目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装-browserify-JQuery-Bootstrap-browserify-shim"><span class="post-toc-text">安装 browserify, JQuery, Bootstrap ,browserify-shim</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装-Gulp"><span class="post-toc-text">安装 Gulp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#随便介绍下-合并压缩Css"><span class="post-toc-text">随便介绍下 合并压缩Css</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-jq-bt-express-bw"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JQuery + Gulp + Bootstrap + browserify + Express 搭建前端框架</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-26 15:10:39" datetime="2017-05-26T15:10:39.000Z"  itemprop="datePublished">2017-05-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/个人整理/">个人整理</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h1><p>新建项目文件夹 web<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; cd web </span><br><span class="line">&gt; express</span><br></pre></td></tr></table></figure></p>
+<p>修改app.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.set(&apos;views&apos;, path.join(__dirname, &apos;views&apos;));</span><br><span class="line">// setting view engine</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br><span class="line">app.engine(&apos;html&apos;, require(&apos;ejs-mate&apos;));</span><br></pre></td></tr></table></figure></p>
+<p>这样我们就可以使用<code>.html</code>文件来编写代码了, 将view下面自动生成的<code>.ejs</code>改成<code>.html</code></p>
+<h1 id="安装-browserify-JQuery-Bootstrap-browserify-shim"><a href="#安装-browserify-JQuery-Bootstrap-browserify-shim" class="headerlink" title="安装 browserify, JQuery, Bootstrap ,browserify-shim"></a>安装 browserify, JQuery, Bootstrap ,browserify-shim</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install browserify --save </span><br><span class="line">npm install browserify-shim --save // 可以使用似如jquery的插件变</span><br><span class="line">npm install jquery --save</span><br><span class="line">npm install bootstrap --save</span><br></pre></td></tr></table></figure>
+<p>browserify-shim 如何使用？<br>在package.json下面添加如下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&quot;browserify&quot;: &#123;</span><br><span class="line">    &quot;transform&quot;: [</span><br><span class="line">      &quot;browserify-shim&quot;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;browser&quot;: &#123;</span><br><span class="line">    // 添加jquery.pep 插件</span><br><span class="line">    &quot;jquery.pep&quot;: &quot;./node_modules/jquery.pep.js/src/jquery.pep.js&quot;,</span><br><span class="line">    // 添加bootstrap插件</span><br><span class="line">    &quot;bootstrap&quot;: &quot;./node_modules/bootstrap/dist/js/bootstrap.min.js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;browserify-shim&quot;: &#123;</span><br><span class="line">  // 添加jquery.pep 插件</span><br><span class="line">    &quot;jquery.pep&quot;: &#123;</span><br><span class="line">      &quot;depends&quot;: [</span><br><span class="line">        &quot;jquery:jQuery&quot;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    // 添加bootstrap插件</span><br><span class="line">    &quot;bootstrap&quot;: &#123;</span><br><span class="line">      &quot;depends&quot;: [</span><br><span class="line">        &quot;jquery:jQuery&quot;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="安装-Gulp"><a href="#安装-Gulp" class="headerlink" title="安装 Gulp"></a>安装 Gulp</h1>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp -g</span><br></pre></td></tr></table></figure>
+<p>  根目录添加<code>gulpfile.js</code>内容如下<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">  var gulp = require(&quot;gulp&quot;);</span><br><span class="line">var browserify = require(&quot;browserify&quot;);</span><br><span class="line">var sourcemaps = require(&quot;gulp-sourcemaps&quot;);</span><br><span class="line">var source = require(&apos;vinyl-source-stream&apos;);</span><br><span class="line">var buffer = require(&apos;vinyl-buffer&apos;);</span><br><span class="line"> </span><br><span class="line">gulp.task(&quot;browserify&quot;, function () &#123;</span><br><span class="line"> var b = browserify(&#123;</span><br><span class="line">  entries: &quot;./static/src/main.js&quot;,</span><br><span class="line">  debug: false</span><br><span class="line"> &#125;);</span><br><span class="line"> </span><br><span class="line"> return b.bundle()</span><br><span class="line">  .pipe(source(&quot;bundle.js&quot;))</span><br><span class="line">  .pipe(buffer())</span><br><span class="line">  .pipe(sourcemaps.init(&#123;loadMaps: true&#125;))</span><br><span class="line">  .pipe(sourcemaps.write(&quot;.&quot;))</span><br><span class="line">  .pipe(gulp.dest(&quot;./static/dist&quot;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>意思是创建<code>browserify</code>任务， 执行<code>browserify</code>编译<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; gulp browserify</span><br></pre></td></tr></table></figure></p>
+<p>会将<code>./static/src/main.js</code>文件及所有依赖打包成<code>.static/dist/bundle.js</code></p>
+<p>main.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var $ = require(&quot;jquery&quot;);</span><br><span class="line">require(&quot;bootstrap&quot;); </span><br><span class="line">require(&quot;jquery.pep&quot;);</span><br><span class="line">$(&quot;.move-box&quot;).pep(&#123;</span><br><span class="line">  useCSSTranslation: false,</span><br><span class="line">  constrainTo: &apos;parent&apos;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>然后index.html 中引用<code>.static/dist/bundle.js</code>就可以了</p>
+<blockquote>
+<p>注： browserify 也可以打包并可以调试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">browserify main.js --debug | exorcist bundle.js.map &gt; bundle.js</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>也可以给gulp添加一个watch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(&quot;watch&quot;,function()&#123;</span><br><span class="line">  gulp.watch(&quot;./static/src/main.js&quot;,[&quot;browserify&quot;]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>这时候修改<code>main.js</code>可以看出效果了</p>
+<p>gulp绑定多个文件</p>
+<p>如果构建的js很多，添加如下插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install gulp-rename --save</span><br><span class="line">cnpm install event-stream --save</span><br></pre></td></tr></table></figure></p>
+<p>修改<code>gulpfile.js</code>文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">var rename = require(&apos;gulp-rename&apos;);</span><br><span class="line">var browserify = require(&apos;browserify&apos;);</span><br><span class="line">var es = require(&apos;event-stream&apos;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;browserify&apos;, function()&#123;</span><br><span class="line">    //定义多个入口文件</span><br><span class="line">    var entityFiles = [</span><br><span class="line">        &apos;./static/src/main.js&apos;,</span><br><span class="line">        &apos;./static/src/log.js&apos;,</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    //遍历映射这些入口文件</span><br><span class="line">    var tasks = entityFiles.map(function(entity)&#123;</span><br><span class="line">        return browserify(&#123;entries: [entity]&#125;)</span><br><span class="line">            .bundle()</span><br><span class="line">            .pipe(source(entity))</span><br><span class="line">            .pipe(rename(&#123;</span><br><span class="line">                extname: &apos;.bundle.js&apos;,</span><br><span class="line">                dirname: &apos;&apos;</span><br><span class="line">            &#125;))</span><br><span class="line">            .pipe(gulp.dest(&apos;./static/dist&apos;));</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    //创建一个合并流</span><br><span class="line">    return es.merge.apply(null, tasks);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>下面看另一种<code>glob</code>插件方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install glob --save;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">var source = require(&apos;vinyl-source-stream&apos;);</span><br><span class="line">var rename = require(&apos;gulp-rename&apos;);</span><br><span class="line">var browserify = require(&apos;browserify&apos;);</span><br><span class="line">var es = require(&apos;event-stream&apos;);</span><br><span class="line">var glob = require(&apos;glob&apos;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;browserify&apos;, function(done)&#123;</span><br><span class="line">    glob(&apos;./static/src/*.js&apos;, function(err, files) &#123;</span><br><span class="line">        if(err) done(err);</span><br><span class="line"></span><br><span class="line">        var tasks = files.map(function(entry) &#123;</span><br><span class="line">            return browserify(&#123; entries: [entry] &#125;)</span><br><span class="line">                .bundle()</span><br><span class="line">                .pipe(source(entry))</span><br><span class="line">                .pipe(rename(&#123;</span><br><span class="line">                    extname: &apos;.bundle.js&apos;,</span><br><span class="line">                    dirname: &apos;&apos;</span><br><span class="line">                &#125;))</span><br><span class="line">                .pipe(gulp.dest(&apos;./static/dist&apos;));</span><br><span class="line">            &#125;);</span><br><span class="line">        es.merge(tasks).on(&apos;end&apos;, done);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&quot;watch&quot;,function()&#123;</span><br><span class="line">  gulp.watch(&quot;./static/src/*.js&quot;,[&quot;browserify&quot;]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="随便介绍下-合并压缩Css"><a href="#随便介绍下-合并压缩Css" class="headerlink" title="随便介绍下 合并压缩Css"></a>随便介绍下 合并压缩Css</h3><p>用到的包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ar concat = require(&apos;gulp-concat&apos;); //- 多个文件合并为一个；</span><br><span class="line">var cssmin = require(&apos;gulp-minify-css&apos;); //- 压缩CSS为一行；</span><br><span class="line">var rev = require(&apos;gulp-rev&apos;);  //- 对文件名加MD5后缀</span><br><span class="line">var revCollector = require(&apos;gulp-rev-collector&apos;); //- 路径替换</span><br><span class="line">var cssver = require(&apos;gulp-make-css-url-version&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>在<code>gulpfile.js</code>中添加如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(&apos;Cssmin&apos;, function() &#123;                              //- 创建一个名为 concat 的 task</span><br><span class="line">    gulp.src(&apos;./static/css/*.css&apos;)    //- 需要处理的css文件</span><br><span class="line">        .pipe(cssver()) </span><br><span class="line">		.pipe(concat(&apos;default.min.css&apos;)) // 合并成一个文件名</span><br><span class="line">		.pipe(rev()) // 文件名加MD5后缀</span><br><span class="line">		.pipe(cssmin()) // 压缩成一行</span><br><span class="line">        .pipe(gulp.dest(&apos;./static/dist&apos;))  //  输出文件本地</span><br><span class="line">		.pipe(rev.manifest()) //- 生成一个rev-manifest.json</span><br><span class="line">		.pipe(gulp.dest(&apos;./static/rev&apos;));  //- 将 rev-manifest.json 保存到 rev 目录内</span><br><span class="line">		</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;rev&apos;, function() &#123;</span><br><span class="line">    gulp.src([&apos;./static/rev/*.json&apos;, &apos;./view/*.html&apos;])   		//- 读取 rev-manifest.json 文件以及需要进行css名替换的文件</span><br><span class="line">        .pipe(revCollector())                                   //- 执行文件内css名的替换</span><br><span class="line">        .pipe(gulp.dest(&apos;./view/&apos;));                     		//- 替换后的文件输出的目录</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;default&apos;, [&apos;Cssmin&apos;, &apos;rev&apos;]);</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-20T13:30:46.855Z" itemprop="dateUpdated">2017-12-20 13:30:46</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://www.g5kk.com">
+            <img src="/img/avatar.png" alt="ぃ 陪_著你笑">
+            ぃ 陪_著你笑
+        </a>
+    </footer>
+</blockquote>
+-->
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/个人整理/">个人整理</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/06/20/React electron 桌面应用/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">React Electron 创建简单桌面应用</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/16/react-redux-test/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">如何在 React+Redux 的项目中更优雅的实现前端自动化测试</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢大爷赏~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

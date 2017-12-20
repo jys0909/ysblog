@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>lodash 常用函数 | ぃ 陪_著你笑 | 看不惯你的哭，只想看到你的笑。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="个人整理">
+    <meta name="description" content="_.filter 遍历 collection（集合）元素，返回 predicate（断言函数）返回真值 的所有元素的数组。 predicate（断言函数）调用三个参数：(value, index|key, collection)。返回一个新的过滤后的数组。  12345678910111213141516171819var users = [  &amp;#123; &amp;apos;user&amp;apos;: &amp;">
+<meta name="keywords" content="个人整理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lodash 常用函数">
+<meta property="og:url" content="http://www.g5kk.com/2017/05/11/loadsh/index.html">
+<meta property="og:site_name" content="ぃ 陪_著你笑">
+<meta property="og:description" content="_.filter 遍历 collection（集合）元素，返回 predicate（断言函数）返回真值 的所有元素的数组。 predicate（断言函数）调用三个参数：(value, index|key, collection)。返回一个新的过滤后的数组。  12345678910111213141516171819var users = [  &amp;#123; &amp;apos;user&amp;apos;: &amp;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-20T13:30:46.855Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="lodash 常用函数">
+<meta name="twitter:description" content="_.filter 遍历 collection（集合）元素，返回 predicate（断言函数）返回真值 的所有元素的数组。 predicate（断言函数）调用三个参数：(value, index|key, collection)。返回一个新的过滤后的数组。  12345678910111213141516171819var users = [  &amp;#123; &amp;apos;user&amp;apos;: &amp;">
+    
+        <link rel="alternate" type="application/atom+xml" title="ぃ 陪_著你笑" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jys0909" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                GitHub
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header>
+</header>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#filter"><span class="post-toc-text">_.filter</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#find"><span class="post-toc-text">_.find</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#forEach"><span class="post-toc-text">_.forEach</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#map"><span class="post-toc-text">_.map</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#orderBy"><span class="post-toc-text">_.orderBy</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#clone"><span class="post-toc-text">_.clone</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#续更新…"><span class="post-toc-text">续更新…</span></a>
+        </nav>
+    </aside>
+    
+<article id="post-loadsh"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">lodash 常用函数</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-11 17:09:49" datetime="2017-05-11T17:09:49.000Z"  itemprop="datePublished">2017-05-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/个人整理/">个人整理</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="filter"><a href="#filter" class="headerlink" title="_.filter"></a>_.filter</h3><blockquote>
+<p>遍历 collection（集合）元素，返回 predicate（断言函数）返回真值 的所有元素的数组。 predicate（断言函数）调用三个参数：(value, index|key, collection)。<br><code>返回一个新的过滤后的数组。</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var users = [</span><br><span class="line">  &#123; &apos;user&apos;: &apos;barney&apos;, &apos;age&apos;: 36, &apos;active&apos;: true &#125;,</span><br><span class="line">  &#123; &apos;user&apos;: &apos;fred&apos;,   &apos;age&apos;: 40, &apos;active&apos;: false &#125;</span><br><span class="line">];</span><br><span class="line"> </span><br><span class="line">_.filter(users, function(o) &#123; return !o.active; &#125;);</span><br><span class="line">// =&gt; objects for [&apos;fred&apos;]</span><br><span class="line"> </span><br><span class="line">// The `_.matches` iteratee shorthand.</span><br><span class="line">_.filter(users, &#123; &apos;age&apos;: 36, &apos;active&apos;: true &#125;);</span><br><span class="line">// =&gt; objects for [&apos;barney&apos;]</span><br><span class="line"> </span><br><span class="line">// The `_.matchesProperty` iteratee shorthand.</span><br><span class="line">_.filter(users, [&apos;active&apos;, false]);</span><br><span class="line">// =&gt; objects for [&apos;fred&apos;]</span><br><span class="line"> </span><br><span class="line">// The `_.property` iteratee shorthand.</span><br><span class="line">_.filter(users, &apos;active&apos;);</span><br><span class="line">// =&gt; objects for [&apos;barney&apos;]</span><br></pre></td></tr></table></figure>
+<h3 id="find"><a href="#find" class="headerlink" title="_.find"></a>_.find</h3><blockquote>
+<p>遍历 collection（集合）元素，返回 predicate（断言函数）第一个返回真值的第一个元素。predicate（断言函数）调用3个参数： (value, index|key, collection)。<code>返回匹配元素，否则返回 undefined。</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var users = [</span><br><span class="line">  &#123; &apos;user&apos;: &apos;barney&apos;,  &apos;age&apos;: 36, &apos;active&apos;: true &#125;,</span><br><span class="line">  &#123; &apos;user&apos;: &apos;fred&apos;,    &apos;age&apos;: 40, &apos;active&apos;: false &#125;,</span><br><span class="line">  &#123; &apos;user&apos;: &apos;pebbles&apos;, &apos;age&apos;: 1,  &apos;active&apos;: true &#125;</span><br><span class="line">];</span><br><span class="line"> </span><br><span class="line">_.find(users, function(o) &#123; return o.age &lt; 40; &#125;);</span><br><span class="line">// =&gt; object for &apos;barney&apos;</span><br><span class="line"> </span><br><span class="line">// The `_.matches` iteratee shorthand.</span><br><span class="line">_.find(users, &#123; &apos;age&apos;: 1, &apos;active&apos;: true &#125;);</span><br><span class="line">// =&gt; object for &apos;pebbles&apos;</span><br><span class="line"> </span><br><span class="line">// The `_.matchesProperty` iteratee shorthand.</span><br><span class="line">_.find(users, [&apos;active&apos;, false]);</span><br><span class="line">// =&gt; object for &apos;fred&apos;</span><br><span class="line"> </span><br><span class="line">// The `_.property` iteratee shorthand.</span><br><span class="line">_.find(users, &apos;active&apos;);</span><br><span class="line">// =&gt; object for &apos;barney&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="forEach"><a href="#forEach" class="headerlink" title="_.forEach"></a>_.forEach</h3><blockquote>
+<p>调用 iteratee 遍历 collection(集合) 中的每个元素， iteratee 调用3个参数： (value, index|key, collection)。 如果迭代函数（iteratee）显式的返回 false ，迭代会提前退出。<code>返回集合 collection。</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">_([1, 2]).forEach(function(value) &#123;</span><br><span class="line">  console.log(value);</span><br><span class="line">&#125;);</span><br><span class="line">// =&gt; Logs `1` then `2`.</span><br><span class="line"> </span><br><span class="line">_.forEach(&#123; &apos;a&apos;: 1, &apos;b&apos;: 2 &#125;, function(value, key) &#123;</span><br><span class="line">  console.log(key);</span><br><span class="line">&#125;);</span><br><span class="line">// =&gt; Logs &apos;a&apos; then &apos;b&apos; (iteration order is not guaranteed).</span><br></pre></td></tr></table></figure>
+<h3 id="map"><a href="#map" class="headerlink" title="_.map"></a>_.map</h3><blockquote>
+<p>创建一个数组， value（值） 是 iteratee（迭代函数）遍历 collection（集合）中的每个元素后返回的结果。 iteratee（迭代函数）调用3个参数：<br>(value, index|key, collection). lodash 中有许多方法是防止作为其他方法的迭代函数（愚人码头注：即不能作为iteratee参数传递给其他方法），例如： <em>.every, </em>.filter, <em>.map, </em>.mapValues, <em>.reject, 和 </em>.some。 受保护的方法有（愚人码头注：即这些方法不能使用<em>.every, </em>.filter, <em>.map, </em>.mapValues, <em>.reject, 和 </em>.some作为 iteratee 迭代函数参数） ：<br>ary, chunk, curry, curryRight, drop, dropRight, every, fill, invert, parseInt, random, range, rangeRight, repeat, sampleSize, slice, some, sortBy, split, take, takeRight, template, trim, trimEnd, trimStart, and words<br><code>返回新的映射后数组。</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function square(n) &#123;</span><br><span class="line">  return n * n;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">_.map([4, 8], square);</span><br><span class="line">// =&gt; [16, 64]</span><br><span class="line"> </span><br><span class="line">_.map(&#123; &apos;a&apos;: 4, &apos;b&apos;: 8 &#125;, square);</span><br><span class="line">// =&gt; [16, 64](iteration order is not guaranteed)</span><br><span class="line"> </span><br><span class="line">var users = [</span><br><span class="line">  &#123; &apos;user&apos;: &apos;barney&apos; &#125;,</span><br><span class="line">  &#123; &apos;user&apos;: &apos;fred&apos; &#125;</span><br><span class="line">];</span><br><span class="line"> </span><br><span class="line">// The `_.property` iteratee shorthand.</span><br><span class="line">_.map(users, &apos;user&apos;);</span><br><span class="line">// =&gt; [&apos;barney&apos;, &apos;fred&apos;]</span><br></pre></td></tr></table></figure>
+<h3 id="orderBy"><a href="#orderBy" class="headerlink" title="_.orderBy"></a>_.orderBy</h3><blockquote>
+<p>此方法类似于_.sortBy，除了它允许指定 iteratee（迭代函数）结果如何排序。 如果没指定 orders（排序），所有值以升序排序。 否则，指定为”desc” 降序，或者指定为 “asc” 升序，排序对应值。<code>返回排序后的新数组。</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var users = [</span><br><span class="line">  &#123; &apos;user&apos;: &apos;fred&apos;,   &apos;age&apos;: 48 &#125;,</span><br><span class="line">  &#123; &apos;user&apos;: &apos;barney&apos;, &apos;age&apos;: 34 &#125;,</span><br><span class="line">  &#123; &apos;user&apos;: &apos;fred&apos;,   &apos;age&apos;: 40 &#125;,</span><br><span class="line">  &#123; &apos;user&apos;: &apos;barney&apos;, &apos;age&apos;: 36 &#125;</span><br><span class="line">];</span><br><span class="line"> </span><br><span class="line">// 以 `user` 升序排序 再  `age` 以降序排序。</span><br><span class="line">_.orderBy(users, [&apos;user&apos;, &apos;age&apos;], [&apos;asc&apos;, &apos;desc&apos;]);</span><br><span class="line">// =&gt; objects for [[&apos;barney&apos;, 36], [&apos;barney&apos;, 34], [&apos;fred&apos;, 48], [&apos;fred&apos;, 40]]</span><br></pre></td></tr></table></figure>
+<h3 id="clone"><a href="#clone" class="headerlink" title="_.clone"></a>_.clone</h3><blockquote>
+<p>创建一个 value 的浅拷贝。<br> <strong>注意</strong>: 这个方法参考自 structured clone algorithm 以及支持 arrays、array buffers、 booleans、 date objects、maps、 numbers， Object 对象, regexes, sets, strings, symbols, 以及 typed arrays。 arguments对象的可枚举属性会拷贝为普通对象。 一些不可拷贝的对象，例如error objects、functions, DOM nodes, 以及 WeakMaps 会返回空对象。<code>返回拷贝后的值</code></p>
+</blockquote>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> var objects = [&#123; &apos;a&apos;: 1 &#125;, &#123; &apos;b&apos;: 2 &#125;];</span><br><span class="line"> </span><br><span class="line">var shallow = _.clone(objects);</span><br><span class="line">console.log(shallow[0] === objects[0]);</span><br><span class="line">// =&gt; true</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="续更新…"><a href="#续更新…" class="headerlink" title="续更新…"></a>续更新…</h1><blockquote>
+<p>来源： <a href="http://www.css88.com/doc/lodash/#_forinobject-iteratee_identity" target="_blank" rel="noopener">http://www.css88.com/doc/lodash/#_forinobject-iteratee_identity</a></p>
+</blockquote>
+
+        </div>
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-20T13:30:46.855Z" itemprop="dateUpdated">2017-12-20 13:30:46</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://www.g5kk.com">
+            <img src="/img/avatar.png" alt="ぃ 陪_著你笑">
+            ぃ 陪_著你笑
+        </a>
+    </footer>
+</blockquote>
+-->
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/个人整理/">个人整理</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/05/12/react-component-life-cycle/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">React组件生命周期</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/11/node-version-manager/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">windows Node 版本管理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢大爷赏~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

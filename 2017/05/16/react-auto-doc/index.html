@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>React组件自动化文档 | ぃ 陪_著你笑 | 看不惯你的哭，只想看到你的笑。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="个人整理">
+    <meta name="description" content="构建和共享组件是React最强大的功能之一，但是没有任何文档，我们的组件有什么好处？ 我最近参与了一个项目，创建了将被广泛开发人员采用的组件，并且已经学会了一种方便自动化组件文档的方法 在这篇文章中，我们将介绍为什么您可能需要记录您的组件，以及如何使用React轻松实现。 为什么要做文档组件？那么首先你可能会想，为什么我们需要记录我们的组件？说实话，这真的取决于你正在建造什么，谁将会消耗你的组件。">
+<meta name="keywords" content="个人整理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React组件自动化文档">
+<meta property="og:url" content="http://www.g5kk.com/2017/05/16/react-auto-doc/index.html">
+<meta property="og:site_name" content="ぃ 陪_著你笑">
+<meta property="og:description" content="构建和共享组件是React最强大的功能之一，但是没有任何文档，我们的组件有什么好处？ 我最近参与了一个项目，创建了将被广泛开发人员采用的组件，并且已经学会了一种方便自动化组件文档的方法 在这篇文章中，我们将介绍为什么您可能需要记录您的组件，以及如何使用React轻松实现。 为什么要做文档组件？那么首先你可能会想，为什么我们需要记录我们的组件？说实话，这真的取决于你正在建造什么，谁将会消耗你的组件。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.davidboyne.co.uk/images/docs.png">
+<meta property="og:updated_time" content="2017-12-20T13:30:46.855Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React组件自动化文档">
+<meta name="twitter:description" content="构建和共享组件是React最强大的功能之一，但是没有任何文档，我们的组件有什么好处？ 我最近参与了一个项目，创建了将被广泛开发人员采用的组件，并且已经学会了一种方便自动化组件文档的方法 在这篇文章中，我们将介绍为什么您可能需要记录您的组件，以及如何使用React轻松实现。 为什么要做文档组件？那么首先你可能会想，为什么我们需要记录我们的组件？说实话，这真的取决于你正在建造什么，谁将会消耗你的组件。">
+<meta name="twitter:image" content="http://www.davidboyne.co.uk/images/docs.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ぃ 陪_著你笑" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jys0909" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                GitHub
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header>
+</header>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为什么要做文档组件？"><span class="post-toc-text">为什么要做文档组件？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#react-docgen"><span class="post-toc-text">react-docgen</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Component-Example"><span class="post-toc-text">Component Example</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#JSON-output"><span class="post-toc-text">JSON output</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#如何在React中使用react-docgen"><span class="post-toc-text">如何在React中使用react-docgen</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装raw-loader"><span class="post-toc-text">安装raw-loader</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#这是什么意思？"><span class="post-toc-text">这是什么意思？</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-react-auto-doc"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">React组件自动化文档</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-16 15:20:39" datetime="2017-05-16T15:20:39.000Z"  itemprop="datePublished">2017-05-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/个人整理/">个人整理</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>构建和共享组件是React最强大的功能之一，但是没有任何文档，我们的组件有什么好处？</p>
+<p>我最近参与了一个项目，创建了将被广泛开发人员采用的组件，并且已经学会了一种方便自动化组件文档的方法</p>
+<p>在这篇文章中，我们将介绍为什么您可能需要记录您的组件，以及如何使用React轻松实现。</p>
+<h1 id="为什么要做文档组件？"><a href="#为什么要做文档组件？" class="headerlink" title="为什么要做文档组件？"></a>为什么要做文档组件？</h1><p>那么首先你可能会想，为什么我们需要记录我们的组件？<br>说实话，这真的取决于你正在建造什么，谁将会消耗你的组件。<br>在我们的测试中构建Web应用程序时，可能会为我们的组件提供足够的文档。<br>但是，如果您在整个业务或在线社区中使用大量应用程序或大量组件，那么文档就是关键。<br>如果我们看一些例如<code>React Bootstrap</code>或<code>Material UI</code>，他们的文档真的可以帮助开发人员在几分钟之内完成设置并利用它们的组件。<br>从这些项目中吸取灵感，我想为我的项目做类似的事情，并设法使用我在路上找到的一些令人敬畏的工具。</p>
+<p>所以我们来看看他们。</p>
+<h1 id="react-docgen"><a href="#react-docgen" class="headerlink" title="react-docgen"></a>react-docgen</h1><p><code>react-docgen</code>是一个CLI和工具箱，用于从React组件中提取信息，并从中生成文档。</p>
+<p>这个想法很简单 我们将组件传递给反应文件，它将返回一个对象。</p>
+<p>让我们来看看这个反馈文档<a href="https://github.com/reactjs/react-docgen" target="_blank" rel="noopener">GitHub页面上的例子</a>。</p>
+<h5 id="Component-Example"><a href="#Component-Example" class="headerlink" title="Component Example"></a>Component Example</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">var React = require(&apos;react&apos;);</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * General component description.</span><br><span class="line"> */</span><br><span class="line">var Component = React.createClass(&#123;</span><br><span class="line">  propTypes: &#123;</span><br><span class="line">    /**</span><br><span class="line">     * Description of prop &quot;foo&quot;.</span><br><span class="line">     */</span><br><span class="line">    foo: React.PropTypes.number,</span><br><span class="line">    /**</span><br><span class="line">     * Description of prop &quot;bar&quot; (a custom validation function).</span><br><span class="line">     */</span><br><span class="line">    bar: function(props, propName, componentName) &#123;</span><br><span class="line">      // ...</span><br><span class="line">    &#125;,</span><br><span class="line">    baz: React.PropTypes.oneOfType([</span><br><span class="line">      React.PropTypes.number,</span><br><span class="line">      React.PropTypes.string</span><br><span class="line">    ]),</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  getDefaultProps: function() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      foo: 42,</span><br><span class="line">      bar: 21</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  render: function() &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">module.exports = Component;</span><br></pre></td></tr></table></figure>
+<h5 id="JSON-output"><a href="#JSON-output" class="headerlink" title="JSON output"></a>JSON output</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;props&quot;: &#123;</span><br><span class="line">    &quot;foo&quot;: &#123;</span><br><span class="line">      &quot;type&quot;: &#123;</span><br><span class="line">        &quot;name&quot;: &quot;number&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;required&quot;: false,</span><br><span class="line">      &quot;description&quot;: &quot;Description of prop \&quot;foo\&quot;.&quot;,</span><br><span class="line">      &quot;defaultValue&quot;: &#123;</span><br><span class="line">        &quot;value&quot;: &quot;42&quot;,</span><br><span class="line">        &quot;computed&quot;: false</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;bar&quot;: &#123;</span><br><span class="line">      &quot;type&quot;: &#123;</span><br><span class="line">        &quot;name&quot;: &quot;custom&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;required&quot;: false,</span><br><span class="line">      &quot;description&quot;: &quot;Description of prop \&quot;bar\&quot; (a custom validation function).&quot;,</span><br><span class="line">      &quot;defaultValue&quot;: &#123;</span><br><span class="line">        &quot;value&quot;: &quot;21&quot;,</span><br><span class="line">        &quot;computed&quot;: false</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;baz&quot;: &#123;</span><br><span class="line">      &quot;type&quot;: &#123;</span><br><span class="line">        &quot;name&quot;: &quot;union&quot;,</span><br><span class="line">        &quot;value&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;number&quot;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;string&quot;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;required&quot;: false,</span><br><span class="line">      &quot;description&quot;: &quot;&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;description&quot;: &quot;General component description.&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们返回的JSON对象已经从我们的组件中提取了文档。</p>
+<p>对象包含我们在组件中定义的所有属性。</p>
+<p>对于每个prop的返回类型，如果必须，说明和任何默认值。</p>
+<p>所以使用CLI是好的，但是我们如何在React应用程序中使用它并自动化进程？ 它实际上很直接，所以让我们来看看。</p>
+<h1 id="如何在React中使用react-docgen"><a href="#如何在React中使用react-docgen" class="headerlink" title="如何在React中使用react-docgen"></a>如何在React中使用react-docgen</h1><p>首先, 安装 <code>react-docgen</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react-docgen</span><br></pre></td></tr></table></figure></p>
+<p>接下来, 导入 <code>react-docgen</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;parse&#125; from &apos;react-docgen&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>现在我们可以解析任何组件并获取文档。 但是要使用解析函数，我们需要将组件转为<code>string</code>。</p>
+<p>所以我们可以使用<code>raw-loader</code>将一个组件作为一个字符串导入</p>
+<h4 id="安装raw-loader"><a href="#安装raw-loader" class="headerlink" title="安装raw-loader"></a>安装raw-loader</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install raw-loader</span><br></pre></td></tr></table></figure>
+<p>在使用webpack设置raw-loader后，我们可以以原始格式导入任何文件。<br>以原始格式导入文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import Component from &apos;!raw!./Component&apos;;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意：组件将作为字符串而不是React组件返回给我们。<br>使用组件作为字符串，我们可以将它从反馈文档传递给我们的解析函数，以获取一些文档</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123;parse&#125; from &apos;react-docgen&apos;;</span><br><span class="line">import Component from &apos;!raw!./Component&apos;;</span><br><span class="line"></span><br><span class="line">const componentDocs = parse(Component);</span><br></pre></td></tr></table></figure>
+<p>在这个示例中，componentDocs将组件文档保存为JSON对象。</p>
+<h4 id="这是什么意思？"><a href="#这是什么意思？" class="headerlink" title="这是什么意思？"></a>这是什么意思？</h4><p>对于能够从我们的组件获取文档的大规模的React应用程序可能是一个好主意。</p>
+<p>使用<code>react-docgen</code>和<code>raw-loader</code>，我们可以轻松创建一个简单的用户界面来表示我们的组件库及其文档，供其他开发人员使用。</p>
+<p>使用这些信息，我们可以直观地显示我们使用的组件，我们的组件道具细节和组件描述。</p>
+<p>这是一个我一直在做的工作的例子，你可以通过<code>react-docgen</code>来实现。</p>
+<p>Basic React应用程序，用于呈现组件文档<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://www.davidboyne.co.uk/images/docs.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>Button的描述和道具在组件更改时自动生成，确保文档始终保持最新的其他开发人员。</p>
+<p>这个帖子的灵感来自于在GitHub上<code>material-ui</code>项目。</p>
+<p>在GitHub上检查<code>material-ui</code>项目，了解如何使用此技术来帮助驱动其组件文档的一些很棒的例子。</p>
+<p>如果您有任何问题<a href="https://twitter.com/boyney123" target="_blank" rel="noopener">告诉我</a>，或发表评论。</p>
+<blockquote>
+<ol>
+<li>本文译自: <a href="http://www.davidboyne.co.uk/2016/05/26/automating-react-documentation.html" target="_blank" rel="noopener">http://www.davidboyne.co.uk/2016/05/26/automating-react-documentation.html</a></li>
+<li>另一篇文档参考: <a href="http://www.seekjune.com/post/8426" target="_blank" rel="noopener">http://www.seekjune.com/post/8426</a></li>
+</ol>
+</blockquote>
+
+        </div>
+        <!--<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-20T13:30:46.855Z" itemprop="dateUpdated">2017-12-20 13:30:46</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://www.g5kk.com">
+            <img src="/img/avatar.png" alt="ぃ 陪_著你笑">
+            ぃ 陪_著你笑
+        </a>
+    </footer>
+</blockquote>
+-->
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/个人整理/">个人整理</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/05/16/react-redux-test/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">如何在 React+Redux 的项目中更优雅的实现前端自动化测试</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/13/react-native-code-push/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">reactNative 热更新方法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢大爷赏~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
